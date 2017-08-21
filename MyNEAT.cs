@@ -450,8 +450,8 @@ namespace MyNEAT
                     {
                         if (outConnections[i].toNeuron.depths.Contains(depth + 1) == false)
                         {
-                            outConnections[i].toNeuron.depth = depth + 1;
                             outConnections[i].toNeuron.depths.Add(depth + 1);
+                            outConnections[i].toNeuron.SetDepth();
                         }
 
                         outConnections[i].toNeuron.SetDepthToOutNeurons();
