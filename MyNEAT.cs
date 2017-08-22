@@ -3,25 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MyNEAT;
+using Domains;
 
 class Program
 {
 
     static void Main()
     {
+        //SolveCartPole();
+        Test();
+        Console.ReadKey();
+    }
+
+    static void Test()
+    {
+        Random gen = new Random();
         Genome genome = new Genome(3, 2);
-        Random randGener = new Random();
-
-        for (int i = 0; i < 1000; i++)
-        {
-            genome = genome.CreateOffSpring(randGener);
-        }
-        
-
-
-
 
         Console.Write(genome + "\n\n");
+
+        genome = genome.CreateOffSpring(gen);
+
+        Console.Write(genome + "\n\n");
+
 
         Network network = new Network(genome);
 
@@ -35,8 +39,226 @@ class Program
         Console.Write(str);
 
         Console.WriteLine(network);
+    }
 
-        Console.ReadKey();
+    static void SolveCartPole()
+    {
+        float elitism = 0.4f;
+        int generations = 500;
+        int pop = 100;
+        Random generator = new Random();
+
+        List<Genome> population = new List<Genome>();
+
+        //create initial pop
+        for (int i = 0; i < pop; i++)
+        {
+            population.Add(new Genome(4, 1));
+        }
+
+
+
+        for (int i = 0; i < generations; i++)
+        {
+            foreach (Genome genome in population)
+            {
+                SinglePoleBalancingEnvironment env = new SinglePoleBalancingEnvironment();
+                Network network = new Network(genome);
+                SinglePoleStateData s = env.SimulateTimestep(true);
+                while (true)
+                {
+                    if (s._done == true)
+                    {
+                        genome.fitness = s._reward;
+                        break;
+                    }
+
+                    bool a = network.Predict(new double[] { s._cartPosX / env._trackLengthHalf,
+                        s._cartVelocityX / 0.75,
+                        s._poleAngle / SinglePoleBalancingEnvironment.TwelveDegrees,
+                        s._poleAngularVelocity})[0] > 0.5;
+
+                    env.SimulateTimestep(a);
+                }
+            }
+            float sum = 0;
+            float mx = -10000;
+            foreach (Genome genome in population)
+            {
+                sum += genome.fitness;
+                if (genome.fitness > mx)
+                {
+                    mx = genome.fitness;
+                }
+            }
+            Console.Write("Generation: " + i + ", " + "Average fitness: " + sum / population.Count + ", " + "Max Fitness: " + mx + "\n");
+
+            //breed
+            int toSelect = (int)(population.Count - elitism * population.Count);
+            for (; toSelect > 0; toSelect--)
+            {
+                var g1 = population[generator.Next(population.Count)];
+                var g2 = population[generator.Next(population.Count)];
+                while (g1.Equals(g2))
+                {
+                    g1 = population[generator.Next(population.Count)];
+                    g2 = population[generator.Next(population.Count)];
+                }
+                if (g1.fitness > g2.fitness)
+                {
+                    population.Remove(g2);
+                    population.Add(g1.CreateOffSpring(generator));
+                }
+                else
+                {
+                    population.Remove(g1);
+                    population.Add(g2.CreateOffSpring(generator));
+                }
+
+            }
+        }
+    }
+}
+
+namespace Domains
+{
+    /// <summary>
+    /// Model state variables for single pole balancing task.
+    /// </summary>
+    public class SinglePoleStateData
+    {
+        /// <summary>
+        /// Cart position (meters from origin).
+        /// </summary>
+		public double _cartPosX;
+        /// <summary>
+        /// Cart velocity (m/s).
+        /// </summary>
+		public double _cartVelocityX;
+        /// <summary>
+        /// Pole angle (radians). Straight up = 0.
+        /// </summary>
+		public double _poleAngle;
+        /// <summary>
+        /// Pole angular velocity (radians/sec).
+        /// </summary>
+		public double _poleAngularVelocity;
+        /// <summary>
+        /// Action applied during most recent timestep.
+        /// </summary>
+		public bool _action;
+
+        public float _reward;
+
+        public bool _done;
+    }
+
+    public class SinglePoleBalancingEnvironment
+    {
+        #region Constants
+
+        // Some physical model constants.
+        public const double Gravity = 9.8;
+        public const double MassCart = 1.0;
+        public const double MassPole = 0.1;
+        public const double TotalMass = (MassPole + MassCart);
+        public const double Length = 0.5;    // actually half the pole's length.
+        public const double PoleMassLength = (MassPole * Length);
+        public const double ForceMag = 10.0;
+        /// <summary>Time increment interval in seconds.</summary>
+		public const double TimeDelta = 0.02;
+        public const double FourThirds = 4.0 / 3.0;
+
+        // Some precalced angle constants.
+        public const double OneDegree = Math.PI / 180.0;   //= 0.0174532;
+        public const double SixDegrees = Math.PI / 30.0;   //= 0.1047192;
+        public const double TwelveDegrees = Math.PI / 15.0;    //= 0.2094384;
+        public const double TwentyFourDegrees = Math.PI / 7.5; //= 0.2094384;
+        public const double ThirtySixDegrees = Math.PI / 5.0;  //= 0.628329;
+        public const double FiftyDegrees = Math.PI / 3.6;  //= 0.87266;
+
+        #endregion
+
+        #region Class Variables
+
+        // Domain parameters.
+        public SinglePoleStateData currState;
+        int stepsPassed;
+
+        public double _trackLength;
+        public double _trackLengthHalf;
+        public int _maxTimesteps;
+        public double _poleAngleThreshold;
+
+        // Evaluator state.
+        ulong _evalCount;
+        bool _stopConditionSatisfied;
+
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// Construct evaluator with default task arguments/variables.
+        /// </summary>
+		public SinglePoleBalancingEnvironment() : this(4.8, 1000, TwelveDegrees)
+        { }
+
+        /// <summary>
+        /// Construct evaluator with the provided task arguments/variables.
+        /// </summary>
+		public SinglePoleBalancingEnvironment(double trackLength, int maxTimesteps, double poleAngleThreshold)
+        {
+            _trackLength = trackLength;
+            _trackLengthHalf = trackLength / 2.0;
+            _maxTimesteps = maxTimesteps;
+            _poleAngleThreshold = poleAngleThreshold;
+            currState = new SinglePoleStateData();
+            currState._poleAngle = SixDegrees;
+            stepsPassed = 0;
+        }
+
+        #endregion
+
+
+
+        /// <summary>
+        /// Calculates a state update for the next timestep using current model state and a single 'action' from the
+        /// controller. The action specifies if the controller is pushing the cart left or right. Note that this is a binary 
+        /// action and therefore full force is always applied to the cart in some direction. This is the standard model for
+        /// the single pole balancing task.
+        /// </summary>
+        /// <param name="action">push direction, left(false) or right(true). Force magnitude is fixed.</param>
+        public SinglePoleStateData SimulateTimestep(bool action)
+        {
+            stepsPassed += 1;
+            //float xacc,thetaacc,force,costheta,sintheta,temp;
+            double force = action ? ForceMag : -ForceMag;
+            double cosTheta = Math.Cos(currState._poleAngle);
+            double sinTheta = Math.Sin(currState._poleAngle);
+            double tmp = (force + (PoleMassLength * currState._poleAngularVelocity * currState._poleAngularVelocity * sinTheta)) / TotalMass;
+
+            double thetaAcc = ((Gravity * sinTheta) - (cosTheta * tmp))
+                            / (Length * (FourThirds - ((MassPole * cosTheta * cosTheta) / TotalMass)));
+
+            double xAcc = tmp - ((PoleMassLength * thetaAcc * cosTheta) / TotalMass);
+
+
+            // Update the four state variables, using Euler's method.
+            currState._cartPosX += TimeDelta * currState._cartVelocityX;
+            currState._cartVelocityX += TimeDelta * xAcc;
+            currState._poleAngle += TimeDelta * currState._poleAngularVelocity;
+            currState._poleAngularVelocity += TimeDelta * thetaAcc;
+            currState._action = action;
+            currState._reward = stepsPassed;
+            currState._done = (currState._cartPosX < -_trackLengthHalf) ||
+                (currState._cartPosX > _trackLengthHalf) ||
+                (currState._poleAngle > _poleAngleThreshold) ||
+                (currState._poleAngle < -_poleAngleThreshold) ||
+                (stepsPassed > _maxTimesteps);
+
+            return currState;
+        }
     }
 }
 
@@ -85,7 +307,7 @@ namespace MyNEAT
         public double weight;
         public GNeuron fromNeuron;
         public GNeuron toNeuron;
-        public GConnection(GNeuron fromneuron, GNeuron toneuron)
+        public GConnection(GNeuron fromneuron, GNeuron toneuron, double wei)
         {
             fromNeuron = fromneuron;
             toNeuron = toneuron;
@@ -93,7 +315,7 @@ namespace MyNEAT
             toNeuron.inConnections.Add(this);
             fromNeuron.outConnections.Add(this);
 
-            weight = 0;
+            weight = wei;
         }
 
         public void DeleteThisFromRelatedNeurons()
@@ -105,19 +327,21 @@ namespace MyNEAT
 
     class Genome
     {
+        public float fitness;
+
         public List<GNeuron> neurons;
         public List<GConnection> connections;
 
         public static double connWeightRange = 5d;
         public static double weightChangeRange = 0.5;
 
-        public static double probabilityOfMutation = 0.4;
+        public static double probabilityOfMutation = 0.9;
         public static double probabilityOfResetWeight = 0.1;
-        public static double probabilityOfChangeWeight = 0.6;
-        public static double probabilityAddNeuron = 0.1;
-        public static double probabilityRemoveNeuron = 0.01;
+        public static double probabilityOfChangeWeight = 0.9;
+        public static double probabilityAddNeuron = 0.2;
+        public static double probabilityRemoveNeuron = 0.1;
         public static double probabilityAddConnection = 0.3;
-        public static double probabilityRemoveConnection = 0.05;
+        public static double probabilityRemoveConnection = 0.1;
 
         public int neuronIndex;
 
@@ -176,8 +400,6 @@ namespace MyNEAT
 
         public Genome()
         {
-            neurons = new List<GNeuron>();
-            connections = new List<GConnection>();
         }
         #endregion
 
@@ -186,14 +408,15 @@ namespace MyNEAT
         {
             if (genome.connections.Count != 0)
             {
-                GConnection conn = genome.connections[generator.Next(genome.connections.Count)];
+                int num = generator.Next(genome.connections.Count);
+                genome.connections.RemoveAt(num);
                 if (generator.NextDouble() < probabilityOfResetWeight)
                 {
                     conn.weight = generator.NextDouble() * (connWeightRange - (-connWeightRange)) + (-connWeightRange);
                 }
                 else
                 {
-                    conn.weight += generator.NextDouble() * (2 * weightChangeRange) - weightChangeRange;
+                    conn.weight += generator.NextDouble() * (weightChangeRange - (-weightChangeRange)) + (-weightChangeRange);
                 }
             }
             return genome;
@@ -209,12 +432,10 @@ namespace MyNEAT
 
                 GNeuron newNeuron = new GNeuron(genome.neuronIndex += 1);
 
-                GConnection newConnIn = new GConnection(conn.fromNeuron, newNeuron);
-                newConnIn.weight = 1;
+                GConnection newConnIn = new GConnection(conn.fromNeuron, newNeuron, 1);
                 genome.connections.Add(newConnIn);
 
-                GConnection newConnOut = new GConnection(newNeuron, conn.toNeuron);
-                newConnOut.weight = conn.weight;
+                GConnection newConnOut = new GConnection(newNeuron, conn.toNeuron, conn.weight);
                 genome.connections.Add(newConnOut);
 
                 genome.neurons.Add(newNeuron);
@@ -248,7 +469,7 @@ namespace MyNEAT
             GNeuron neuron2 = genome.neurons[generator.Next(genome.neurons.Count)];
             if (neuron1.outConnections.Intersect(neuron2.inConnections).Count() == 0 && neuron2.outConnections.Intersect(neuron1.inConnections).Count() == 0)
             {
-                genome.connections.Add(new GConnection(neuron1, neuron2));
+                genome.connections.Add(new GConnection(neuron1, neuron2, generator.NextDouble() * (connWeightRange - (-connWeightRange)) + (-connWeightRange)));
             }
             return genome;
         }
@@ -274,8 +495,8 @@ namespace MyNEAT
         public Genome CreateOffSpring(Random generator)
         {
             Genome offspring = new Genome();
-            offspring.neurons = neurons;
-            offspring.connections = connections;
+            offspring.neurons = new List<GNeuron>(neurons);
+            offspring.connections = new List<GConnection>(connections);
             offspring.neuronIndex = neuronIndex;
             if (generator.NextDouble() < probabilityOfMutation)
             {
@@ -394,7 +615,7 @@ namespace MyNEAT
             }
             else if (isOutput)
             {
-                output = sum;//TODO: currently linear
+                output = Math.Tanh(sum);//TODO: currently linear
             }
             else
             {
