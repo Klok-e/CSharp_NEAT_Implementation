@@ -22,7 +22,11 @@ class Program
 
         Console.Write(genome + "\n\n");
 
-        genome = genome.CreateOffSpring(gen);
+        for (int i = 0; i < 500; i++)
+        {
+            genome = genome.CreateOffSpring(gen);
+        }
+
 
         Console.Write(genome + "\n\n");
 
@@ -68,6 +72,7 @@ class Program
                     if (s._done == true)
                     {
                         genome.fitness = (float)(s._reward - Math.Sqrt(Math.Sqrt(genome.GetComplexity())));
+                        //genome.fitness = s._reward;
                         break;
                     }
 
@@ -113,7 +118,7 @@ class Program
 
             }
             population.AddRange(addToPop);
-        } 
+        }
     }
 }
 class Comparer2 : IComparer<Genome>
@@ -203,7 +208,7 @@ namespace MyNEAT.Domains
         /// <summary>
         /// Construct evaluator with default task arguments/variables.
         /// </summary>
-		public SinglePoleBalancingEnvironment() : this(4.8, 300, TwelveDegrees)
+		public SinglePoleBalancingEnvironment() : this(4.8, 1000, TwelveDegrees)
         { }
 
         /// <summary>
@@ -558,12 +563,12 @@ namespace MyNEAT
                     GNeuron[] arr = new GNeuron[] { parent1.neurons[i], parent2.neurons[i] };
                     GNeuron toAdd = arr[generator.Next(arr.Length)];
                     neurons.Add(toAdd);
-                    break;
+                    
                 }
             }
             if (neurons.Count != Math.Max(parent1.neurons.Count, parent2.neurons.Count))
             {
-                for (int i = Math.Min(parent1.neurons.Count, parent2.neurons.Count) - 1; i < Math.Max(parent1.neurons.Count, parent2.neurons.Count); i++)
+                for (int i = Math.Min(parent1.neurons.Count, parent2.neurons.Count) ; i < Math.Max(parent1.neurons.Count, parent2.neurons.Count); i++)
                 {
                     if (Math.Max(parent1.neurons.Count, parent2.neurons.Count) == parent1.neurons.Count)
                     {
@@ -578,10 +583,6 @@ namespace MyNEAT
             #endregion
 
             List<GConnection> connections = new List<GConnection>();
-
-            List<GConnection> tempconnections = new List<GConnection>();
-            tempconnections.AddRange(parent1.connections);
-            tempconnections.AddRange(parent2.connections);
 
             #region Build connections
             for (int i = 0; i < Math.Min(parent1.connections.Count, parent2.connections.Count); i++)
@@ -607,7 +608,7 @@ namespace MyNEAT
                     }
                     else
                     {
-                        throw new Exception();
+                        
                     }
                 }
             }
@@ -769,7 +770,7 @@ namespace MyNEAT
 
         public int amountOfInConnections;
 
-        public int Id;
+        public int id;
 
         public List<double> inputsAdded;
         public double output;
@@ -786,7 +787,7 @@ namespace MyNEAT
 
             outConnections = new List<DConnection>();
 
-            Id = id;
+            this.id = id;
             inputsAdded = new List<double>();
             depth = 0;
             output = 0;
@@ -810,7 +811,7 @@ namespace MyNEAT
             }
             else if (isOutput)
             {
-                output = Math.Tanh(sum);//TODO: currently linear
+                output = Math.Tanh(sum);
             }
             else
             {
@@ -832,7 +833,7 @@ namespace MyNEAT
         {
             for (int i = 0; i < neuronslist.Count; i++)
             {
-                if (neuronslist[i].Id == id)
+                if (neuronslist[i].id == id)
                 {
                     return neuronslist[i];
                 }
@@ -846,51 +847,19 @@ namespace MyNEAT
             if (depths.Count != 0)
             {
                 depth = depths.Min();
-                //Console.Write("");
             }
-
-        }
-        public void SetDepthToOutNeurons()
-        {
-
-            if (setDepthCalls == amountOfInConnections && isInput != true && isBias != true)
-            {
-                isSetDepthCalled = true;
-            }
-            setDepthCalls += 1;
-            if (outConnections.Count != 0 && isSetDepthCalled == false)
-            {
-                for (int i = 0; i < outConnections.Count; i++)
-                {
-                    if (outConnections[i].toNeuron.Equals(this) != true)
-                    {
-                        if (outConnections[i].toNeuron.depths.Contains(depth + 1) == false)
-                        {
-                            outConnections[i].toNeuron.depths.Add(depth + 1);
-                            outConnections[i].toNeuron.SetDepth();
-                        }
-
-                        outConnections[i].toNeuron.SetDepthToOutNeurons();
-                        if (isInput || isBias)
-                        {
-                            isSetDepthCalled = true;
-                        }
-                    }
-                }
-            }
-
         }
         #endregion
 
         public override string ToString()
         {
-            string str = "This id: " + Id;
+            string str = "This id: " + id;
             str += ", this n depth: " + depth;
             str += ", " + "Is input: " + isInput + ", " + "Is bias: " + isBias + ", " + "Is Output: " + isOutput + " ||| ";
             str += "Out: ";
             for (int i = 0; i < outConnections.Count; i++)
             {
-                str += " Id = " + outConnections[i].toNeuron.Id;
+                str += " Id = " + outConnections[i].toNeuron.id;
                 str += " Weight = " + Math.Round(outConnections[i].weight, 2);
                 str += " Depth = " + outConnections[i].toNeuron.depth;
             }
@@ -931,7 +900,6 @@ namespace MyNEAT
                 {
                     //currneu.isInput = true;
                     inputs.Add(currneu);
-                    currneu.depths.Add(0);
                     //currneu.amountOfInConnections = neuron.inConnections.Count;
                     if (neuron.isBias)
                     {
@@ -968,15 +936,11 @@ namespace MyNEAT
                 throw new Exception();
             }
 
-            //measure depth of all neurons
-            for (int i = 0; i < inputs.Count; i++)
+            DepthCalculator depthCalculator = new DepthCalculator();
+            depthCalculator.SetDepthsToNetwork(inputs);
+            foreach (DNeuron n in dneurons)
             {
-                inputs[i].SetDepthToOutNeurons();
-            }
-
-            for (int i = 0; i < dneurons.Count; i++)
-            {
-                dneurons[i].SetDepth();
+                n.SetDepth();
             }
 
             //sort list of neurons
@@ -1020,6 +984,35 @@ namespace MyNEAT
             }
             str += "\n";
             return str;
+        }
+    }
+
+    class DepthCalculator
+    {
+        public void SetDepthsToNetwork(List<DNeuron> inputs)
+        {
+            for (int i = 0; i < inputs.Count; i++)
+            {
+                int depth = 0;
+                List<int> visited = new List<int>();
+                SetDepthStartingFromThisNeuron(inputs[i], depth, visited);
+            }
+        }
+
+        private void SetDepthStartingFromThisNeuron(DNeuron neuron, int depth, List<int> visited)
+        {
+            neuron.depths.Add(depth);
+            visited.Add(neuron.id);
+
+            foreach (DConnection conn in neuron.outConnections)
+            {
+                if (visited.Contains(conn.toNeuron.id) == false)
+                {
+                    SetDepthStartingFromThisNeuron(conn.toNeuron, depth + 1, visited);
+                }
+            }
+
+
         }
     }
 
