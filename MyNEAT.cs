@@ -756,10 +756,6 @@ namespace MyNEAT
 
     class DNeuron
     {
-        #region Private
-        bool isSetDepthCalled;
-        int setDepthCalls = 0;
-        #endregion
 
         #region Public
         public List<DConnection> outConnections;
@@ -781,8 +777,6 @@ namespace MyNEAT
 
         public DNeuron(int id)
         {
-            isSetDepthCalled = false;
-
             depths = new List<int>();
 
             outConnections = new List<DConnection>();
