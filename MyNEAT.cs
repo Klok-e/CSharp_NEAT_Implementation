@@ -56,8 +56,6 @@ class Program
             population.Add(new Genome(4, 1));
         }
 
-
-
         for (int i = 0; i < generations; i++)
         {
             foreach (Genome genome in population)
@@ -69,7 +67,7 @@ class Program
                 {
                     if (s._done == true)
                     {
-                        genome.fitness = (float)(s._reward-Math.Sqrt(Math.Sqrt(genome.GetComplexity())));
+                        genome.fitness = (float)(s._reward - Math.Sqrt(Math.Sqrt(genome.GetComplexity())));
                         break;
                     }
 
@@ -99,29 +97,34 @@ class Program
             for (; toSelect > 0; toSelect--)
             {
                 var g1 = population[generator.Next(population.Count)];
+                population.Remove(g1);
                 var g2 = population[generator.Next(population.Count)];
-                while (g1.Equals(g2))
-                {
-                    g1 = population[generator.Next(population.Count)];
-                    g2 = population[generator.Next(population.Count)];
-                }
+                population.Remove(g2);
+                var g3 = population[generator.Next(population.Count)];
+                population.Add(g1);
+                population.Add(g2);
 
-                if (g1.fitness > g2.fitness)
-                {
-                    population.Remove(g2);
-                    addToPop.Add(g1.CreateOffSpring(generator));
-                }
-                else
-                {
-                    population.Remove(g1);
-                    addToPop.Add(g2.CreateOffSpring(generator));
-                }
+                List<Genome> genomes = new List<Genome>(new Genome[] { g1, g2, g3 });
+                genomes.Sort(new Comparer2());
+
+                population.Remove(genomes[0]);
+
+                addToPop.Add(genomes[1].CreateOffSpring(generator, genomes[2]));
 
             }
             population.AddRange(addToPop);
-        }
+        } 
     }
 }
+class Comparer2 : IComparer<Genome>
+{
+    public int Compare(Genome x, Genome y)
+    {
+        int compareDate = x.fitness.CompareTo(y.fitness);
+        return compareDate;
+    }
+}
+
 
 namespace MyNEAT.Domains
 {
@@ -192,10 +195,6 @@ namespace MyNEAT.Domains
         public double _trackLengthHalf;
         public int _maxTimesteps;
         public double _poleAngleThreshold;
-
-        // Evaluator state.
-        ulong _evalCount;
-        bool _stopConditionSatisfied;
 
         #endregion
 
@@ -312,9 +311,6 @@ namespace MyNEAT
 
             id = idForThis;
 
-            //toneuron.inConnections.Add(this.id);
-            //fromneuron.outConnections.Add(this.id);
-
             weight = wei;
         }
         public GConnection(int fromneuron, int toneuron, double wei, int idForThis)
@@ -425,14 +421,13 @@ namespace MyNEAT
                 GConnection conn = genome.connections[num];
                 if (generator.NextDouble() < probabilityOfResetWeight)
                 {
-                    genome.connections[num] = new GConnection(conn.fromNeuron, conn.toNeuron, generator.NextDouble() * (connWeightRange - (-connWeightRange)) + (-connWeightRange), Genome.geneIndex);
+                    genome.connections[num] = new GConnection(conn.fromNeuron, conn.toNeuron, generator.NextDouble() * (connWeightRange - (-connWeightRange)) + (-connWeightRange), conn.id);
 
                 }
                 else
                 {
-                    genome.connections[num] = new GConnection(conn.fromNeuron, conn.toNeuron, genome.connections[num].weight + generator.NextDouble() * (weightChangeRange - (-weightChangeRange)) + (-weightChangeRange), Genome.geneIndex);
+                    genome.connections[num] = new GConnection(conn.fromNeuron, conn.toNeuron, genome.connections[num].weight + generator.NextDouble() * (weightChangeRange - (-weightChangeRange)) + (-weightChangeRange), conn.id);
                 }
-                Genome.geneIndex++;
             }
             return genome;
         }
@@ -520,28 +515,10 @@ namespace MyNEAT
             Genome offspring = new Genome();
             offspring.neurons = new List<GNeuron>(neurons);
             offspring.connections = new List<GConnection>(connections);
+
             if (generator.NextDouble() < probabilityOfMutation)
             {
-                if (generator.NextDouble() < probabilityOfChangeWeight)
-                {
-                    offspring = Genome.MutationChangeWeight(generator, offspring);
-                }
-                if (generator.NextDouble() < probabilityAddNeuron)
-                {
-                    offspring = Genome.MutationAddNeuron(generator, offspring);
-                }
-                if (generator.NextDouble() < probabilityRemoveNeuron)
-                {
-                    offspring = Genome.MutationRemoveNeuron(generator, offspring);
-                }
-                if (generator.NextDouble() < probabilityAddConnection)
-                {
-                    offspring = Genome.MutationAddConnection(generator, offspring);
-                }
-                if (generator.NextDouble() < probabilityRemoveConnection)
-                {
-                    offspring = Genome.MutationRemoveConnection(generator, offspring);
-                }
+                offspring = Mutate(generator, offspring);
             }
             return offspring;
         }
@@ -554,19 +531,166 @@ namespace MyNEAT
         /// <returns></returns>
         public Genome CreateOffSpring(Random generator, Genome otherParent)
         {
-            Genome offspring = new Genome();
-            offspring.neurons = new List<GNeuron>(neurons);
-            offspring.connections = new List<GConnection>(connections);
+            Genome offspring = Crossover(generator, this, otherParent);
 
             if (generator.NextDouble() < probabilityOfMutation)
             {
-
+                offspring = Mutate(generator, offspring);
             }
             return offspring;
         }
         #endregion
 
         #region Static methods
+        public static Genome Crossover(Random generator, Genome parent1, Genome parent2)
+        {
+            List<GNeuron> neurons = new List<GNeuron>();
+
+            #region Build neurons
+            for (int i = 0; i < Math.Min(parent1.neurons.Count, parent2.neurons.Count); i++)
+            {
+                if (parent1.neurons[i].Id == parent2.neurons[i].Id)
+                {
+                    neurons.Add(parent1.neurons[i]);
+                }
+                else
+                {
+                    GNeuron[] arr = new GNeuron[] { parent1.neurons[i], parent2.neurons[i] };
+                    GNeuron toAdd = arr[generator.Next(arr.Length)];
+                    neurons.Add(toAdd);
+                    break;
+                }
+            }
+            if (neurons.Count != Math.Max(parent1.neurons.Count, parent2.neurons.Count))
+            {
+                for (int i = Math.Min(parent1.neurons.Count, parent2.neurons.Count) - 1; i < Math.Max(parent1.neurons.Count, parent2.neurons.Count); i++)
+                {
+                    if (Math.Max(parent1.neurons.Count, parent2.neurons.Count) == parent1.neurons.Count)
+                    {
+                        neurons.Add(parent1.neurons[i]);
+                    }
+                    else
+                    {
+                        neurons.Add(parent2.neurons[i]);
+                    }
+                }
+            }
+            #endregion
+
+            List<GConnection> connections = new List<GConnection>();
+
+            List<GConnection> tempconnections = new List<GConnection>();
+            tempconnections.AddRange(parent1.connections);
+            tempconnections.AddRange(parent2.connections);
+
+            #region Build connections
+            for (int i = 0; i < Math.Min(parent1.connections.Count, parent2.connections.Count); i++)
+            {
+                if (parent1.connections[i].id == parent2.connections[i].id)
+                {
+                    if (IsGWithIdExistsInList(neurons, parent1.connections[i].fromNeuron) && IsGWithIdExistsInList(neurons, parent1.connections[i].toNeuron))
+                    {
+                        connections.Add(parent1.connections[i]);
+                    }
+                }
+                else
+                {
+                    GConnection[] arr = new GConnection[] { parent1.connections[i], parent2.connections[i] };
+                    int num = generator.Next(arr.Length);
+                    if (IsGWithIdExistsInList(neurons, arr[num].fromNeuron) && IsGWithIdExistsInList(neurons, arr[num].toNeuron))
+                    {
+                        connections.Add(arr[num]);
+                    }
+                    else if (IsGWithIdExistsInList(neurons, arr[Math.Abs(num - 1)].fromNeuron) && IsGWithIdExistsInList(neurons, arr[Math.Abs(num - 1)].toNeuron))
+                    {
+                        connections.Add(arr[Math.Abs(num - 1)]);
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
+                }
+            }
+            if (connections.Count != Math.Max(parent1.connections.Count, parent2.connections.Count))
+            {
+                for (int i = Math.Min(parent1.connections.Count, parent2.connections.Count) - 1; i < Math.Max(parent1.connections.Count, parent2.connections.Count); i++)
+                {
+
+                    if (Math.Max(parent1.connections.Count, parent2.connections.Count) == parent1.connections.Count)
+                    {
+                        if (IsGWithIdExistsInList(neurons, parent1.connections[i].fromNeuron) && IsGWithIdExistsInList(neurons, parent1.connections[i].toNeuron))
+                        {
+                            connections.Add(parent1.connections[i]);
+                        }
+                    }
+                    else
+                    {
+                        if (IsGWithIdExistsInList(neurons, parent2.connections[i].fromNeuron) && IsGWithIdExistsInList(neurons, parent2.connections[i].toNeuron))
+                        {
+                            connections.Add(parent2.connections[i]);
+                        }
+                    }
+                }
+            }
+            #endregion
+
+            Genome child = new Genome();
+            child.neurons = new List<GNeuron>(neurons);
+            child.connections = new List<GConnection>(connections);
+            return child;
+        }
+
+        public static Genome Mutate(Random generator, Genome toMutate)
+        {
+
+            if (generator.NextDouble() < probabilityOfChangeWeight)
+            {
+                toMutate = Genome.MutationChangeWeight(generator, toMutate);
+            }
+            if (generator.NextDouble() < probabilityAddNeuron)
+            {
+                toMutate = Genome.MutationAddNeuron(generator, toMutate);
+            }
+            if (generator.NextDouble() < probabilityRemoveNeuron)
+            {
+                toMutate = Genome.MutationRemoveNeuron(generator, toMutate);
+            }
+            if (generator.NextDouble() < probabilityAddConnection)
+            {
+                toMutate = Genome.MutationAddConnection(generator, toMutate);
+            }
+            if (generator.NextDouble() < probabilityRemoveConnection)
+            {
+                toMutate = Genome.MutationRemoveConnection(generator, toMutate);
+            }
+
+            return toMutate;
+        }
+
+        public static bool IsGWithIdExistsInList(List<GNeuron> neurons, int id)
+        {
+            foreach (GNeuron neuron in neurons)
+            {
+                if (neuron.Id == id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static bool IsGWithIdExistsInList(List<GConnection> conns, int id)
+        {
+            foreach (GConnection conn in conns)
+            {
+                if (conn.id == id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public static int[] FindAmountOfInAndOutConnectionsForNeuronWithId(List<GConnection> connectionList, int id)
         {
             int sumIn = 0;
@@ -623,7 +747,7 @@ namespace MyNEAT
         public float GetComplexity()
         {
             float sum = 0;
-            sum += neurons.Count+connections.Count;
+            sum += neurons.Count + connections.Count;
             return sum;
         }
     }
