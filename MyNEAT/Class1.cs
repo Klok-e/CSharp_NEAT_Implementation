@@ -4,6 +4,7 @@ using System.Linq;
 using MyNEAT;
 using MyNEAT.Domains;
 
+/*
 class Program
 {
 
@@ -127,7 +128,7 @@ class Comparer2 : IComparer<Genome>
         int compareDate = x.fitness.CompareTo(y.fitness);
         return compareDate;
     }
-}
+}*/
 
 
 namespace MyNEAT.Domains
