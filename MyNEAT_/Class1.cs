@@ -616,9 +616,9 @@ namespace MyNEAT
             return str;
         }
 
-        public float GetComplexity()
+        public int GetComplexity()
         {
-            float sum = 0;
+            int sum = 0;
             sum += neurons.Count + connections.Count;
             return sum;
         }
