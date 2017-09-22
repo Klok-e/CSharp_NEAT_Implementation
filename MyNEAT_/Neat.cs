@@ -2,144 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MyNEAT.Domains
-{
-    /// <summary>
-    /// Model state variables for single pole balancing task.
-    /// </summary>
-    public class SinglePoleStateData
-    {
-        /// <summary>
-        /// Cart position (meters from origin).
-        /// </summary>
-		public double _cartPosX;
-        /// <summary>
-        /// Cart velocity (m/s).
-        /// </summary>
-		public double _cartVelocityX;
-        /// <summary>
-        /// Pole angle (radians). Straight up = 0.
-        /// </summary>
-		public double _poleAngle;
-        /// <summary>
-        /// Pole angular velocity (radians/sec).
-        /// </summary>
-		public double _poleAngularVelocity;
-        /// <summary>
-        /// Action applied during most recent timestep.
-        /// </summary>
-		public bool _action;
-
-        public float _reward;
-
-        public bool _done;
-    }
-
-    public class SinglePoleBalancingEnvironment
-    {
-        #region Constants
-
-        // Some physical model constants.
-        public const double Gravity = 9.8;
-        public const double MassCart = 1.0;
-        public const double MassPole = 0.1;
-        public const double TotalMass = (MassPole + MassCart);
-        public const double Length = 0.5;    // actually half the pole's length.
-        public const double PoleMassLength = (MassPole * Length);
-        public const double ForceMag = 10.0;
-        /// <summary>Time increment interval in seconds.</summary>
-		public const double TimeDelta = 0.02;
-        public const double FourThirds = 4.0 / 3.0;
-
-        // Some precalced angle constants.
-        public const double OneDegree = Math.PI / 180.0;   //= 0.0174532;
-        public const double SixDegrees = Math.PI / 30.0;   //= 0.1047192;
-        public const double TwelveDegrees = Math.PI / 15.0;    //= 0.2094384;
-        public const double TwentyFourDegrees = Math.PI / 7.5; //= 0.2094384;
-        public const double ThirtySixDegrees = Math.PI / 5.0;  //= 0.628329;
-        public const double FiftyDegrees = Math.PI / 3.6;  //= 0.87266;
-
-        #endregion
-
-        #region Class Variables
-
-        // Domain parameters.
-        public SinglePoleStateData currState;
-        int stepsPassed;
-
-        public double _trackLength;
-        public double _trackLengthHalf;
-        public int _maxTimesteps;
-        public double _poleAngleThreshold;
-
-        #endregion
-
-        #region Constructors
-
-        /// <summary>
-        /// Construct evaluator with default task arguments/variables.
-        /// </summary>
-		public SinglePoleBalancingEnvironment() : this(4.8, 1000, TwelveDegrees)
-        { }
-
-        /// <summary>
-        /// Construct evaluator with the provided task arguments/variables.
-        /// </summary>
-		public SinglePoleBalancingEnvironment(double trackLength, int maxTimesteps, double poleAngleThreshold)
-        {
-            _trackLength = trackLength;
-            _trackLengthHalf = trackLength / 2.0;
-            _maxTimesteps = maxTimesteps;
-            _poleAngleThreshold = poleAngleThreshold;
-            currState = new SinglePoleStateData();
-            currState._poleAngle = SixDegrees;
-            stepsPassed = 0;
-        }
-
-        #endregion
-
-
-
-        /// <summary>
-        /// Calculates a state update for the next timestep using current model state and a single 'action' from the
-        /// controller. The action specifies if the controller is pushing the cart left or right. Note that this is a binary 
-        /// action and therefore full force is always applied to the cart in some direction. This is the standard model for
-        /// the single pole balancing task.
-        /// </summary>
-        /// <param name="action">push direction, left(false) or right(true). Force magnitude is fixed.</param>
-        public SinglePoleStateData SimulateTimestep(bool action)
-        {
-            stepsPassed += 1;
-            //float xacc,thetaacc,force,costheta,sintheta,temp;
-            double force = action ? ForceMag : -ForceMag;
-            double cosTheta = Math.Cos(currState._poleAngle);
-            double sinTheta = Math.Sin(currState._poleAngle);
-            double tmp = (force + (PoleMassLength * currState._poleAngularVelocity * currState._poleAngularVelocity * sinTheta)) / TotalMass;
-
-            double thetaAcc = ((Gravity * sinTheta) - (cosTheta * tmp))
-                            / (Length * (FourThirds - ((MassPole * cosTheta * cosTheta) / TotalMass)));
-
-            double xAcc = tmp - ((PoleMassLength * thetaAcc * cosTheta) / TotalMass);
-
-
-            // Update the four state variables, using Euler's method.
-            currState._cartPosX += TimeDelta * currState._cartVelocityX;
-            currState._cartVelocityX += TimeDelta * xAcc;
-            currState._poleAngle += TimeDelta * currState._poleAngularVelocity;
-            currState._poleAngularVelocity += TimeDelta * thetaAcc;
-            currState._action = action;
-            currState._reward = stepsPassed;
-            currState._done = (currState._cartPosX < -_trackLengthHalf) ||
-                (currState._cartPosX > _trackLengthHalf) ||
-                (currState._poleAngle > _poleAngleThreshold) ||
-                (currState._poleAngle < -_poleAngleThreshold) ||
-                (stepsPassed > _maxTimesteps);
-
-            return currState;
-        }
-    }
-}
-
 namespace MyNEAT
 {
     class GNeuron
@@ -453,9 +315,50 @@ namespace MyNEAT
             }
             #endregion
 
-            List<GConnection> connections = new List<GConnection>();
+            List<GConnection> connections = new List<GConnection>(Math.Max(parent1.connections.Count, parent2.connections.Count));
 
             #region Build connections
+            List<List<GConnection>> sortedParents = new List<List<GConnection>>();
+            sortedParents.Add(parent1.connections);
+            sortedParents.Add(parent2.connections);
+            sortedParents.Sort((x, y) => x.Count.CompareTo(y.Count));//now i know what has low count and what high
+
+            for (int i = 0; i < sortedParents[1].Count; i++)
+            {
+                if (i < sortedParents[0].Count)
+                {
+                    if (sortedParents[0][i].id == sortedParents[1][i].id)
+                    {
+                        if (IsGWithIdExistsInList(neurons, sortedParents[0][i].fromNeuron) && IsGWithIdExistsInList(neurons, sortedParents[0][i].toNeuron))
+                        {
+                            connections.Add((sortedParents[0][i]));
+                        }
+                    }
+                    else
+                    {
+                        GConnection[] arr = new GConnection[] { sortedParents[0][i], sortedParents[1][i] };
+                        int num = generator.Next(arr.Length);
+
+                        if (IsGWithIdExistsInList(neurons, arr[num].fromNeuron) && IsGWithIdExistsInList(neurons, arr[num].toNeuron))
+                        {
+                            connections.Add(arr[num]);
+                        }
+                        else if (IsGWithIdExistsInList(neurons, arr[Math.Abs(num - 1)].fromNeuron) && IsGWithIdExistsInList(neurons, arr[Math.Abs(num - 1)].toNeuron))
+                        {
+                            connections.Add(arr[Math.Abs(num - 1)]);
+                        }
+                    }
+                }
+                else if (i < sortedParents[1].Count)
+                {
+                    if (IsGWithIdExistsInList(neurons, sortedParents[1][i].fromNeuron) && IsGWithIdExistsInList(neurons, sortedParents[1][i].toNeuron))
+                    {
+                        connections.Add(sortedParents[1][i]);
+                    }
+                }
+            }
+
+            /*
             for (int i = 0; i < Math.Min(parent1.connections.Count, parent2.connections.Count); i++)
             {
                 if (parent1.connections[i].id == parent2.connections[i].id)
@@ -485,6 +388,7 @@ namespace MyNEAT
             }
             if (connections.Count != Math.Max(parent1.connections.Count, parent2.connections.Count))
             {
+                //TODO: if there are no connections then i = -1
                 for (int i = Math.Min(parent1.connections.Count, parent2.connections.Count) - 1; i < Math.Max(parent1.connections.Count, parent2.connections.Count); i++)
                 {
 
@@ -503,7 +407,8 @@ namespace MyNEAT
                         }
                     }
                 }
-            }
+            }*/
+
             #endregion
 
             Genome child = new Genome();
