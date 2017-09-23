@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace MyNEAT.Domains.XOR
 {
-    public class XOR
+    public class Xor
     {
-        int numInp;
-        public XOR(int numOfInp)
+        private readonly int numInp;
+
+        public Xor(int numOfInp)
         {
             if (numOfInp % 2 == 1) throw new Exception("Wrong parameter!");
             numInp = numOfInp;
@@ -15,19 +15,15 @@ namespace MyNEAT.Domains.XOR
 
         public List<int[]> GetNums(Random gen)
         {
-            List<int[]> ans = new List<int[]>();
-            int[] inps = new int[numInp];
-            for (int i = 0; i < numInp; i++)
-            {
+            var ans = new List<int[]>();
+            var inps = new int[numInp];
+            for (var i = 0; i < numInp; i++)
                 inps[i] = gen.Next(0, 2);
-            }
             ans.Add(inps);
 
-            int[] expOutps = new int[numInp / 2];
-            for (int i = 0; i < numInp / 2; i++)
-            {
-                expOutps[i] = (inps[i]) ^ (inps[i + numInp / 2]);
-            }
+            var expOutps = new int[numInp / 2];
+            for (var i = 0; i < numInp / 2; i++)
+                expOutps[i] = inps[i] ^ inps[i + numInp / 2];
             ans.Add(expOutps);
             return ans;
         }
@@ -36,11 +32,9 @@ namespace MyNEAT.Domains.XOR
         {
             if (networkOutput.Length != expctdOut.Length) throw new Exception("Wrong array length");
 
-            int error = 0;
-            for (int i = 0; i < networkOutput.Length; i++)
-            {
+            var error = 0;
+            for (var i = 0; i < networkOutput.Length; i++)
                 error += Math.Abs(networkOutput[i] - expctdOut[i]);
-            }
             return error;
         }
     }

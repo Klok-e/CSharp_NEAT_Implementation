@@ -44,9 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domains\XOR.cs" />
+    <Compile Include="ActivationFunctions.cs" />
+    <Compile Include="Domains\XOR\XOR.cs" />
     <Compile Include="Neat.cs" />
-    <Compile Include="Domains\SinglePole.cs" />
+    <Compile Include="Domains\SinglePole\SinglePole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
