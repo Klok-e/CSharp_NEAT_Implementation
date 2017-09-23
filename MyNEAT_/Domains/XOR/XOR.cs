@@ -13,26 +13,26 @@ namespace MyNEAT.Domains.XOR
             numInp = numOfInp;
         }
 
-        public List<int[]> GetNums(Random gen)
+        public List<double[]> GetNums(Random gen)
         {
-            var ans = new List<int[]>();
-            var inps = new int[numInp];
+            var ans = new List<double[]>();
+            var inps = new double[numInp];
             for (var i = 0; i < numInp; i++)
                 inps[i] = gen.Next(0, 2);
             ans.Add(inps);
 
-            var expOutps = new int[numInp / 2];
+            var expOutps = new double[numInp / 2];
             for (var i = 0; i < numInp / 2; i++)
-                expOutps[i] = inps[i] ^ inps[i + numInp / 2];
+                expOutps[i] = (int)Math.Round(inps[i]) ^ (int)Math.Round(inps[i + numInp / 2]);
             ans.Add(expOutps);
             return ans;
         }
 
-        public int GetError(int[] networkOutput, int[] expctdOut)
+        public double GetError(double[] networkOutput, double[] expctdOut)
         {
             if (networkOutput.Length != expctdOut.Length) throw new Exception("Wrong array length");
 
-            var error = 0;
+            double error = 0;
             for (var i = 0; i < networkOutput.Length; i++)
                 error += Math.Abs(networkOutput[i] - expctdOut[i]);
             return error;

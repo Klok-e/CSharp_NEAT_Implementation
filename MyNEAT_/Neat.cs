@@ -6,9 +6,8 @@ namespace MyNEAT
 {
     public class Config
     {
-        public delegate double activationFunction(double n);
-
-        public activationFunction activationOutp;
+        public ActivationFunctions.ActivationFunction activationOutp;
+        public ActivationFunctions.ActivationFunction activationNormal;
 
         private const double defaultConnWeightRange = 5d;
         private const double defaultWeightChangeRange = 0.5;
@@ -42,13 +41,18 @@ namespace MyNEAT
             probabilityAddConnection = defaultProbabilityAddConnection;
             probabilityRemoveConnection = defaultProbabilityRemoveConnection;
 
-            activationOutp =
+            activationOutp = ActivationFunctions.Linear;
+            activationNormal = ActivationFunctions.Linear;
         }
     }
 
-    internal class GNeuron
+    internal abstract class G
     {
-        public readonly int Id;
+        public int id;
+    }
+
+    internal class GNeuron:G
+    {
         public bool isBias;
         public bool isHidden;
 
@@ -66,30 +70,29 @@ namespace MyNEAT
             isHidden = false;
             isOutput = false;
             isInput = false;
-            Id = id;
+            this.id = id;
         }
 
         public override string ToString()
         {
             var str = "This id: ";
-            str += Id;
+            str += id;
             str += ", " + "Is input: " + isInput + ", " + "Is bias: " + isBias + ", " + "Is Output: " + isOutput;
 
             return str;
         }
     }
 
-    internal class GConnection
+    internal class GConnection : G
     {
         public readonly int fromNeuron;
-        public readonly int id;
         public readonly int toNeuron;
         public readonly double weight;
 
         public GConnection(GNeuron fromneuron, GNeuron toneuron, double wei, int idForThis)
         {
-            fromNeuron = fromneuron.Id;
-            toNeuron = toneuron.Id;
+            fromNeuron = fromneuron.id;
+            toNeuron = toneuron.id;
 
             id = idForThis;
 
@@ -149,6 +152,8 @@ namespace MyNEAT
 
         public Genome(int inputs, int outputs)
         {
+            if (conf == null) throw new Exception("conf = null");
+
             geneIndex = 0;
             neurons = new List<GNeuron>();
             connections = new List<GConnection>();
@@ -194,6 +199,7 @@ namespace MyNEAT
 
         public Genome()
         {
+            if (conf == null) throw new Exception("conf = null");
         }
 
         #endregion
@@ -231,11 +237,11 @@ namespace MyNEAT
                 genome.neurons.Add(newNeuron);
                 geneIndex++;
 
-                var newConnIn = new GConnection(conn.fromNeuron, newNeuron.Id, 1, geneIndex);
+                var newConnIn = new GConnection(conn.fromNeuron, newNeuron.id, 1, geneIndex);
                 genome.connections.Add(newConnIn);
                 geneIndex++;
 
-                var newConnOut = new GConnection(newNeuron.Id, conn.toNeuron, conn.weight, geneIndex);
+                var newConnOut = new GConnection(newNeuron.id, conn.toNeuron, conn.weight, geneIndex);
                 genome.connections.Add(newConnOut);
                 geneIndex++;
             }
@@ -248,7 +254,7 @@ namespace MyNEAT
             var availableNeurons = new List<GNeuron>();
             for (var i = 0; i < genome.neurons.Count; i++)
             {
-                var inOut = FindAmountOfInAndOutConnectionsForNeuronWithId(genome.connections, genome.neurons[i].Id);
+                var inOut = FindAmountOfInAndOutConnectionsForNeuronWithId(genome.connections, genome.neurons[i].id);
                 if (inOut[0] == 0 && inOut[1] == 0 && genome.neurons[i].isInput != true &&
                     genome.neurons[i].isOutput != true && genome.neurons[i].isBias != true)
                     availableNeurons.Add(genome.neurons[i]);
@@ -267,11 +273,11 @@ namespace MyNEAT
             var neuron1 = genome.neurons[generator.Next(genome.neurons.Count)];
             var neuron2 = genome.neurons[generator.Next(genome.neurons.Count)];
 
-            var n1InOut = GetListOfInAndOutConnections(genome.connections, neuron1.Id);
-            var n2InOut = GetListOfInAndOutConnections(genome.connections, neuron2.Id);
+            var n1InOut = GetListOfInAndOutConnections(genome.connections, neuron1.id);
+            var n2InOut = GetListOfInAndOutConnections(genome.connections, neuron2.id);
             if (n1InOut[1].Intersect(n2InOut[0]).Count() == 0 && n1InOut[0].Intersect(n2InOut[1]).Count() == 0)
             {
-                genome.connections.Add(new GConnection(neuron1.Id, neuron2.Id,
+                genome.connections.Add(new GConnection(neuron1.id, neuron2.id,
                     generator.NextDouble() * (conf.connWeightRange - -conf.connWeightRange) + -conf.connWeightRange,
                     geneIndex));
                 geneIndex++;
@@ -335,7 +341,7 @@ namespace MyNEAT
             #region Build neurons
 
             for (var i = 0; i < Math.Min(parent1.neurons.Count, parent2.neurons.Count); i++)
-                if (parent1.neurons[i].Id == parent2.neurons[i].Id)
+                if (parent1.neurons[i].id == parent2.neurons[i].id)
                 {
                     neurons.Add(parent1.neurons[i]);
                 }
@@ -392,6 +398,24 @@ namespace MyNEAT
 
             #endregion
 
+            void FindDuplicates<T>(List<T> neus) where T:G
+            {
+                foreach (var n in neus)
+                {
+                    foreach (var n2 in neus)
+                    {
+                        if (n == n2) continue;
+                        if (n.id == n2.id)
+                        {
+                            throw new Exception("shi~");
+                        }
+                    }
+                }
+            }
+            //TODO: duplicates in neurons and conns
+            FindDuplicates(neurons);
+            FindDuplicates(connections);
+
             var child = new Genome();
             child.neurons = new List<GNeuron>(neurons);
             child.connections = new List<GConnection>(connections);
@@ -417,7 +441,7 @@ namespace MyNEAT
         internal static bool IsGWithIdExistsInList(List<GNeuron> neurons, int id)
         {
             foreach (var neuron in neurons)
-                if (neuron.Id == id)
+                if (neuron.id == id)
                     return true;
             return false;
         }
@@ -464,6 +488,9 @@ namespace MyNEAT
 
     internal class DNeuron
     {
+        public static ActivationFunctions.ActivationFunction normalActivation;
+        public static ActivationFunctions.ActivationFunction outpActivation;
+
         public DNeuron(int id)
         {
             depths = new List<int>();
@@ -488,9 +515,9 @@ namespace MyNEAT
             else if (isBias)
                 output = 1; //bias' output is always 1
             else if (isOutput)
-                output = Math.Tanh(sum);
+                output = outpActivation(sum);
             else
-                output = sum; //TODO: currently linear
+                output = normalActivation(sum); //TODO: currently linear
 
             TransferOutput();
         }
@@ -572,17 +599,20 @@ namespace MyNEAT
 
         public Network(Genome genome)
         {
+            DNeuron.normalActivation = Genome.conf.activationNormal;
+            DNeuron.outpActivation = Genome.conf.activationOutp;
+
             for (var i = 0; i < genome.neurons.Count; i++)
-                dneurons.Add(new DNeuron(genome.neurons[i].Id));
+                dneurons.Add(new DNeuron(genome.neurons[i].id));
 
             //iterate through all neurons
             DNeuron currneu;
             foreach (var neuron in genome.neurons)
             {
-                currneu = DNeuron.FindNeuronWithId(dneurons, neuron.Id);
+                currneu = DNeuron.FindNeuronWithId(dneurons, neuron.id);
 
                 currneu.amountOfInConnections =
-                    Genome.FindAmountOfInAndOutConnectionsForNeuronWithId(genome.connections, neuron.Id)[0];
+                    Genome.FindAmountOfInAndOutConnectionsForNeuronWithId(genome.connections, neuron.id)[0];
                 if (neuron.isInput || neuron.isBias)
                 {
                     //currneu.isInput = true;

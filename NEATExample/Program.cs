@@ -12,41 +12,60 @@ namespace NEATExample
         {
             //SolveCartPole();
             //Test();
-            SolveXOR();
+            SolveXor();
             Console.ReadKey();
         }
 
         private static void Test()
         {
+
             var gen = new Random();
+            /*
+            var env = new Xor(4);
+
+            var pr = env.GetNums(gen);
+
+            var str = "";
+            for (var i = 0; i < pr[0].Length; i++)
+                str += pr[0][i] + ", ";
+            str += "\n";
+            for (var i = 0; i < pr[1].Length; i++)
+                str += pr[1][i] + ", ";
+
+            Console.WriteLine(str);
+
+            int err = env.GetError(new int[]{ 1,0 }, pr[1]);
+            Console.Write(err);*/
+            Genome.conf = new Config();
+
             var genome = new Genome(3, 2);
 
-            Console.Write(genome + "\n\n");
-
-            for (var i = 0; i < 500; i++)
-                genome = genome.CreateOffSpring(gen);
-
 
             Console.Write(genome + "\n\n");
+
+            //for (var i = 0; i < 500; i++) genome = genome.CreateOffSpring(gen);
+
+
+            //Console.Write(genome + "\n\n");
 
 
             var network = new Network(genome);
 
-            var pr = network.Predict(new[] {-0.3, 0.2, 2});
+            var pr = network.Predict(new[] { -0.3, 0.2, 2 });
 
             var str = "";
             for (var i = 0; i < pr.Length; i++)
                 str += pr[i] + ", ";
             Console.Write(str);
 
-            Console.WriteLine(network);
+            //Console.WriteLine(network);
         }
 
-        private static void SolveXOR()
+        private static void SolveXor()
         {
             var elitism = 0.4f;
             var generations = 10000;
-            var pop = 30;
+            var pop = 50;
             var generator = new Random();
 
             Genome.conf = new Config();
@@ -68,8 +87,7 @@ namespace NEATExample
 
                     var nums = env.GetNums(generator);
                     genome.fitness =
-                        (float) (env.GetError(DoubleArrToIntArr(network.Predict(IntArrToDoubleArr(nums[0]))), nums[1]) -
-                                 genome.GetComplexity() * 0.5);
+                        (float)(env.GetError(network.Predict(nums[0]), nums[1]) - genome.GetComplexity() * 0.5);
                 }
 
 
@@ -87,7 +105,7 @@ namespace NEATExample
                               "Max Fitness: " + mx + ", " + "Average complexity " + comp_sum / population.Count + "\n");
 
                 //breed
-                var toSelect = (int) (population.Count - elitism * population.Count);
+                var toSelect = (int)(population.Count - elitism * population.Count);
                 var addToPop = new List<Genome>();
                 for (; toSelect > 0; toSelect--)
                 {
@@ -99,7 +117,7 @@ namespace NEATExample
                     population.Add(g1);
                     population.Add(g2);
 
-                    var genomes = new List<Genome>(new[] {g1, g2, g3});
+                    var genomes = new List<Genome>(new[] { g1, g2, g3 });
                     genomes.Sort(new Comparer2());
 
                     population.Remove(genomes[0]);
@@ -116,6 +134,8 @@ namespace NEATExample
             var generations = 500;
             var pop = 100;
             var generator = new Random();
+
+            Genome.conf = new Config();
 
             var population = new List<Genome>();
 
@@ -135,7 +155,7 @@ namespace NEATExample
                     {
                         if (s._done)
                         {
-                            genome.fitness = (float) (s._reward - Math.Sqrt(Math.Sqrt(genome.GetComplexity())));
+                            genome.fitness = (float)(s._reward - Math.Sqrt(Math.Sqrt(genome.GetComplexity())));
                             //genome.fitness = s._reward;
                             break;
                         }
@@ -165,7 +185,7 @@ namespace NEATExample
                               "Max Fitness: " + mx + ", " + "Average complexity " + comp_sum / population.Count + "\n");
 
                 //breed
-                var toSelect = (int) (population.Count - elitism * population.Count);
+                var toSelect = (int)(population.Count - elitism * population.Count);
                 var addToPop = new List<Genome>();
                 for (; toSelect > 0; toSelect--)
                 {
@@ -177,7 +197,7 @@ namespace NEATExample
                     population.Add(g1);
                     population.Add(g2);
 
-                    var genomes = new List<Genome>(new[] {g1, g2, g3});
+                    var genomes = new List<Genome>(new[] { g1, g2, g3 });
                     genomes.Sort(new Comparer2());
 
                     population.Remove(genomes[0]);
@@ -192,7 +212,7 @@ namespace NEATExample
         {
             var newArr = new int[arr.Length];
             for (var i = 0; i < arr.Length; i++)
-                newArr[i] = (int) Math.Round(arr[i]);
+                newArr[i] = (int)Math.Round(arr[i]);
             return newArr;
         }
 
