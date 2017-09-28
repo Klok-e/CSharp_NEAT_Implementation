@@ -11,13 +11,13 @@ namespace MyNEAT
 
         private const double defaultConnWeightRange = 5d;
         private const double defaultWeightChangeRange = 0.5;
-        private const double defaultProbabilityOfMutation = 0.9;
+        private const double defaultProbabilityOfMutation = 0.8;
         private const double defaultProbabilityOfResetWeight = 0.2;
         private const double defaultProbabilityOfChangeWeight = 0.6;
-        private const double defaultProbabilityAddNeuron = 0.15;
+        private const double defaultProbabilityAddNeuron = 0.2;
         private const double defaultProbabilityRemoveNeuron = 0.2;
-        private const double defaultProbabilityAddConnection = 0.3;
-        private const double defaultProbabilityRemoveConnection = 0.35;
+        private const double defaultProbabilityAddConnection = 0.4;
+        private const double defaultProbabilityRemoveConnection = 0.4;
 
         public double connWeightRange;
         public double probabilityAddConnection;
@@ -51,7 +51,7 @@ namespace MyNEAT
         public int id;
     }
 
-    internal class GNeuron:G
+    internal class GNeuron : G
     {
         public bool isBias;
         public bool isHidden;
@@ -336,69 +336,7 @@ namespace MyNEAT
 
         public static Genome Crossover(Random generator, Genome parent1, Genome parent2)
         {
-            var neurons = new List<GNeuron>();
-
-            #region Build neurons
-
-            for (var i = 0; i < Math.Min(parent1.neurons.Count, parent2.neurons.Count); i++)
-                if (parent1.neurons[i].id == parent2.neurons[i].id)
-                {
-                    neurons.Add(parent1.neurons[i]);
-                }
-                else
-                {
-                    GNeuron[] arr = { parent1.neurons[i], parent2.neurons[i] };
-                    var toAdd = arr[generator.Next(arr.Length)];
-                    neurons.Add(toAdd);
-                }
-            if (neurons.Count != Math.Max(parent1.neurons.Count, parent2.neurons.Count))
-                for (var i = Math.Min(parent1.neurons.Count, parent2.neurons.Count);
-                    i < Math.Max(parent1.neurons.Count, parent2.neurons.Count);
-                    i++)
-                    if (Math.Max(parent1.neurons.Count, parent2.neurons.Count) == parent1.neurons.Count)
-                        neurons.Add(parent1.neurons[i]);
-                    else
-                        neurons.Add(parent2.neurons[i]);
-
-            #endregion
-
-            var connections = new List<GConnection>(Math.Max(parent1.connections.Count, parent2.connections.Count));
-
-            #region Build connections
-
-            var sortedParents = new List<List<GConnection>>();
-            sortedParents.Add(parent1.connections);
-            sortedParents.Add(parent2.connections);
-            sortedParents.Sort((x, y) => x.Count.CompareTo(y.Count)); //now i know what has low count and what high
-
-            for (var i = 0; i < sortedParents[1].Count; i++)
-                if (i < sortedParents[0].Count)
-                    if (sortedParents[0][i].id == sortedParents[1][i].id)
-                    {
-                        if (IsGWithIdExistsInList(neurons, sortedParents[0][i].fromNeuron) &&
-                            IsGWithIdExistsInList(neurons, sortedParents[0][i].toNeuron))
-                            connections.Add(sortedParents[0][i]);
-                    }
-                    else
-                    {
-                        GConnection[] arr = { sortedParents[0][i], sortedParents[1][i] };
-                        var num = generator.Next(arr.Length);
-
-                        if (IsGWithIdExistsInList(neurons, arr[num].fromNeuron) &&
-                            IsGWithIdExistsInList(neurons, arr[num].toNeuron))
-                            connections.Add(arr[num]);
-                        else if (IsGWithIdExistsInList(neurons, arr[Math.Abs(num - 1)].fromNeuron) &&
-                                 IsGWithIdExistsInList(neurons, arr[Math.Abs(num - 1)].toNeuron))
-                            connections.Add(arr[Math.Abs(num - 1)]);
-                    }
-                else if (i < sortedParents[1].Count)
-                    if (IsGWithIdExistsInList(neurons, sortedParents[1][i].fromNeuron) &&
-                        IsGWithIdExistsInList(neurons, sortedParents[1][i].toNeuron))
-                        connections.Add(sortedParents[1][i]);
-
-            #endregion
-
-            void FindDuplicates<T>(List<T> neus) where T:G
+            void FindDuplicates<T>(List<T> neus) where T : G
             {
                 foreach (var n in neus)
                 {
@@ -412,7 +350,73 @@ namespace MyNEAT
                     }
                 }
             }
-            //TODO: duplicates in neurons and conns
+
+            var neurons = new List<GNeuron>();
+
+            #region Build neurons
+            var neuronsSortedByCount = new List<List<GNeuron>>
+            {
+                parent1.neurons,
+                parent2.neurons
+            };
+            neuronsSortedByCount.Sort((x, y) => x.Count.CompareTo(y.Count));//sorted by increasing
+
+            for (int i = 0; i < neuronsSortedByCount[1].Count; i++)
+            {
+                if (i < neuronsSortedByCount[0].Count)
+                {
+                    int ind = generator.Next(0, 2);
+                    if (!IsGWithIdExistsInList(neurons, neuronsSortedByCount[ind][i].id))
+                        neurons.Add(neuronsSortedByCount[ind][i]);
+                }
+                else
+                {
+                    if (!IsGWithIdExistsInList(neurons, neuronsSortedByCount[1][i].id))
+                        neurons.Add(neuronsSortedByCount[1][i]);//take from the longest list
+                }
+            }
+            #endregion
+
+            var connections = new List<GConnection>(Math.Max(parent1.connections.Count, parent2.connections.Count));
+
+            #region Build connections
+            var connsSortedByCount = new List<List<GConnection>>
+            {
+                parent1.connections,
+                parent2.connections
+            };
+            connsSortedByCount.Sort((x, y) => x.Count.CompareTo(y.Count));
+
+            for (var i = 0; i < connsSortedByCount[1].Count; i++)
+            {
+                if (i < connsSortedByCount[0].Count)
+                {
+                    int ind = generator.Next(0, 2);
+                    if (!IsGWithIdExistsInList(connections, connsSortedByCount[ind][i].id))
+                        connections.Add(connsSortedByCount[ind][i]);
+                }
+                else
+                {
+                    if (!IsGWithIdExistsInList(connections, connsSortedByCount[1][i].id))
+                        connections.Add(connsSortedByCount[1][i]);//take from the longest list
+                }
+            }
+
+            //delete all impossible connections
+            var toDelete = new List<GConnection>();
+            foreach (var conn in connections)
+            {
+                if (!IsGWithIdExistsInList(neurons, conn.fromNeuron) || !IsGWithIdExistsInList(neurons, conn.toNeuron))
+                {
+                    toDelete.Add(conn);
+                }
+            }
+            foreach (var del in toDelete)
+            {
+                connections.Remove(del);
+            }
+            #endregion
+
             FindDuplicates(neurons);
             FindDuplicates(connections);
 
@@ -517,7 +521,7 @@ namespace MyNEAT
             else if (isOutput)
                 output = outpActivation(sum);
             else
-                output = normalActivation(sum); //TODO: currently linear
+                output = normalActivation(sum);
 
             TransferOutput();
         }
@@ -652,7 +656,7 @@ namespace MyNEAT
                 n.SetDepth();
 
             //sort list of neurons
-            dneurons.Sort(new Comparer());
+            dneurons.Sort((x,y)=>x.depth.CompareTo(y.depth));
         }
 
         public double[] Predict(double[] state)
@@ -708,15 +712,6 @@ namespace MyNEAT
             foreach (var conn in neuron.outConnections)
                 if (visited.Contains(conn.toNeuron.id) == false)
                     SetDepthStartingFromThisNeuron(conn.toNeuron, depth + 1, visited);
-        }
-    }
-
-    internal class Comparer : IComparer<DNeuron>
-    {
-        int IComparer<DNeuron>.Compare(DNeuron x, DNeuron y)
-        {
-            var compareDate = x.depth.CompareTo(y.depth);
-            return compareDate;
         }
     }
 }

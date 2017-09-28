@@ -64,7 +64,7 @@ namespace NEATExample
         private static void SolveXor()
         {
             var elitism = 0.4f;
-            var generations = 10000;
+            var generations = 100000;
             var pop = 50;
             var generator = new Random();
 
@@ -84,12 +84,16 @@ namespace NEATExample
                 {
                     var network = new Network(genome);
                     var env = new Xor(num);
-
-                    var nums = env.GetNums(generator);
-                    genome.fitness =
-                        (float)(env.GetError(network.Predict(nums[0]), nums[1]) - genome.GetComplexity() * 0.5);
+                    for (int j = 0; j < 4; j++)
+                    {
+                        var nums = env.GetNums();
+                        var prediction = network.Predict(nums[0]);
+                        double err = env.GetError(prediction, nums[1]);
+                        //if (err == 0) throw new Exception();
+                        genome.fitness += (float)(err - (genome.GetComplexity() * 0.001));
+                    }
                 }
-
+                population.Sort((x, y) => x.fitness.CompareTo(y.fitness));
 
                 float sum = 0;
                 float comp_sum = 0;
@@ -109,6 +113,7 @@ namespace NEATExample
                 var addToPop = new List<Genome>();
                 for (; toSelect > 0; toSelect--)
                 {
+                    /*
                     var g1 = population[generator.Next(population.Count)];
                     population.Remove(g1);
                     var g2 = population[generator.Next(population.Count)];
@@ -118,11 +123,21 @@ namespace NEATExample
                     population.Add(g2);
 
                     var genomes = new List<Genome>(new[] { g1, g2, g3 });
-                    genomes.Sort(new Comparer2());
+                    genomes.Sort((x, y) => x.fitness.CompareTo(y.fitness));
 
                     population.Remove(genomes[0]);
 
-                    addToPop.Add(genomes[1].CreateOffSpring(generator, genomes[2]));
+                    addToPop.Add(genomes[1].CreateOffSpring(generator, genomes[2]));*/
+                    var g1 = population[generator.Next(population.Count)];
+                    population.Remove(g1);
+                    var g2 = population[generator.Next(population.Count)];
+                    population.Add(g1);
+
+                    var genomes = new List<Genome>(new[] { g1, g2 });
+                    genomes.Sort((x, y) => x.fitness.CompareTo(y.fitness));
+                    population.Remove(genomes[0]);
+
+                    addToPop.Add(genomes[1].CreateOffSpring(generator));
                 }
                 population.AddRange(addToPop);
             }
@@ -198,7 +213,7 @@ namespace NEATExample
                     population.Add(g2);
 
                     var genomes = new List<Genome>(new[] { g1, g2, g3 });
-                    genomes.Sort(new Comparer2());
+                    genomes.Sort((x, y) => x.fitness.CompareTo(y.fitness));
 
                     population.Remove(genomes[0]);
 
@@ -222,15 +237,6 @@ namespace NEATExample
             for (var i = 0; i < arr.Length; i++)
                 newArr[i] = arr[i];
             return newArr;
-        }
-    }
-
-    internal class Comparer2 : IComparer<Genome>
-    {
-        public int Compare(Genome x, Genome y)
-        {
-            var compareData = x.fitness.CompareTo(y.fitness);
-            return compareData;
         }
     }
 }
