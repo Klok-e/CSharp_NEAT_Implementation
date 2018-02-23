@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_my_n_e_a_t_1_1_network" kind="class" prot="public">
+    <compoundname>MyNEAT::Network</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_network_1a6eb7137ce516216e4b6de4882051e8a2" prot="private" static="no" mutable="no">
+        <type>readonly List&lt; <ref refid="class_my_n_e_a_t_1_1_d_neuron" kindref="compound">DNeuron</ref> &gt;</type>
+        <definition>readonly List&lt;DNeuron&gt; MyNEAT.Network.dneurons</definition>
+        <argsstring></argsstring>
+        <name>dneurons</name>
+        <initializer>= new List&lt;<ref refid="class_my_n_e_a_t_1_1_d_neuron" kindref="compound">DNeuron</ref>&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="599" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="599" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_network_1a3cb0d102d6697937239f89e24cbeca59" compoundref="_neat_8cs" startline="604" endline="660">MyNEAT.Network.Network</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_network_1a61c5351400fa317f8e708e9837601268" compoundref="_neat_8cs" startline="684" endline="692">MyNEAT.Network.ToString</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_network_1a95189cea2db16253352040a0dd69c731" prot="private" static="no" mutable="no">
+        <type>readonly List&lt; <ref refid="class_my_n_e_a_t_1_1_d_neuron" kindref="compound">DNeuron</ref> &gt;</type>
+        <definition>readonly List&lt;DNeuron&gt; MyNEAT.Network.hidden</definition>
+        <argsstring></argsstring>
+        <name>hidden</name>
+        <initializer>= new List&lt;<ref refid="class_my_n_e_a_t_1_1_d_neuron" kindref="compound">DNeuron</ref>&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="600" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="600" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_network_1a7f63b1f4ec7af48a40322744281860ac" compoundref="_neat_8cs" startline="662" endline="682">MyNEAT.Network.Predict</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_network_1adfdf624ea2e24c231b66c7fc42c31c45" prot="private" static="no" mutable="no">
+        <type>readonly List&lt; <ref refid="class_my_n_e_a_t_1_1_d_neuron" kindref="compound">DNeuron</ref> &gt;</type>
+        <definition>readonly List&lt;DNeuron&gt; MyNEAT.Network.inputs</definition>
+        <argsstring></argsstring>
+        <name>inputs</name>
+        <initializer>= new List&lt;<ref refid="class_my_n_e_a_t_1_1_d_neuron" kindref="compound">DNeuron</ref>&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="601" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="601" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_network_1a3cb0d102d6697937239f89e24cbeca59" compoundref="_neat_8cs" startline="604" endline="660">MyNEAT.Network.Network</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_network_1a7f63b1f4ec7af48a40322744281860ac" compoundref="_neat_8cs" startline="662" endline="682">MyNEAT.Network.Predict</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_network_1aebffd9a0bfae83a2c14b381d0c02c908" prot="private" static="no" mutable="no">
+        <type>readonly List&lt; <ref refid="class_my_n_e_a_t_1_1_d_neuron" kindref="compound">DNeuron</ref> &gt;</type>
+        <definition>readonly List&lt;DNeuron&gt; MyNEAT.Network.outputs</definition>
+        <argsstring></argsstring>
+        <name>outputs</name>
+        <initializer>= new List&lt;<ref refid="class_my_n_e_a_t_1_1_d_neuron" kindref="compound">DNeuron</ref>&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="602" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="602" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_network_1a7f63b1f4ec7af48a40322744281860ac" compoundref="_neat_8cs" startline="662" endline="682">MyNEAT.Network.Predict</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_network_1a3cb0d102d6697937239f89e24cbeca59" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MyNEAT.Network.Network</definition>
+        <argsstring>(Genome genome)</argsstring>
+        <name>Network</name>
+        <param>
+          <type><ref refid="class_my_n_e_a_t_1_1_genome" kindref="compound">Genome</ref></type>
+          <declname>genome</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="604" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="604" bodyend="660"/>
+        <references refid="class_my_n_e_a_t_1_1_network_1a6eb7137ce516216e4b6de4882051e8a2" compoundref="_neat_8cs" startline="599">MyNEAT.Network.dneurons</references>
+        <references refid="class_my_n_e_a_t_1_1_network_1adfdf624ea2e24c231b66c7fc42c31c45" compoundref="_neat_8cs" startline="601">MyNEAT.Network.inputs</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a4b07b01757584ec6b946b3b9b37903bb" compoundref="_neat_8cs" startline="130">MyNEAT.Genome.neurons</references>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_network_1a7f63b1f4ec7af48a40322744281860ac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double[]</type>
+        <definition>double [] MyNEAT.Network.Predict</definition>
+        <argsstring>(double[] state)</argsstring>
+        <name>Predict</name>
+        <param>
+          <type>double[]</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="662" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="662" bodyend="682"/>
+        <references refid="class_my_n_e_a_t_1_1_network_1a95189cea2db16253352040a0dd69c731" compoundref="_neat_8cs" startline="600">MyNEAT.Network.hidden</references>
+        <references refid="class_my_n_e_a_t_1_1_network_1adfdf624ea2e24c231b66c7fc42c31c45" compoundref="_neat_8cs" startline="601">MyNEAT.Network.inputs</references>
+        <references refid="class_my_n_e_a_t_1_1_network_1aebffd9a0bfae83a2c14b381d0c02c908" compoundref="_neat_8cs" startline="602">MyNEAT.Network.outputs</references>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_network_1a61c5351400fa317f8e708e9837601268" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override string</type>
+        <definition>override string MyNEAT.Network.ToString</definition>
+        <argsstring>()</argsstring>
+        <name>ToString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="684" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="684" bodyend="692"/>
+        <references refid="class_my_n_e_a_t_1_1_network_1a6eb7137ce516216e4b6de4882051e8a2" compoundref="_neat_8cs" startline="599">MyNEAT.Network.dneurons</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="598" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="597" bodyend="693"/>
+    <listofallmembers>
+      <member refid="class_my_n_e_a_t_1_1_network_1a6eb7137ce516216e4b6de4882051e8a2" prot="private" virt="non-virtual"><scope>MyNEAT::Network</scope><name>dneurons</name></member>
+      <member refid="class_my_n_e_a_t_1_1_network_1a95189cea2db16253352040a0dd69c731" prot="private" virt="non-virtual"><scope>MyNEAT::Network</scope><name>hidden</name></member>
+      <member refid="class_my_n_e_a_t_1_1_network_1adfdf624ea2e24c231b66c7fc42c31c45" prot="private" virt="non-virtual"><scope>MyNEAT::Network</scope><name>inputs</name></member>
+      <member refid="class_my_n_e_a_t_1_1_network_1a3cb0d102d6697937239f89e24cbeca59" prot="public" virt="non-virtual"><scope>MyNEAT::Network</scope><name>Network</name></member>
+      <member refid="class_my_n_e_a_t_1_1_network_1aebffd9a0bfae83a2c14b381d0c02c908" prot="private" virt="non-virtual"><scope>MyNEAT::Network</scope><name>outputs</name></member>
+      <member refid="class_my_n_e_a_t_1_1_network_1a7f63b1f4ec7af48a40322744281860ac" prot="public" virt="non-virtual"><scope>MyNEAT::Network</scope><name>Predict</name></member>
+      <member refid="class_my_n_e_a_t_1_1_network_1a61c5351400fa317f8e708e9837601268" prot="public" virt="non-virtual"><scope>MyNEAT::Network</scope><name>ToString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

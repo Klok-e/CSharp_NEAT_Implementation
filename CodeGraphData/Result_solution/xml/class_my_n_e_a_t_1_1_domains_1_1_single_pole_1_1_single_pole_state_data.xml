@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data" kind="class" prot="public">
+    <compoundname>MyNEAT::Domains::SinglePole::SinglePoleStateData</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1af12bb9b813f9f98ef22e3212f8dfeb98" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool MyNEAT.Domains.SinglePole.SinglePoleStateData._action</definition>
+        <argsstring></argsstring>
+        <name>_action</name>
+        <briefdescription>
+<para>Action applied during most recent timestep. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="13" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1a8323ac06cbf353a1f6628eb174fcc281" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MyNEAT.Domains.SinglePole.SinglePoleStateData._cartPosX</definition>
+        <argsstring></argsstring>
+        <name>_cartPosX</name>
+        <briefdescription>
+<para>Cart position (meters from origin). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="18" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1af166a135b306028de008dc9721226e5b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MyNEAT.Domains.SinglePole.SinglePoleStateData._cartVelocityX</definition>
+        <argsstring></argsstring>
+        <name>_cartVelocityX</name>
+        <briefdescription>
+<para>Cart velocity (m/s). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="23" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1a48bdac79bd064ee74b3a852a89315465" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool MyNEAT.Domains.SinglePole.SinglePoleStateData._done</definition>
+        <argsstring></argsstring>
+        <name>_done</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="25" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1a6c03b7a498a692185d22afa9a155bc43" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MyNEAT.Domains.SinglePole.SinglePoleStateData._poleAngle</definition>
+        <argsstring></argsstring>
+        <name>_poleAngle</name>
+        <briefdescription>
+<para>Pole angle (radians). Straight up = 0. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="30" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1aadc4dac881f872a0355b4e305bb81d4c" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MyNEAT.Domains.SinglePole.SinglePoleStateData._poleAngularVelocity</definition>
+        <argsstring></argsstring>
+        <name>_poleAngularVelocity</name>
+        <briefdescription>
+<para>Pole angular velocity (radians/sec). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="35" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1a2b7e6f66aca86f22a8cd922680e462cd" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float MyNEAT.Domains.SinglePole.SinglePoleStateData._reward</definition>
+        <argsstring></argsstring>
+        <name>_reward</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="37" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Model state variables for single pole balancing task. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="9" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="8" bodyend="38"/>
+    <listofallmembers>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1af12bb9b813f9f98ef22e3212f8dfeb98" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleStateData</scope><name>_action</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1a8323ac06cbf353a1f6628eb174fcc281" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleStateData</scope><name>_cartPosX</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1af166a135b306028de008dc9721226e5b" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleStateData</scope><name>_cartVelocityX</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1a48bdac79bd064ee74b3a852a89315465" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleStateData</scope><name>_done</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1a6c03b7a498a692185d22afa9a155bc43" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleStateData</scope><name>_poleAngle</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1aadc4dac881f872a0355b4e305bb81d4c" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleStateData</scope><name>_poleAngularVelocity</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1a2b7e6f66aca86f22a8cd922680e462cd" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleStateData</scope><name>_reward</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

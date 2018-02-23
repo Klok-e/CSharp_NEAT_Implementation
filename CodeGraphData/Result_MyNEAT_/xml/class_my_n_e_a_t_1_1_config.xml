@@ -1,0 +1,381 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_my_n_e_a_t_1_1_config" kind="class" prot="public">
+    <compoundname>MyNEAT::Config</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_config_1af826e4e7920798f90e1c19590cf576ee" prot="public" static="no" mutable="no">
+        <type><ref refid="class_my_n_e_a_t_1_1_activation_functions_1a2b0772db4f64544b3f774a961294b5dd" kindref="member">ActivationFunctions.ActivationFunction</ref></type>
+        <definition>ActivationFunctions.ActivationFunction MyNEAT.Config.activationOutp</definition>
+        <argsstring></argsstring>
+        <name>activationOutp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="9" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="9" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_config_1ac6ac78862f204406b0e1183f5fe1ae88" prot="public" static="no" mutable="no">
+        <type><ref refid="class_my_n_e_a_t_1_1_activation_functions_1a2b0772db4f64544b3f774a961294b5dd" kindref="member">ActivationFunctions.ActivationFunction</ref></type>
+        <definition>ActivationFunctions.ActivationFunction MyNEAT.Config.activationNormal</definition>
+        <argsstring></argsstring>
+        <name>activationNormal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="10" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="10" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_config_1a61a32fac87671fb3eabf259f2077d8f8" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MyNEAT.Config.connWeightRange</definition>
+        <argsstring></argsstring>
+        <name>connWeightRange</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="22" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="22" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a1000e152b5a3478026e605475aa67e09" compoundref="_neat_8cs" startline="153" endline="197">MyNEAT.Genome.Genome</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a0544e280f6ae8f84198814bd63e1feb4" compoundref="_neat_8cs" startline="271" endline="286">MyNEAT.Genome.MutationAddConnection</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1adb7a9dd8c21d0c3dfaecd96ba8310a81" compoundref="_neat_8cs" startline="209" endline="226">MyNEAT.Genome.MutationChangeWeight</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_config_1a9aa195a4a492126c7a1e6f4876b3c42f" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MyNEAT.Config.probabilityAddConnection</definition>
+        <argsstring></argsstring>
+        <name>probabilityAddConnection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="23" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="23" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_config_1a4da77c23b93b18aa23a002ba8f90634a" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MyNEAT.Config.probabilityAddNeuron</definition>
+        <argsstring></argsstring>
+        <name>probabilityAddNeuron</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="24" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="24" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_config_1ae602aa55ab6c712264cd1d2787ffa2df" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MyNEAT.Config.probabilityOfChangeWeight</definition>
+        <argsstring></argsstring>
+        <name>probabilityOfChangeWeight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="25" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="25" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_config_1a3c5631c68970aefa2fd9ddc76d1e1d16" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MyNEAT.Config.probabilityOfMutation</definition>
+        <argsstring></argsstring>
+        <name>probabilityOfMutation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="26" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="26" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_config_1aed55801ea766c4555872787d5085f20e" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MyNEAT.Config.probabilityOfResetWeight</definition>
+        <argsstring></argsstring>
+        <name>probabilityOfResetWeight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="27" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="27" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_config_1abf03e52eb47ca823f941866f6bd4484f" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MyNEAT.Config.probabilityRemoveConnection</definition>
+        <argsstring></argsstring>
+        <name>probabilityRemoveConnection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="28" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="28" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_config_1afe42e7b52ca421eddb6a77d4e5523903" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MyNEAT.Config.probabilityRemoveNeuron</definition>
+        <argsstring></argsstring>
+        <name>probabilityRemoveNeuron</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="29" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="29" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_config_1ad5ad3c02be0612f9348e4e81db65667e" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MyNEAT.Config.weightChangeRange</definition>
+        <argsstring></argsstring>
+        <name>weightChangeRange</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="30" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="30" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1adb7a9dd8c21d0c3dfaecd96ba8310a81" compoundref="_neat_8cs" startline="209" endline="226">MyNEAT.Genome.MutationChangeWeight</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_config_1a94bc13311b5f033beeb2acfe8086889d" prot="private" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Config.defaultConnWeightRange</definition>
+        <argsstring></argsstring>
+        <name>defaultConnWeightRange</name>
+        <initializer>= 5d</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="12" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="12" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_config_1a9d6bf07b21fda8ec787075c88339d33e" prot="private" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Config.defaultWeightChangeRange</definition>
+        <argsstring></argsstring>
+        <name>defaultWeightChangeRange</name>
+        <initializer>= 0.5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="13" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="13" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_config_1a7b9ab4544298aa03356bdbc9cb6a5c02" prot="private" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Config.defaultProbabilityOfMutation</definition>
+        <argsstring></argsstring>
+        <name>defaultProbabilityOfMutation</name>
+        <initializer>= 0.8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="14" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="14" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_config_1a9379840095db446778ae46aedbe7c56a" prot="private" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Config.defaultProbabilityOfResetWeight</definition>
+        <argsstring></argsstring>
+        <name>defaultProbabilityOfResetWeight</name>
+        <initializer>= 0.2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="15" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="15" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_config_1a2ebd4006a151d5e4a07f50574a2ce20c" prot="private" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Config.defaultProbabilityOfChangeWeight</definition>
+        <argsstring></argsstring>
+        <name>defaultProbabilityOfChangeWeight</name>
+        <initializer>= 0.6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="16" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="16" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_config_1a65ed1d54df08ee806d0cf5c2249e2ca8" prot="private" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Config.defaultProbabilityAddNeuron</definition>
+        <argsstring></argsstring>
+        <name>defaultProbabilityAddNeuron</name>
+        <initializer>= 0.2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="17" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="17" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_config_1a703a7e9022507907de2f39ac2af9ac9b" prot="private" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Config.defaultProbabilityRemoveNeuron</definition>
+        <argsstring></argsstring>
+        <name>defaultProbabilityRemoveNeuron</name>
+        <initializer>= 0.2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="18" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="18" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_config_1a20b28aefd52e69f92331e887a7c3be56" prot="private" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Config.defaultProbabilityAddConnection</definition>
+        <argsstring></argsstring>
+        <name>defaultProbabilityAddConnection</name>
+        <initializer>= 0.4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="19" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="19" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_config_1af5cf1b883205bd74464321ee2171ab3d" prot="private" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Config.defaultProbabilityRemoveConnection</definition>
+        <argsstring></argsstring>
+        <name>defaultProbabilityRemoveConnection</name>
+        <initializer>= 0.4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="20" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="20" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MyNEAT.Config.Config</definition>
+        <argsstring>()</argsstring>
+        <name>Config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="32" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="32" bodyend="46"/>
+        <references refid="class_my_n_e_a_t_1_1_config_1ac6ac78862f204406b0e1183f5fe1ae88" compoundref="_neat_8cs" startline="10">MyNEAT.Config.activationNormal</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1af826e4e7920798f90e1c19590cf576ee" compoundref="_neat_8cs" startline="9">MyNEAT.Config.activationOutp</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1a61a32fac87671fb3eabf259f2077d8f8" compoundref="_neat_8cs" startline="22">MyNEAT.Config.connWeightRange</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1a94bc13311b5f033beeb2acfe8086889d" compoundref="_neat_8cs" startline="12">MyNEAT.Config.defaultConnWeightRange</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1a20b28aefd52e69f92331e887a7c3be56" compoundref="_neat_8cs" startline="19">MyNEAT.Config.defaultProbabilityAddConnection</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1a65ed1d54df08ee806d0cf5c2249e2ca8" compoundref="_neat_8cs" startline="17">MyNEAT.Config.defaultProbabilityAddNeuron</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1a2ebd4006a151d5e4a07f50574a2ce20c" compoundref="_neat_8cs" startline="16">MyNEAT.Config.defaultProbabilityOfChangeWeight</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1a7b9ab4544298aa03356bdbc9cb6a5c02" compoundref="_neat_8cs" startline="14">MyNEAT.Config.defaultProbabilityOfMutation</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1a9379840095db446778ae46aedbe7c56a" compoundref="_neat_8cs" startline="15">MyNEAT.Config.defaultProbabilityOfResetWeight</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1af5cf1b883205bd74464321ee2171ab3d" compoundref="_neat_8cs" startline="20">MyNEAT.Config.defaultProbabilityRemoveConnection</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1a703a7e9022507907de2f39ac2af9ac9b" compoundref="_neat_8cs" startline="18">MyNEAT.Config.defaultProbabilityRemoveNeuron</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1a9d6bf07b21fda8ec787075c88339d33e" compoundref="_neat_8cs" startline="13">MyNEAT.Config.defaultWeightChangeRange</references>
+        <references refid="class_my_n_e_a_t_1_1_activation_functions_1a3b7625fc1bad96313f510e9f66d13e15" compoundref="_activation_functions_8cs" startline="14" endline="17">MyNEAT.ActivationFunctions.Linear</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1a9aa195a4a492126c7a1e6f4876b3c42f" compoundref="_neat_8cs" startline="23">MyNEAT.Config.probabilityAddConnection</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1a4da77c23b93b18aa23a002ba8f90634a" compoundref="_neat_8cs" startline="24">MyNEAT.Config.probabilityAddNeuron</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1ae602aa55ab6c712264cd1d2787ffa2df" compoundref="_neat_8cs" startline="25">MyNEAT.Config.probabilityOfChangeWeight</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1a3c5631c68970aefa2fd9ddc76d1e1d16" compoundref="_neat_8cs" startline="26">MyNEAT.Config.probabilityOfMutation</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1aed55801ea766c4555872787d5085f20e" compoundref="_neat_8cs" startline="27">MyNEAT.Config.probabilityOfResetWeight</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1abf03e52eb47ca823f941866f6bd4484f" compoundref="_neat_8cs" startline="28">MyNEAT.Config.probabilityRemoveConnection</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1afe42e7b52ca421eddb6a77d4e5523903" compoundref="_neat_8cs" startline="29">MyNEAT.Config.probabilityRemoveNeuron</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1ad5ad3c02be0612f9348e4e81db65667e" compoundref="_neat_8cs" startline="30">MyNEAT.Config.weightChangeRange</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>MyNEAT.ActivationFunctions</label>
+        <link refid="class_my_n_e_a_t_1_1_activation_functions"/>
+      </node>
+      <node id="3">
+        <label>MyNEAT.Config</label>
+        <link refid="class_my_n_e_a_t_1_1_config"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>activationNormal</edgelabel>
+          <edgelabel>activationOutp</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="8" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="7" bodyend="47"/>
+    <listofallmembers>
+      <member refid="class_my_n_e_a_t_1_1_config_1ac6ac78862f204406b0e1183f5fe1ae88" prot="public" virt="non-virtual"><scope>MyNEAT::Config</scope><name>activationNormal</name></member>
+      <member refid="class_my_n_e_a_t_1_1_config_1af826e4e7920798f90e1c19590cf576ee" prot="public" virt="non-virtual"><scope>MyNEAT::Config</scope><name>activationOutp</name></member>
+      <member refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" prot="public" virt="non-virtual"><scope>MyNEAT::Config</scope><name>Config</name></member>
+      <member refid="class_my_n_e_a_t_1_1_config_1a61a32fac87671fb3eabf259f2077d8f8" prot="public" virt="non-virtual"><scope>MyNEAT::Config</scope><name>connWeightRange</name></member>
+      <member refid="class_my_n_e_a_t_1_1_config_1a94bc13311b5f033beeb2acfe8086889d" prot="private" virt="non-virtual"><scope>MyNEAT::Config</scope><name>defaultConnWeightRange</name></member>
+      <member refid="class_my_n_e_a_t_1_1_config_1a20b28aefd52e69f92331e887a7c3be56" prot="private" virt="non-virtual"><scope>MyNEAT::Config</scope><name>defaultProbabilityAddConnection</name></member>
+      <member refid="class_my_n_e_a_t_1_1_config_1a65ed1d54df08ee806d0cf5c2249e2ca8" prot="private" virt="non-virtual"><scope>MyNEAT::Config</scope><name>defaultProbabilityAddNeuron</name></member>
+      <member refid="class_my_n_e_a_t_1_1_config_1a2ebd4006a151d5e4a07f50574a2ce20c" prot="private" virt="non-virtual"><scope>MyNEAT::Config</scope><name>defaultProbabilityOfChangeWeight</name></member>
+      <member refid="class_my_n_e_a_t_1_1_config_1a7b9ab4544298aa03356bdbc9cb6a5c02" prot="private" virt="non-virtual"><scope>MyNEAT::Config</scope><name>defaultProbabilityOfMutation</name></member>
+      <member refid="class_my_n_e_a_t_1_1_config_1a9379840095db446778ae46aedbe7c56a" prot="private" virt="non-virtual"><scope>MyNEAT::Config</scope><name>defaultProbabilityOfResetWeight</name></member>
+      <member refid="class_my_n_e_a_t_1_1_config_1af5cf1b883205bd74464321ee2171ab3d" prot="private" virt="non-virtual"><scope>MyNEAT::Config</scope><name>defaultProbabilityRemoveConnection</name></member>
+      <member refid="class_my_n_e_a_t_1_1_config_1a703a7e9022507907de2f39ac2af9ac9b" prot="private" virt="non-virtual"><scope>MyNEAT::Config</scope><name>defaultProbabilityRemoveNeuron</name></member>
+      <member refid="class_my_n_e_a_t_1_1_config_1a9d6bf07b21fda8ec787075c88339d33e" prot="private" virt="non-virtual"><scope>MyNEAT::Config</scope><name>defaultWeightChangeRange</name></member>
+      <member refid="class_my_n_e_a_t_1_1_config_1a9aa195a4a492126c7a1e6f4876b3c42f" prot="public" virt="non-virtual"><scope>MyNEAT::Config</scope><name>probabilityAddConnection</name></member>
+      <member refid="class_my_n_e_a_t_1_1_config_1a4da77c23b93b18aa23a002ba8f90634a" prot="public" virt="non-virtual"><scope>MyNEAT::Config</scope><name>probabilityAddNeuron</name></member>
+      <member refid="class_my_n_e_a_t_1_1_config_1ae602aa55ab6c712264cd1d2787ffa2df" prot="public" virt="non-virtual"><scope>MyNEAT::Config</scope><name>probabilityOfChangeWeight</name></member>
+      <member refid="class_my_n_e_a_t_1_1_config_1a3c5631c68970aefa2fd9ddc76d1e1d16" prot="public" virt="non-virtual"><scope>MyNEAT::Config</scope><name>probabilityOfMutation</name></member>
+      <member refid="class_my_n_e_a_t_1_1_config_1aed55801ea766c4555872787d5085f20e" prot="public" virt="non-virtual"><scope>MyNEAT::Config</scope><name>probabilityOfResetWeight</name></member>
+      <member refid="class_my_n_e_a_t_1_1_config_1abf03e52eb47ca823f941866f6bd4484f" prot="public" virt="non-virtual"><scope>MyNEAT::Config</scope><name>probabilityRemoveConnection</name></member>
+      <member refid="class_my_n_e_a_t_1_1_config_1afe42e7b52ca421eddb6a77d4e5523903" prot="public" virt="non-virtual"><scope>MyNEAT::Config</scope><name>probabilityRemoveNeuron</name></member>
+      <member refid="class_my_n_e_a_t_1_1_config_1ad5ad3c02be0612f9348e4e81db65667e" prot="public" virt="non-virtual"><scope>MyNEAT::Config</scope><name>weightChangeRange</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

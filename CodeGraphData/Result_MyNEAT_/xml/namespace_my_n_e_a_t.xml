@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_my_n_e_a_t" kind="namespace">
+    <compoundname>MyNEAT</compoundname>
+    <innerclass refid="class_my_n_e_a_t_1_1_activation_functions" prot="public">MyNEAT::ActivationFunctions</innerclass>
+    <innerclass refid="class_my_n_e_a_t_1_1_config" prot="public">MyNEAT::Config</innerclass>
+    <innerclass refid="class_my_n_e_a_t_1_1_g" prot="package">MyNEAT::G</innerclass>
+    <innerclass refid="class_my_n_e_a_t_1_1_g_neuron" prot="package">MyNEAT::GNeuron</innerclass>
+    <innerclass refid="class_my_n_e_a_t_1_1_g_connection" prot="package">MyNEAT::GConnection</innerclass>
+    <innerclass refid="class_my_n_e_a_t_1_1_genome" prot="public">MyNEAT::Genome</innerclass>
+    <innerclass refid="class_my_n_e_a_t_1_1_d_neuron" prot="package">MyNEAT::DNeuron</innerclass>
+    <innerclass refid="class_my_n_e_a_t_1_1_d_connection" prot="package">MyNEAT::DConnection</innerclass>
+    <innerclass refid="class_my_n_e_a_t_1_1_network" prot="public">MyNEAT::Network</innerclass>
+    <innerclass refid="class_my_n_e_a_t_1_1_depth_calculator" prot="package">MyNEAT::DepthCalculator</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/ActivationFunctions.cs" line="4" column="1"/>
+  </compounddef>
+</doxygen>

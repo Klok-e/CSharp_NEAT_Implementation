@@ -1,0 +1,558 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_my_n_e_a_t_1_1_genome" kind="class" prot="public">
+    <compoundname>MyNEAT::Genome</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_genome_1a32ba48842b5a97d5f9994e1fc8009661" prot="public" static="yes" mutable="no">
+        <type><ref refid="class_my_n_e_a_t_1_1_config" kindref="compound">Config</ref></type>
+        <definition>Config MyNEAT.Genome.conf</definition>
+        <argsstring></argsstring>
+        <name>conf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="124" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="124" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a1000e152b5a3478026e605475aa67e09" compoundref="_neat_8cs" startline="153" endline="197">MyNEAT.Genome.Genome</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a0544e280f6ae8f84198814bd63e1feb4" compoundref="_neat_8cs" startline="271" endline="286">MyNEAT.Genome.MutationAddConnection</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1adb7a9dd8c21d0c3dfaecd96ba8310a81" compoundref="_neat_8cs" startline="209" endline="226">MyNEAT.Genome.MutationChangeWeight</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_genome_1a4b747d7fd123c0493dc46fcb9fab50a6" prot="private" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int MyNEAT.Genome.geneIndex</definition>
+        <argsstring></argsstring>
+        <name>geneIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="126" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="126" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a1000e152b5a3478026e605475aa67e09" compoundref="_neat_8cs" startline="153" endline="197">MyNEAT.Genome.Genome</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a0544e280f6ae8f84198814bd63e1feb4" compoundref="_neat_8cs" startline="271" endline="286">MyNEAT.Genome.MutationAddConnection</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a85489e02e1c4af0bc6d8bde999c4a837" compoundref="_neat_8cs" startline="228" endline="250">MyNEAT.Genome.MutationAddNeuron</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-attrib">
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_genome_1a658c60f7a5c99e84f7343f099dec0785" prot="package" static="no" mutable="no">
+        <type>List&lt; <ref refid="class_my_n_e_a_t_1_1_g_connection" kindref="compound">GConnection</ref> &gt;</type>
+        <definition>List&lt;GConnection&gt; MyNEAT.Genome.connections</definition>
+        <argsstring></argsstring>
+        <name>connections</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="127" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="127" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a78ffe528424f57b267742984de5f5f96" compoundref="_neat_8cs" startline="307" endline="316">MyNEAT.Genome.CreateOffSpring</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a953a1c2a6f4918c5135c4502dfb9f15b" compoundref="_neat_8cs" startline="337" endline="427">MyNEAT.Genome.Crossover</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a1000e152b5a3478026e605475aa67e09" compoundref="_neat_8cs" startline="153" endline="197">MyNEAT.Genome.Genome</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a0544e280f6ae8f84198814bd63e1feb4" compoundref="_neat_8cs" startline="271" endline="286">MyNEAT.Genome.MutationAddConnection</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a85489e02e1c4af0bc6d8bde999c4a837" compoundref="_neat_8cs" startline="228" endline="250">MyNEAT.Genome.MutationAddNeuron</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1adb7a9dd8c21d0c3dfaecd96ba8310a81" compoundref="_neat_8cs" startline="209" endline="226">MyNEAT.Genome.MutationChangeWeight</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a1279e56272fd10b921926ef031a6b308" compoundref="_neat_8cs" startline="288" endline="297">MyNEAT.Genome.MutationRemoveConnection</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a67092827729f073d5b8fb6e6f514a211" compoundref="_neat_8cs" startline="252" endline="269">MyNEAT.Genome.MutationRemoveNeuron</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1aabd259a6a73301de50fbd9e30c7b53c2" compoundref="_neat_8cs" startline="132" endline="142">MyNEAT.Genome.ToString</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_genome_1a4b07b01757584ec6b946b3b9b37903bb" prot="package" static="no" mutable="no">
+        <type>List&lt; <ref refid="class_my_n_e_a_t_1_1_g_neuron" kindref="compound">GNeuron</ref> &gt;</type>
+        <definition>List&lt;GNeuron&gt; MyNEAT.Genome.neurons</definition>
+        <argsstring></argsstring>
+        <name>neurons</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="130" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="130" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a78ffe528424f57b267742984de5f5f96" compoundref="_neat_8cs" startline="307" endline="316">MyNEAT.Genome.CreateOffSpring</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a953a1c2a6f4918c5135c4502dfb9f15b" compoundref="_neat_8cs" startline="337" endline="427">MyNEAT.Genome.Crossover</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a1000e152b5a3478026e605475aa67e09" compoundref="_neat_8cs" startline="153" endline="197">MyNEAT.Genome.Genome</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a4b14f63c915dfdaf2b7a460d91cc1551" compoundref="_neat_8cs" startline="445" endline="451">MyNEAT.Genome.IsGWithIdExistsInList</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a67092827729f073d5b8fb6e6f514a211" compoundref="_neat_8cs" startline="252" endline="269">MyNEAT.Genome.MutationRemoveNeuron</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_network_1a3cb0d102d6697937239f89e24cbeca59" compoundref="_neat_8cs" startline="604" endline="660">MyNEAT.Network.Network</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1aabd259a6a73301de50fbd9e30c7b53c2" compoundref="_neat_8cs" startline="132" endline="142">MyNEAT.Genome.ToString</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_genome_1a38caabb5c342abe6f7752fac71d96b1b" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float MyNEAT.Genome.fitness</definition>
+        <argsstring></argsstring>
+        <name>fitness</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="128" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_genome_1aabd259a6a73301de50fbd9e30c7b53c2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override string</type>
+        <definition>override string MyNEAT.Genome.ToString</definition>
+        <argsstring>()</argsstring>
+        <name>ToString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="132" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="132" bodyend="142"/>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a658c60f7a5c99e84f7343f099dec0785" compoundref="_neat_8cs" startline="127">MyNEAT.Genome.connections</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a4b07b01757584ec6b946b3b9b37903bb" compoundref="_neat_8cs" startline="130">MyNEAT.Genome.neurons</references>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_genome_1a58f386a06fe5a8a815507badb463bfec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int MyNEAT.Genome.GetComplexity</definition>
+        <argsstring>()</argsstring>
+        <name>GetComplexity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="144" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="144" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_genome_1a1000e152b5a3478026e605475aa67e09" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MyNEAT.Genome.Genome</definition>
+        <argsstring>(int inputs, int outputs)</argsstring>
+        <name>Genome</name>
+        <param>
+          <type>int</type>
+          <declname>inputs</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>outputs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="153" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="153" bodyend="197"/>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a32ba48842b5a97d5f9994e1fc8009661" compoundref="_neat_8cs" startline="124">MyNEAT.Genome.conf</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a658c60f7a5c99e84f7343f099dec0785" compoundref="_neat_8cs" startline="127">MyNEAT.Genome.connections</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1a61a32fac87671fb3eabf259f2077d8f8" compoundref="_neat_8cs" startline="22">MyNEAT.Config.connWeightRange</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a4b747d7fd123c0493dc46fcb9fab50a6" compoundref="_neat_8cs" startline="126">MyNEAT.Genome.geneIndex</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a4b07b01757584ec6b946b3b9b37903bb" compoundref="_neat_8cs" startline="130">MyNEAT.Genome.neurons</references>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_genome_1a8582c24fa76f084496b343dfa2c5fc49" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MyNEAT.Genome.Genome</definition>
+        <argsstring>()</argsstring>
+        <name>Genome</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="200" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="200" bodyend="203"/>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a32ba48842b5a97d5f9994e1fc8009661" compoundref="_neat_8cs" startline="124">MyNEAT.Genome.conf</references>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a78ffe528424f57b267742984de5f5f96" compoundref="_neat_8cs" startline="307" endline="316">MyNEAT.Genome.CreateOffSpring</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a953a1c2a6f4918c5135c4502dfb9f15b" compoundref="_neat_8cs" startline="337" endline="427">MyNEAT.Genome.Crossover</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_genome_1a78ffe528424f57b267742984de5f5f96" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_my_n_e_a_t_1_1_genome" kindref="compound">Genome</ref></type>
+        <definition>Genome MyNEAT.Genome.CreateOffSpring</definition>
+        <argsstring>(Random generator)</argsstring>
+        <name>CreateOffSpring</name>
+        <param>
+          <type>Random</type>
+          <declname>generator</declname>
+        </param>
+        <briefdescription>
+<para>Asexual reproduction </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="307" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="307" bodyend="316"/>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a658c60f7a5c99e84f7343f099dec0785" compoundref="_neat_8cs" startline="127">MyNEAT.Genome.connections</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a8582c24fa76f084496b343dfa2c5fc49" compoundref="_neat_8cs" startline="200" endline="203">MyNEAT.Genome.Genome</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a1a6765fd654130fbb94071db7bfda673" compoundref="_neat_8cs" startline="429" endline="443">MyNEAT.Genome.Mutate</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a4b07b01757584ec6b946b3b9b37903bb" compoundref="_neat_8cs" startline="130">MyNEAT.Genome.neurons</references>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_genome_1a87adf958e8e0a58e33f643c6367eea33" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_my_n_e_a_t_1_1_genome" kindref="compound">Genome</ref></type>
+        <definition>Genome MyNEAT.Genome.CreateOffSpring</definition>
+        <argsstring>(Random generator, Genome otherParent)</argsstring>
+        <name>CreateOffSpring</name>
+        <param>
+          <type>Random</type>
+          <declname>generator</declname>
+        </param>
+        <param>
+          <type><ref refid="class_my_n_e_a_t_1_1_genome" kindref="compound">Genome</ref></type>
+          <declname>otherParent</declname>
+        </param>
+        <briefdescription>
+<para>Sexual reproduction </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>generator</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>otherParent</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="324" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="324" bodyend="331"/>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a953a1c2a6f4918c5135c4502dfb9f15b" compoundref="_neat_8cs" startline="337" endline="427">MyNEAT.Genome.Crossover</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a1a6765fd654130fbb94071db7bfda673" compoundref="_neat_8cs" startline="429" endline="443">MyNEAT.Genome.Mutate</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_genome_1adb7a9dd8c21d0c3dfaecd96ba8310a81" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_my_n_e_a_t_1_1_genome" kindref="compound">Genome</ref></type>
+        <definition>static Genome MyNEAT.Genome.MutationChangeWeight</definition>
+        <argsstring>(Random generator, Genome genome)</argsstring>
+        <name>MutationChangeWeight</name>
+        <param>
+          <type>Random</type>
+          <declname>generator</declname>
+        </param>
+        <param>
+          <type><ref refid="class_my_n_e_a_t_1_1_genome" kindref="compound">Genome</ref></type>
+          <declname>genome</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="209" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="209" bodyend="226"/>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a32ba48842b5a97d5f9994e1fc8009661" compoundref="_neat_8cs" startline="124">MyNEAT.Genome.conf</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a658c60f7a5c99e84f7343f099dec0785" compoundref="_neat_8cs" startline="127">MyNEAT.Genome.connections</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1a61a32fac87671fb3eabf259f2077d8f8" compoundref="_neat_8cs" startline="22">MyNEAT.Config.connWeightRange</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1ad5ad3c02be0612f9348e4e81db65667e" compoundref="_neat_8cs" startline="30">MyNEAT.Config.weightChangeRange</references>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a1a6765fd654130fbb94071db7bfda673" compoundref="_neat_8cs" startline="429" endline="443">MyNEAT.Genome.Mutate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_genome_1a85489e02e1c4af0bc6d8bde999c4a837" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_my_n_e_a_t_1_1_genome" kindref="compound">Genome</ref></type>
+        <definition>static Genome MyNEAT.Genome.MutationAddNeuron</definition>
+        <argsstring>(Random generator, Genome genome)</argsstring>
+        <name>MutationAddNeuron</name>
+        <param>
+          <type>Random</type>
+          <declname>generator</declname>
+        </param>
+        <param>
+          <type><ref refid="class_my_n_e_a_t_1_1_genome" kindref="compound">Genome</ref></type>
+          <declname>genome</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="228" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="228" bodyend="250"/>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a658c60f7a5c99e84f7343f099dec0785" compoundref="_neat_8cs" startline="127">MyNEAT.Genome.connections</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a4b747d7fd123c0493dc46fcb9fab50a6" compoundref="_neat_8cs" startline="126">MyNEAT.Genome.geneIndex</references>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a1a6765fd654130fbb94071db7bfda673" compoundref="_neat_8cs" startline="429" endline="443">MyNEAT.Genome.Mutate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_genome_1a67092827729f073d5b8fb6e6f514a211" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_my_n_e_a_t_1_1_genome" kindref="compound">Genome</ref></type>
+        <definition>static Genome MyNEAT.Genome.MutationRemoveNeuron</definition>
+        <argsstring>(Random generator, Genome genome)</argsstring>
+        <name>MutationRemoveNeuron</name>
+        <param>
+          <type>Random</type>
+          <declname>generator</declname>
+        </param>
+        <param>
+          <type><ref refid="class_my_n_e_a_t_1_1_genome" kindref="compound">Genome</ref></type>
+          <declname>genome</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="252" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="252" bodyend="269"/>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a658c60f7a5c99e84f7343f099dec0785" compoundref="_neat_8cs" startline="127">MyNEAT.Genome.connections</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a31aab2040003c97f0c77d250642fb8e9" compoundref="_neat_8cs" startline="461" endline="473">MyNEAT.Genome.FindAmountOfInAndOutConnectionsForNeuronWithId</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a4b07b01757584ec6b946b3b9b37903bb" compoundref="_neat_8cs" startline="130">MyNEAT.Genome.neurons</references>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a1a6765fd654130fbb94071db7bfda673" compoundref="_neat_8cs" startline="429" endline="443">MyNEAT.Genome.Mutate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_genome_1a0544e280f6ae8f84198814bd63e1feb4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_my_n_e_a_t_1_1_genome" kindref="compound">Genome</ref></type>
+        <definition>static Genome MyNEAT.Genome.MutationAddConnection</definition>
+        <argsstring>(Random generator, Genome genome)</argsstring>
+        <name>MutationAddConnection</name>
+        <param>
+          <type>Random</type>
+          <declname>generator</declname>
+        </param>
+        <param>
+          <type><ref refid="class_my_n_e_a_t_1_1_genome" kindref="compound">Genome</ref></type>
+          <declname>genome</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="271" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="271" bodyend="286"/>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a32ba48842b5a97d5f9994e1fc8009661" compoundref="_neat_8cs" startline="124">MyNEAT.Genome.conf</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a658c60f7a5c99e84f7343f099dec0785" compoundref="_neat_8cs" startline="127">MyNEAT.Genome.connections</references>
+        <references refid="class_my_n_e_a_t_1_1_config_1a61a32fac87671fb3eabf259f2077d8f8" compoundref="_neat_8cs" startline="22">MyNEAT.Config.connWeightRange</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a4b747d7fd123c0493dc46fcb9fab50a6" compoundref="_neat_8cs" startline="126">MyNEAT.Genome.geneIndex</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a2b4a0919b14f5462f3b85b40c69316f4" compoundref="_neat_8cs" startline="475" endline="487">MyNEAT.Genome.GetListOfInAndOutConnections</references>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a1a6765fd654130fbb94071db7bfda673" compoundref="_neat_8cs" startline="429" endline="443">MyNEAT.Genome.Mutate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_genome_1a1279e56272fd10b921926ef031a6b308" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_my_n_e_a_t_1_1_genome" kindref="compound">Genome</ref></type>
+        <definition>static Genome MyNEAT.Genome.MutationRemoveConnection</definition>
+        <argsstring>(Random generator, Genome genome)</argsstring>
+        <name>MutationRemoveConnection</name>
+        <param>
+          <type>Random</type>
+          <declname>generator</declname>
+        </param>
+        <param>
+          <type><ref refid="class_my_n_e_a_t_1_1_genome" kindref="compound">Genome</ref></type>
+          <declname>genome</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="288" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="288" bodyend="297"/>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a658c60f7a5c99e84f7343f099dec0785" compoundref="_neat_8cs" startline="127">MyNEAT.Genome.connections</references>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a1a6765fd654130fbb94071db7bfda673" compoundref="_neat_8cs" startline="429" endline="443">MyNEAT.Genome.Mutate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_genome_1a953a1c2a6f4918c5135c4502dfb9f15b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_my_n_e_a_t_1_1_genome" kindref="compound">Genome</ref></type>
+        <definition>static Genome MyNEAT.Genome.Crossover</definition>
+        <argsstring>(Random generator, Genome parent1, Genome parent2)</argsstring>
+        <name>Crossover</name>
+        <param>
+          <type>Random</type>
+          <declname>generator</declname>
+        </param>
+        <param>
+          <type><ref refid="class_my_n_e_a_t_1_1_genome" kindref="compound">Genome</ref></type>
+          <declname>parent1</declname>
+        </param>
+        <param>
+          <type><ref refid="class_my_n_e_a_t_1_1_genome" kindref="compound">Genome</ref></type>
+          <declname>parent2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="337" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="337" bodyend="427"/>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a658c60f7a5c99e84f7343f099dec0785" compoundref="_neat_8cs" startline="127">MyNEAT.Genome.connections</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a8582c24fa76f084496b343dfa2c5fc49" compoundref="_neat_8cs" startline="200" endline="203">MyNEAT.Genome.Genome</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a4b14f63c915dfdaf2b7a460d91cc1551" compoundref="_neat_8cs" startline="445" endline="451">MyNEAT.Genome.IsGWithIdExistsInList</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a4b07b01757584ec6b946b3b9b37903bb" compoundref="_neat_8cs" startline="130">MyNEAT.Genome.neurons</references>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a87adf958e8e0a58e33f643c6367eea33" compoundref="_neat_8cs" startline="324" endline="331">MyNEAT.Genome.CreateOffSpring</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_genome_1a1a6765fd654130fbb94071db7bfda673" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_my_n_e_a_t_1_1_genome" kindref="compound">Genome</ref></type>
+        <definition>static Genome MyNEAT.Genome.Mutate</definition>
+        <argsstring>(Random generator, Genome toMutate)</argsstring>
+        <name>Mutate</name>
+        <param>
+          <type>Random</type>
+          <declname>generator</declname>
+        </param>
+        <param>
+          <type><ref refid="class_my_n_e_a_t_1_1_genome" kindref="compound">Genome</ref></type>
+          <declname>toMutate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="429" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="429" bodyend="443"/>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a0544e280f6ae8f84198814bd63e1feb4" compoundref="_neat_8cs" startline="271" endline="286">MyNEAT.Genome.MutationAddConnection</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a85489e02e1c4af0bc6d8bde999c4a837" compoundref="_neat_8cs" startline="228" endline="250">MyNEAT.Genome.MutationAddNeuron</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1adb7a9dd8c21d0c3dfaecd96ba8310a81" compoundref="_neat_8cs" startline="209" endline="226">MyNEAT.Genome.MutationChangeWeight</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a1279e56272fd10b921926ef031a6b308" compoundref="_neat_8cs" startline="288" endline="297">MyNEAT.Genome.MutationRemoveConnection</references>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a67092827729f073d5b8fb6e6f514a211" compoundref="_neat_8cs" startline="252" endline="269">MyNEAT.Genome.MutationRemoveNeuron</references>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a78ffe528424f57b267742984de5f5f96" compoundref="_neat_8cs" startline="307" endline="316">MyNEAT.Genome.CreateOffSpring</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-static-func">
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_genome_1a4b14f63c915dfdaf2b7a460d91cc1551" prot="package" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool MyNEAT.Genome.IsGWithIdExistsInList</definition>
+        <argsstring>(List&lt; GNeuron &gt; neurons, int id)</argsstring>
+        <name>IsGWithIdExistsInList</name>
+        <param>
+          <type>List&lt; <ref refid="class_my_n_e_a_t_1_1_g_neuron" kindref="compound">GNeuron</ref> &gt;</type>
+          <declname>neurons</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="445" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="445" bodyend="451"/>
+        <references refid="class_my_n_e_a_t_1_1_genome_1a4b07b01757584ec6b946b3b9b37903bb" compoundref="_neat_8cs" startline="130">MyNEAT.Genome.neurons</references>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a953a1c2a6f4918c5135c4502dfb9f15b" compoundref="_neat_8cs" startline="337" endline="427">MyNEAT.Genome.Crossover</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_genome_1a63efb52c29489c11a25896e8909ad8db" prot="package" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool MyNEAT.Genome.IsGWithIdExistsInList</definition>
+        <argsstring>(List&lt; GConnection &gt; conns, int id)</argsstring>
+        <name>IsGWithIdExistsInList</name>
+        <param>
+          <type>List&lt; <ref refid="class_my_n_e_a_t_1_1_g_connection" kindref="compound">GConnection</ref> &gt;</type>
+          <declname>conns</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="453" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="453" bodyend="459"/>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_genome_1a31aab2040003c97f0c77d250642fb8e9" prot="package" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int[]</type>
+        <definition>static int [] MyNEAT.Genome.FindAmountOfInAndOutConnectionsForNeuronWithId</definition>
+        <argsstring>(List&lt; GConnection &gt; connectionList, int id)</argsstring>
+        <name>FindAmountOfInAndOutConnectionsForNeuronWithId</name>
+        <param>
+          <type>List&lt; <ref refid="class_my_n_e_a_t_1_1_g_connection" kindref="compound">GConnection</ref> &gt;</type>
+          <declname>connectionList</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="461" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="461" bodyend="473"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a67092827729f073d5b8fb6e6f514a211" compoundref="_neat_8cs" startline="252" endline="269">MyNEAT.Genome.MutationRemoveNeuron</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_genome_1a2b4a0919b14f5462f3b85b40c69316f4" prot="package" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="class_my_n_e_a_t_1_1_g_connection" kindref="compound">GConnection</ref> &gt;[]</type>
+        <definition>static List&lt;GConnection&gt; [] MyNEAT.Genome.GetListOfInAndOutConnections</definition>
+        <argsstring>(List&lt; GConnection &gt; connectionList, int id)</argsstring>
+        <name>GetListOfInAndOutConnections</name>
+        <param>
+          <type>List&lt; <ref refid="class_my_n_e_a_t_1_1_g_connection" kindref="compound">GConnection</ref> &gt;</type>
+          <declname>connectionList</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="475" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="475" bodyend="487"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_genome_1a0544e280f6ae8f84198814bd63e1feb4" compoundref="_neat_8cs" startline="271" endline="286">MyNEAT.Genome.MutationAddConnection</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="25">
+        <label>MyNEAT.ActivationFunctions</label>
+        <link refid="class_my_n_e_a_t_1_1_activation_functions"/>
+      </node>
+      <node id="24">
+        <label>MyNEAT.Config</label>
+        <link refid="class_my_n_e_a_t_1_1_config"/>
+        <childnode refid="25" relation="usage">
+          <edgelabel>activationNormal</edgelabel>
+          <edgelabel>activationOutp</edgelabel>
+        </childnode>
+      </node>
+      <node id="23">
+        <label>MyNEAT.Genome</label>
+        <link refid="class_my_n_e_a_t_1_1_genome"/>
+        <childnode refid="24" relation="usage">
+          <edgelabel>conf</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="123" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="122" bodyend="490"/>
+    <listofallmembers>
+      <member refid="class_my_n_e_a_t_1_1_genome_1a32ba48842b5a97d5f9994e1fc8009661" prot="public" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>conf</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1a658c60f7a5c99e84f7343f099dec0785" prot="package" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>connections</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1a78ffe528424f57b267742984de5f5f96" prot="public" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>CreateOffSpring</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1a87adf958e8e0a58e33f643c6367eea33" prot="public" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>CreateOffSpring</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1a953a1c2a6f4918c5135c4502dfb9f15b" prot="public" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>Crossover</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1a31aab2040003c97f0c77d250642fb8e9" prot="package" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>FindAmountOfInAndOutConnectionsForNeuronWithId</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1a38caabb5c342abe6f7752fac71d96b1b" prot="public" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>fitness</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1a4b747d7fd123c0493dc46fcb9fab50a6" prot="private" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>geneIndex</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1a1000e152b5a3478026e605475aa67e09" prot="public" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>Genome</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1a8582c24fa76f084496b343dfa2c5fc49" prot="public" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>Genome</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1a58f386a06fe5a8a815507badb463bfec" prot="public" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>GetComplexity</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1a2b4a0919b14f5462f3b85b40c69316f4" prot="package" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>GetListOfInAndOutConnections</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1a4b14f63c915dfdaf2b7a460d91cc1551" prot="package" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>IsGWithIdExistsInList</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1a63efb52c29489c11a25896e8909ad8db" prot="package" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>IsGWithIdExistsInList</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1a1a6765fd654130fbb94071db7bfda673" prot="public" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>Mutate</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1a0544e280f6ae8f84198814bd63e1feb4" prot="public" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>MutationAddConnection</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1a85489e02e1c4af0bc6d8bde999c4a837" prot="public" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>MutationAddNeuron</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1adb7a9dd8c21d0c3dfaecd96ba8310a81" prot="public" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>MutationChangeWeight</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1a1279e56272fd10b921926ef031a6b308" prot="public" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>MutationRemoveConnection</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1a67092827729f073d5b8fb6e6f514a211" prot="public" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>MutationRemoveNeuron</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1a4b07b01757584ec6b946b3b9b37903bb" prot="package" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>neurons</name></member>
+      <member refid="class_my_n_e_a_t_1_1_genome_1aabd259a6a73301de50fbd9e30c7b53c2" prot="public" virt="non-virtual"><scope>MyNEAT::Genome</scope><name>ToString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

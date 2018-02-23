@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_my_n_e_a_t_1_1_d_connection" kind="class" prot="package">
+    <compoundname>MyNEAT::DConnection</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_d_connection_1a1876b2d3de8020a09cc96d3e2c674e1a" prot="public" static="no" mutable="no">
+        <type><ref refid="class_my_n_e_a_t_1_1_d_neuron" kindref="compound">DNeuron</ref></type>
+        <definition>DNeuron MyNEAT.DConnection.toNeuron</definition>
+        <argsstring></argsstring>
+        <name>toNeuron</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="593" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="593" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_d_connection_1aef6bfc657b0129f39219707de2d60cef" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MyNEAT.DConnection.weight</definition>
+        <argsstring></argsstring>
+        <name>weight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="594" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="594" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="7">
+        <label>MyNEAT.DNeuron</label>
+        <link refid="class_my_n_e_a_t_1_1_d_neuron"/>
+        <childnode refid="8" relation="usage">
+          <edgelabel>normalActivation</edgelabel>
+          <edgelabel>outpActivation</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>MyNEAT.ActivationFunctions</label>
+        <link refid="class_my_n_e_a_t_1_1_activation_functions"/>
+      </node>
+      <node id="6">
+        <label>MyNEAT.DConnection</label>
+        <link refid="class_my_n_e_a_t_1_1_d_connection"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>toNeuron</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="592" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="591" bodyend="595"/>
+    <listofallmembers>
+      <member refid="class_my_n_e_a_t_1_1_d_connection_1a1876b2d3de8020a09cc96d3e2c674e1a" prot="public" virt="non-virtual"><scope>MyNEAT::DConnection</scope><name>toNeuron</name></member>
+      <member refid="class_my_n_e_a_t_1_1_d_connection_1aef6bfc657b0129f39219707de2d60cef" prot="public" virt="non-virtual"><scope>MyNEAT::DConnection</scope><name>weight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

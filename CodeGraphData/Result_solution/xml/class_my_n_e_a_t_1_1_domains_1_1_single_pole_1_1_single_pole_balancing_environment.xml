@@ -1,0 +1,407 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment" kind="class" prot="public">
+    <compoundname>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a9797224d103234277577d5f0a2d1352d" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment.Gravity</definition>
+        <argsstring></argsstring>
+        <name>Gravity</name>
+        <initializer>= 9.8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="84" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1add3f1c5ca1a4735280e5e45ee1148e04" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment.MassCart</definition>
+        <argsstring></argsstring>
+        <name>MassCart</name>
+        <initializer>= 1.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="86" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1ac3e10ac8962bb88fef08c46bd3915278" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment.MassPole</definition>
+        <argsstring></argsstring>
+        <name>MassPole</name>
+        <initializer>= 0.1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="87" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1abff6e845bf31462aed6d17553eef5f31" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment.TotalMass</definition>
+        <argsstring></argsstring>
+        <name>TotalMass</name>
+        <initializer>= <ref refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1ac3e10ac8962bb88fef08c46bd3915278" kindref="member">MassPole</ref> + <ref refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1add3f1c5ca1a4735280e5e45ee1148e04" kindref="member">MassCart</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="88" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a1cf78c41b3c5ec0563792ec69f927e50" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment.Length</definition>
+        <argsstring></argsstring>
+        <name>Length</name>
+        <initializer>= 0.5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="89" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a8cd76ef209008630b93b1db51ff57495" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment.PoleMassLength</definition>
+        <argsstring></argsstring>
+        <name>PoleMassLength</name>
+        <initializer>= <ref refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1ac3e10ac8962bb88fef08c46bd3915278" kindref="member">MassPole</ref> * <ref refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a1cf78c41b3c5ec0563792ec69f927e50" kindref="member">Length</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="90" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1aac4b9353088625f693709b62805d6e5b" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment.ForceMag</definition>
+        <argsstring></argsstring>
+        <name>ForceMag</name>
+        <initializer>= 10.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="91" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a87f7cc624e230cbe514b80d106b87894" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment.TimeDelta</definition>
+        <argsstring></argsstring>
+        <name>TimeDelta</name>
+        <initializer>= 0.02</initializer>
+        <briefdescription>
+<para>Time increment interval in seconds.</para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="94" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1aee75d7ba62bb8567a1758cd90020b121" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment.FourThirds</definition>
+        <argsstring></argsstring>
+        <name>FourThirds</name>
+        <initializer>= 4.0 / 3.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="96" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a4f013456bc55d29173cdc72a0847ca6d" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment.OneDegree</definition>
+        <argsstring></argsstring>
+        <name>OneDegree</name>
+        <initializer>= Math.PI / 180.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="99" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a9dcc8ac9861e9eca6753eaf7f8baef60" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment.SixDegrees</definition>
+        <argsstring></argsstring>
+        <name>SixDegrees</name>
+        <initializer>= Math.PI / 30.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="101" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1ace464c30c85b9b1d0febd0940e54c977" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment.TwelveDegrees</definition>
+        <argsstring></argsstring>
+        <name>TwelveDegrees</name>
+        <initializer>= Math.PI / 15.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="102" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a7a3c839c46b83578c33b34650cc28cab" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment.TwentyFourDegrees</definition>
+        <argsstring></argsstring>
+        <name>TwentyFourDegrees</name>
+        <initializer>= Math.PI / 7.5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="103" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1ab896398cbbafb0c71fe14f0eaef432b7" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment.ThirtySixDegrees</definition>
+        <argsstring></argsstring>
+        <name>ThirtySixDegrees</name>
+        <initializer>= Math.PI / 5.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="104" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1acd4d89c667442af7da5161067714915a" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment.FiftyDegrees</definition>
+        <argsstring></argsstring>
+        <name>FiftyDegrees</name>
+        <initializer>= Math.PI / 3.6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="105" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a30f5b7369af4610e35bec72a4ca7abad" prot="public" static="no" mutable="no">
+        <type><ref refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data" kindref="compound">SinglePoleStateData</ref></type>
+        <definition>SinglePoleStateData MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment.currState</definition>
+        <argsstring></argsstring>
+        <name>currState</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="112" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1aca4454fd5d04fd197a8021c4599ba249" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment._trackLength</definition>
+        <argsstring></argsstring>
+        <name>_trackLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="116" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a44f32721471848b7b7ec9f2bad6ba1c5" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment._trackLengthHalf</definition>
+        <argsstring></argsstring>
+        <name>_trackLengthHalf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="117" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a0c8551e671cb02ef2e8b326918c49674" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment._maxTimesteps</definition>
+        <argsstring></argsstring>
+        <name>_maxTimesteps</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="118" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a1e5baa5600ea57955051dddc2df2952a" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment._poleAngleThreshold</definition>
+        <argsstring></argsstring>
+        <name>_poleAngleThreshold</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="119" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a0d2f44a5e7eee2aaca7f92b38fdfc566" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment.stepsPassed</definition>
+        <argsstring></argsstring>
+        <name>stepsPassed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="114" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a03c6fd31e6afe1eeea5d411062cbdc83" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data" kindref="compound">SinglePoleStateData</ref></type>
+        <definition>SinglePoleStateData MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment.SimulateTimestep</definition>
+        <argsstring>(bool action)</argsstring>
+        <name>SimulateTimestep</name>
+        <param>
+          <type>bool</type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+<para>Calculates a state update for the next timestep using current model state and a single &apos;action&apos; from the controller. The action specifies if the controller is pushing the cart left or right. Note that this is a binary action and therefore full force is always applied to the cart in some direction. This is the standard model for the single pole balancing task. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>action</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>push direction, left(false) or right(true). Force magnitude is fixed.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="49" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="49" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1ab7630a1fd5853bd4bd88553aae691fa3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment.SinglePoleBalancingEnvironment</definition>
+        <argsstring>()</argsstring>
+        <name>SinglePoleBalancingEnvironment</name>
+        <briefdescription>
+<para>Construct evaluator with default task arguments/variables. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="128" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="128" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a90907184e302e89ef233468b76f21f7e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment.SinglePoleBalancingEnvironment</definition>
+        <argsstring>(double trackLength, int maxTimesteps, double poleAngleThreshold)</argsstring>
+        <name>SinglePoleBalancingEnvironment</name>
+        <param>
+          <type>double</type>
+          <declname>trackLength</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>maxTimesteps</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>poleAngleThreshold</declname>
+        </param>
+        <briefdescription>
+<para>Construct evaluator with the provided task arguments/variables. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="135" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="135" bodyend="144"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="36">
+        <label>MyNEAT.Domains.SinglePole.SinglePoleStateData</label>
+        <link refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data"/>
+      </node>
+      <node id="35">
+        <label>MyNEAT.Domains.SinglePole.SinglePoleBalancingEnvironment</label>
+        <link refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment"/>
+        <childnode refid="36" relation="usage">
+          <edgelabel>currState</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="41" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" bodystart="40" bodyend="147"/>
+    <listofallmembers>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a0c8551e671cb02ef2e8b326918c49674" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>_maxTimesteps</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a1e5baa5600ea57955051dddc2df2952a" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>_poleAngleThreshold</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1aca4454fd5d04fd197a8021c4599ba249" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>_trackLength</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a44f32721471848b7b7ec9f2bad6ba1c5" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>_trackLengthHalf</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a30f5b7369af4610e35bec72a4ca7abad" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>currState</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1acd4d89c667442af7da5161067714915a" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>FiftyDegrees</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1aac4b9353088625f693709b62805d6e5b" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>ForceMag</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1aee75d7ba62bb8567a1758cd90020b121" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>FourThirds</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a9797224d103234277577d5f0a2d1352d" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>Gravity</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a1cf78c41b3c5ec0563792ec69f927e50" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>Length</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1add3f1c5ca1a4735280e5e45ee1148e04" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>MassCart</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1ac3e10ac8962bb88fef08c46bd3915278" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>MassPole</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a4f013456bc55d29173cdc72a0847ca6d" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>OneDegree</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a8cd76ef209008630b93b1db51ff57495" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>PoleMassLength</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a03c6fd31e6afe1eeea5d411062cbdc83" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>SimulateTimestep</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1ab7630a1fd5853bd4bd88553aae691fa3" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>SinglePoleBalancingEnvironment</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a90907184e302e89ef233468b76f21f7e" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>SinglePoleBalancingEnvironment</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a9dcc8ac9861e9eca6753eaf7f8baef60" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>SixDegrees</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a0d2f44a5e7eee2aaca7f92b38fdfc566" prot="private" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>stepsPassed</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1ab896398cbbafb0c71fe14f0eaef432b7" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>ThirtySixDegrees</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a87f7cc624e230cbe514b80d106b87894" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>TimeDelta</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1abff6e845bf31462aed6d17553eef5f31" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>TotalMass</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1ace464c30c85b9b1d0febd0940e54c977" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>TwelveDegrees</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a7a3c839c46b83578c33b34650cc28cab" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</scope><name>TwentyFourDegrees</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

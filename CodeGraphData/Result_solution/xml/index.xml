@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.6">
+  <compound refid="class_my_n_e_a_t_1_1_activation_functions" kind="class"><name>MyNEAT::ActivationFunctions</name>
+    <member refid="class_my_n_e_a_t_1_1_activation_functions_1a2b0772db4f64544b3f774a961294b5dd" kind="function"><name>ActivationFunction</name></member>
+    <member refid="class_my_n_e_a_t_1_1_activation_functions_1af3ab42b6849ae36a053edb845f70e6e4" kind="function"><name>Tanh</name></member>
+    <member refid="class_my_n_e_a_t_1_1_activation_functions_1a3b7625fc1bad96313f510e9f66d13e15" kind="function"><name>Linear</name></member>
+  </compound>
+  <compound refid="class_my_n_e_a_t_1_1_config" kind="class"><name>MyNEAT::Config</name>
+    <member refid="class_my_n_e_a_t_1_1_config_1af826e4e7920798f90e1c19590cf576ee" kind="variable"><name>activationOutp</name></member>
+    <member refid="class_my_n_e_a_t_1_1_config_1ac6ac78862f204406b0e1183f5fe1ae88" kind="variable"><name>activationNormal</name></member>
+    <member refid="class_my_n_e_a_t_1_1_config_1a61a32fac87671fb3eabf259f2077d8f8" kind="variable"><name>connWeightRange</name></member>
+    <member refid="class_my_n_e_a_t_1_1_config_1a9aa195a4a492126c7a1e6f4876b3c42f" kind="variable"><name>probabilityAddConnection</name></member>
+    <member refid="class_my_n_e_a_t_1_1_config_1a4da77c23b93b18aa23a002ba8f90634a" kind="variable"><name>probabilityAddNeuron</name></member>
+    <member refid="class_my_n_e_a_t_1_1_config_1ae602aa55ab6c712264cd1d2787ffa2df" kind="variable"><name>probabilityOfChangeWeight</name></member>
+    <member refid="class_my_n_e_a_t_1_1_config_1a3c5631c68970aefa2fd9ddc76d1e1d16" kind="variable"><name>probabilityOfMutation</name></member>
+    <member refid="class_my_n_e_a_t_1_1_config_1aed55801ea766c4555872787d5085f20e" kind="variable"><name>probabilityOfResetWeight</name></member>
+    <member refid="class_my_n_e_a_t_1_1_config_1abf03e52eb47ca823f941866f6bd4484f" kind="variable"><name>probabilityRemoveConnection</name></member>
+    <member refid="class_my_n_e_a_t_1_1_config_1afe42e7b52ca421eddb6a77d4e5523903" kind="variable"><name>probabilityRemoveNeuron</name></member>
+    <member refid="class_my_n_e_a_t_1_1_config_1ad5ad3c02be0612f9348e4e81db65667e" kind="variable"><name>weightChangeRange</name></member>
+    <member refid="class_my_n_e_a_t_1_1_config_1a94bc13311b5f033beeb2acfe8086889d" kind="variable"><name>defaultConnWeightRange</name></member>
+    <member refid="class_my_n_e_a_t_1_1_config_1a9d6bf07b21fda8ec787075c88339d33e" kind="variable"><name>defaultWeightChangeRange</name></member>
+    <member refid="class_my_n_e_a_t_1_1_config_1a7b9ab4544298aa03356bdbc9cb6a5c02" kind="variable"><name>defaultProbabilityOfMutation</name></member>
+    <member refid="class_my_n_e_a_t_1_1_config_1a9379840095db446778ae46aedbe7c56a" kind="variable"><name>defaultProbabilityOfResetWeight</name></member>
+    <member refid="class_my_n_e_a_t_1_1_config_1a2ebd4006a151d5e4a07f50574a2ce20c" kind="variable"><name>defaultProbabilityOfChangeWeight</name></member>
+    <member refid="class_my_n_e_a_t_1_1_config_1a65ed1d54df08ee806d0cf5c2249e2ca8" kind="variable"><name>defaultProbabilityAddNeuron</name></member>
+    <member refid="class_my_n_e_a_t_1_1_config_1a703a7e9022507907de2f39ac2af9ac9b" kind="variable"><name>defaultProbabilityRemoveNeuron</name></member>
+    <member refid="class_my_n_e_a_t_1_1_config_1a20b28aefd52e69f92331e887a7c3be56" kind="variable"><name>defaultProbabilityAddConnection</name></member>
+    <member refid="class_my_n_e_a_t_1_1_config_1af5cf1b883205bd74464321ee2171ab3d" kind="variable"><name>defaultProbabilityRemoveConnection</name></member>
+    <member refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" kind="function"><name>Config</name></member>
+  </compound>
+  <compound refid="class_my_n_e_a_t_1_1_d_connection" kind="class"><name>MyNEAT::DConnection</name>
+    <member refid="class_my_n_e_a_t_1_1_d_connection_1a1876b2d3de8020a09cc96d3e2c674e1a" kind="variable"><name>toNeuron</name></member>
+    <member refid="class_my_n_e_a_t_1_1_d_connection_1aef6bfc657b0129f39219707de2d60cef" kind="variable"><name>weight</name></member>
+  </compound>
+  <compound refid="class_my_n_e_a_t_1_1_depth_calculator" kind="class"><name>MyNEAT::DepthCalculator</name>
+    <member refid="class_my_n_e_a_t_1_1_depth_calculator_1a423ae46ad7faabf29145acba1f429273" kind="function"><name>SetDepthsToNetwork</name></member>
+    <member refid="class_my_n_e_a_t_1_1_depth_calculator_1a5354f06faf285f0ced2c6856007cb6b9" kind="function"><name>SetDepthStartingFromThisNeuron</name></member>
+  </compound>
+  <compound refid="class_my_n_e_a_t_1_1_d_neuron" kind="class"><name>MyNEAT::DNeuron</name>
+    <member refid="class_my_n_e_a_t_1_1_d_neuron_1ad8c02fad3513eaf9af93ca7d90f07bb8" kind="variable"><name>normalActivation</name></member>
+    <member refid="class_my_n_e_a_t_1_1_d_neuron_1aa166f0c5c2b05a03608204d46c185183" kind="variable"><name>outpActivation</name></member>
+    <member refid="class_my_n_e_a_t_1_1_d_neuron_1aa24e0e97ace1bf6584abe338fe1940fb" kind="variable"><name>outConnections</name></member>
+    <member refid="class_my_n_e_a_t_1_1_d_neuron_1a72b1fdf1e9ec30364c7f135121b079f5" kind="variable"><name>isBias</name></member>
+    <member refid="class_my_n_e_a_t_1_1_d_neuron_1a00be4243d206a34cddf6c269a1744941" kind="variable"><name>isInput</name></member>
+    <member refid="class_my_n_e_a_t_1_1_d_neuron_1af1efddb21bf0f8267069965616e514f9" kind="variable"><name>isOutput</name></member>
+    <member refid="class_my_n_e_a_t_1_1_d_neuron_1aec5273ded6ed20ad306a4ce201cdf655" kind="variable"><name>amountOfInConnections</name></member>
+    <member refid="class_my_n_e_a_t_1_1_d_neuron_1a4fcf8aea5924cf93921e1dcd7e64fc1a" kind="variable"><name>id</name></member>
+    <member refid="class_my_n_e_a_t_1_1_d_neuron_1a2fea020c9f68a32ee0f46486439c6e74" kind="variable"><name>inputsAdded</name></member>
+    <member refid="class_my_n_e_a_t_1_1_d_neuron_1a3a563c01c9f7aceb92533507466e91c4" kind="variable"><name>output</name></member>
+    <member refid="class_my_n_e_a_t_1_1_d_neuron_1a30cd1d0454e60c54331c17208e02f7dd" kind="variable"><name>depths</name></member>
+    <member refid="class_my_n_e_a_t_1_1_d_neuron_1ab068010f0f56eb2a99738447607ae67f" kind="variable"><name>depth</name></member>
+    <member refid="class_my_n_e_a_t_1_1_d_neuron_1adc6f1ea8a54fd00d62943aef56aede83" kind="function"><name>DNeuron</name></member>
+    <member refid="class_my_n_e_a_t_1_1_d_neuron_1a22eca0ee7135cc91c247ac710090b447" kind="function"><name>Activate</name></member>
+    <member refid="class_my_n_e_a_t_1_1_d_neuron_1a31ae537ba6d596a313c4ea5d7b14fd18" kind="function"><name>SetDepth</name></member>
+    <member refid="class_my_n_e_a_t_1_1_d_neuron_1af3bbb62abf48dbe15bc4003ae9d36f2c" kind="function"><name>ToString</name></member>
+    <member refid="class_my_n_e_a_t_1_1_d_neuron_1a335a27a80b73359a93ea69048cdc0337" kind="function"><name>TransferOutput</name></member>
+    <member refid="class_my_n_e_a_t_1_1_d_neuron_1ac327ef190a922e701ab62066601d9472" kind="function"><name>FindNeuronWithId</name></member>
+  </compound>
+  <compound refid="class_my_n_e_a_t_1_1_g" kind="class"><name>MyNEAT::G</name>
+    <member refid="class_my_n_e_a_t_1_1_g_1a2c4cda6fb7577a680c590828979a178c" kind="variable"><name>id</name></member>
+  </compound>
+  <compound refid="class_my_n_e_a_t_1_1_g_connection" kind="class"><name>MyNEAT::GConnection</name>
+    <member refid="class_my_n_e_a_t_1_1_g_connection_1a5d5a3229f849e107d430b4234f937aef" kind="variable"><name>fromNeuron</name></member>
+    <member refid="class_my_n_e_a_t_1_1_g_connection_1a497e1df2536b38223c18f167513cb4dc" kind="variable"><name>toNeuron</name></member>
+    <member refid="class_my_n_e_a_t_1_1_g_connection_1aacb6c5c3406b7c8b5b7d3cd59ae40bbe" kind="variable"><name>weight</name></member>
+    <member refid="class_my_n_e_a_t_1_1_g_connection_1a080d6d2c636b3905f2899fccf121f607" kind="function"><name>GConnection</name></member>
+    <member refid="class_my_n_e_a_t_1_1_g_connection_1a68c7c7ecf43b3ac945c780e0c16d8c8d" kind="function"><name>GConnection</name></member>
+    <member refid="class_my_n_e_a_t_1_1_g_connection_1a9aaf4cc739d8fe3a9b79c21f36304731" kind="function"><name>ToString</name></member>
+  </compound>
+  <compound refid="class_my_n_e_a_t_1_1_genome" kind="class"><name>MyNEAT::Genome</name>
+    <member refid="class_my_n_e_a_t_1_1_genome_1a32ba48842b5a97d5f9994e1fc8009661" kind="variable"><name>conf</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1a4b747d7fd123c0493dc46fcb9fab50a6" kind="variable"><name>geneIndex</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1a658c60f7a5c99e84f7343f099dec0785" kind="variable"><name>connections</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1a4b07b01757584ec6b946b3b9b37903bb" kind="variable"><name>neurons</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1a38caabb5c342abe6f7752fac71d96b1b" kind="variable"><name>fitness</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1aabd259a6a73301de50fbd9e30c7b53c2" kind="function"><name>ToString</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1a58f386a06fe5a8a815507badb463bfec" kind="function"><name>GetComplexity</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1a1000e152b5a3478026e605475aa67e09" kind="function"><name>Genome</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1a8582c24fa76f084496b343dfa2c5fc49" kind="function"><name>Genome</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1a78ffe528424f57b267742984de5f5f96" kind="function"><name>CreateOffSpring</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1a87adf958e8e0a58e33f643c6367eea33" kind="function"><name>CreateOffSpring</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1adb7a9dd8c21d0c3dfaecd96ba8310a81" kind="function"><name>MutationChangeWeight</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1a85489e02e1c4af0bc6d8bde999c4a837" kind="function"><name>MutationAddNeuron</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1a67092827729f073d5b8fb6e6f514a211" kind="function"><name>MutationRemoveNeuron</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1a0544e280f6ae8f84198814bd63e1feb4" kind="function"><name>MutationAddConnection</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1a1279e56272fd10b921926ef031a6b308" kind="function"><name>MutationRemoveConnection</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1a953a1c2a6f4918c5135c4502dfb9f15b" kind="function"><name>Crossover</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1a1a6765fd654130fbb94071db7bfda673" kind="function"><name>Mutate</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1a4b14f63c915dfdaf2b7a460d91cc1551" kind="function"><name>IsGWithIdExistsInList</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1a63efb52c29489c11a25896e8909ad8db" kind="function"><name>IsGWithIdExistsInList</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1a31aab2040003c97f0c77d250642fb8e9" kind="function"><name>FindAmountOfInAndOutConnectionsForNeuronWithId</name></member>
+    <member refid="class_my_n_e_a_t_1_1_genome_1a2b4a0919b14f5462f3b85b40c69316f4" kind="function"><name>GetListOfInAndOutConnections</name></member>
+  </compound>
+  <compound refid="class_my_n_e_a_t_1_1_g_neuron" kind="class"><name>MyNEAT::GNeuron</name>
+    <member refid="class_my_n_e_a_t_1_1_g_neuron_1aedad6a01fcf9f6bbaade3ce3701403c8" kind="variable"><name>isBias</name></member>
+    <member refid="class_my_n_e_a_t_1_1_g_neuron_1ac14f5400956b792eb63ea1c98b8b1334" kind="variable"><name>isHidden</name></member>
+    <member refid="class_my_n_e_a_t_1_1_g_neuron_1ab2bb35a61b9735ee73633c3a5ecea4fb" kind="variable"><name>isInput</name></member>
+    <member refid="class_my_n_e_a_t_1_1_g_neuron_1a2e78747b93e00b817af41a414262d2a8" kind="variable"><name>isOutput</name></member>
+    <member refid="class_my_n_e_a_t_1_1_g_neuron_1aff6a7c608c91079569d0df7ef2150d52" kind="function"><name>GNeuron</name></member>
+    <member refid="class_my_n_e_a_t_1_1_g_neuron_1aa3dc5483c85db459a38b63b98d46f1e6" kind="function"><name>ToString</name></member>
+  </compound>
+  <compound refid="class_my_n_e_a_t_1_1_network" kind="class"><name>MyNEAT::Network</name>
+    <member refid="class_my_n_e_a_t_1_1_network_1a6eb7137ce516216e4b6de4882051e8a2" kind="variable"><name>dneurons</name></member>
+    <member refid="class_my_n_e_a_t_1_1_network_1a95189cea2db16253352040a0dd69c731" kind="variable"><name>hidden</name></member>
+    <member refid="class_my_n_e_a_t_1_1_network_1adfdf624ea2e24c231b66c7fc42c31c45" kind="variable"><name>inputs</name></member>
+    <member refid="class_my_n_e_a_t_1_1_network_1aebffd9a0bfae83a2c14b381d0c02c908" kind="variable"><name>outputs</name></member>
+    <member refid="class_my_n_e_a_t_1_1_network_1a3cb0d102d6697937239f89e24cbeca59" kind="function"><name>Network</name></member>
+    <member refid="class_my_n_e_a_t_1_1_network_1a7f63b1f4ec7af48a40322744281860ac" kind="function"><name>Predict</name></member>
+    <member refid="class_my_n_e_a_t_1_1_network_1a61c5351400fa317f8e708e9837601268" kind="function"><name>ToString</name></member>
+  </compound>
+  <compound refid="class_n_e_a_t_example_1_1_program" kind="class"><name>NEATExample::Program</name>
+    <member refid="class_n_e_a_t_example_1_1_program_1a5d9bc9147a174e64c89e3223a5a69b4f" kind="function"><name>Main</name></member>
+    <member refid="class_n_e_a_t_example_1_1_program_1ad6e38cb49b641923f832b726b0d68b38" kind="function"><name>Test</name></member>
+    <member refid="class_n_e_a_t_example_1_1_program_1af6f60c36295a4c8fe3d460c075d333dd" kind="function"><name>SolveXor</name></member>
+    <member refid="class_n_e_a_t_example_1_1_program_1a2c169de5801a24bfc4743537776fe38a" kind="function"><name>SolveCartPole</name></member>
+    <member refid="class_n_e_a_t_example_1_1_program_1a77c86d82afacb237f8494b747e4de8f2" kind="function"><name>DoubleArrToIntArr</name></member>
+    <member refid="class_n_e_a_t_example_1_1_program_1a3af8cd5af3438e57906088c8e527b256" kind="function"><name>IntArrToDoubleArr</name></member>
+  </compound>
+  <compound refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment" kind="class"><name>MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</name>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a9797224d103234277577d5f0a2d1352d" kind="variable"><name>Gravity</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1add3f1c5ca1a4735280e5e45ee1148e04" kind="variable"><name>MassCart</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1ac3e10ac8962bb88fef08c46bd3915278" kind="variable"><name>MassPole</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1abff6e845bf31462aed6d17553eef5f31" kind="variable"><name>TotalMass</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a1cf78c41b3c5ec0563792ec69f927e50" kind="variable"><name>Length</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a8cd76ef209008630b93b1db51ff57495" kind="variable"><name>PoleMassLength</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1aac4b9353088625f693709b62805d6e5b" kind="variable"><name>ForceMag</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a87f7cc624e230cbe514b80d106b87894" kind="variable"><name>TimeDelta</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1aee75d7ba62bb8567a1758cd90020b121" kind="variable"><name>FourThirds</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a4f013456bc55d29173cdc72a0847ca6d" kind="variable"><name>OneDegree</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a9dcc8ac9861e9eca6753eaf7f8baef60" kind="variable"><name>SixDegrees</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1ace464c30c85b9b1d0febd0940e54c977" kind="variable"><name>TwelveDegrees</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a7a3c839c46b83578c33b34650cc28cab" kind="variable"><name>TwentyFourDegrees</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1ab896398cbbafb0c71fe14f0eaef432b7" kind="variable"><name>ThirtySixDegrees</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1acd4d89c667442af7da5161067714915a" kind="variable"><name>FiftyDegrees</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a30f5b7369af4610e35bec72a4ca7abad" kind="variable"><name>currState</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1aca4454fd5d04fd197a8021c4599ba249" kind="variable"><name>_trackLength</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a44f32721471848b7b7ec9f2bad6ba1c5" kind="variable"><name>_trackLengthHalf</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a0c8551e671cb02ef2e8b326918c49674" kind="variable"><name>_maxTimesteps</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a1e5baa5600ea57955051dddc2df2952a" kind="variable"><name>_poleAngleThreshold</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a0d2f44a5e7eee2aaca7f92b38fdfc566" kind="variable"><name>stepsPassed</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a03c6fd31e6afe1eeea5d411062cbdc83" kind="function"><name>SimulateTimestep</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1ab7630a1fd5853bd4bd88553aae691fa3" kind="function"><name>SinglePoleBalancingEnvironment</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment_1a90907184e302e89ef233468b76f21f7e" kind="function"><name>SinglePoleBalancingEnvironment</name></member>
+  </compound>
+  <compound refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data" kind="class"><name>MyNEAT::Domains::SinglePole::SinglePoleStateData</name>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1af12bb9b813f9f98ef22e3212f8dfeb98" kind="variable"><name>_action</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1a8323ac06cbf353a1f6628eb174fcc281" kind="variable"><name>_cartPosX</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1af166a135b306028de008dc9721226e5b" kind="variable"><name>_cartVelocityX</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1a48bdac79bd064ee74b3a852a89315465" kind="variable"><name>_done</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1a6c03b7a498a692185d22afa9a155bc43" kind="variable"><name>_poleAngle</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1aadc4dac881f872a0355b4e305bb81d4c" kind="variable"><name>_poleAngularVelocity</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data_1a2b7e6f66aca86f22a8cd922680e462cd" kind="variable"><name>_reward</name></member>
+  </compound>
+  <compound refid="class_my_n_e_a_t_1_1_domains_1_1_x_o_r_1_1_xor" kind="class"><name>MyNEAT::Domains::XOR::Xor</name>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_x_o_r_1_1_xor_1ace3d389b1f13bc94d92774441e41d618" kind="variable"><name>numInp</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_x_o_r_1_1_xor_1ae3017ada3d216598233ba31fe9a36985" kind="variable"><name>count</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_x_o_r_1_1_xor_1a69e8552cfe5ab9efd5628d4d80bb0dc3" kind="function"><name>Xor</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_x_o_r_1_1_xor_1a6bb602af894321eb2eac5bd6eaab93f8" kind="function"><name>GetNums</name></member>
+    <member refid="class_my_n_e_a_t_1_1_domains_1_1_x_o_r_1_1_xor_1aa452ede4809f2ee1467950cb60e1ee53" kind="function"><name>GetError</name></member>
+  </compound>
+  <compound refid="namespace_my_n_e_a_t" kind="namespace"><name>MyNEAT</name>
+  </compound>
+  <compound refid="namespace_my_n_e_a_t_1_1_domains" kind="namespace"><name>MyNEAT::Domains</name>
+  </compound>
+  <compound refid="namespace_my_n_e_a_t_1_1_domains_1_1_single_pole" kind="namespace"><name>MyNEAT::Domains::SinglePole</name>
+  </compound>
+  <compound refid="namespace_my_n_e_a_t_1_1_domains_1_1_x_o_r" kind="namespace"><name>MyNEAT::Domains::XOR</name>
+  </compound>
+  <compound refid="namespace_n_e_a_t_example" kind="namespace"><name>NEATExample</name>
+  </compound>
+  <compound refid="namespace_system" kind="namespace"><name>System</name>
+  </compound>
+  <compound refid="namespace_system_1_1_collections_1_1_generic" kind="namespace"><name>System::Collections::Generic</name>
+  </compound>
+  <compound refid="namespace_system_1_1_linq" kind="namespace"><name>System::Linq</name>
+  </compound>
+  <compound refid="namespace_system_1_1_reflection" kind="namespace"><name>System::Reflection</name>
+  </compound>
+  <compound refid="namespace_system_1_1_runtime_1_1_compiler_services" kind="namespace"><name>System::Runtime::CompilerServices</name>
+  </compound>
+  <compound refid="namespace_system_1_1_runtime_1_1_interop_services" kind="namespace"><name>System::Runtime::InteropServices</name>
+  </compound>
+  <compound refid="_single_pole_8cs" kind="file"><name>SinglePole.cs</name>
+  </compound>
+  <compound refid="_x_o_r_8cs" kind="file"><name>XOR.cs</name>
+  </compound>
+  <compound refid="_activation_functions_8cs" kind="file"><name>ActivationFunctions.cs</name>
+  </compound>
+  <compound refid="_neat_8cs" kind="file"><name>Neat.cs</name>
+  </compound>
+  <compound refid="_my_n_e_a_t___2_properties_2_assembly_info_8cs" kind="file"><name>AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="_n_e_a_t_example_2_properties_2_assembly_info_8cs" kind="file"><name>AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="_domains___2_properties_2_assembly_info_8cs" kind="file"><name>AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="_program_8cs" kind="file"><name>Program.cs</name>
+  </compound>
+  <compound refid="dir_f9c99a544415d79b7fe1ea1e4cece072" kind="dir"><name>D:/Doc/PY/C#</name>
+  </compound>
+  <compound refid="dir_308a3f4b174a3706f1352044f818eb11" kind="dir"><name>D:/Doc</name>
+  </compound>
+  <compound refid="dir_7f1b83d850bcd0456ec3303fa611ac14" kind="dir"><name>D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_</name>
+  </compound>
+  <compound refid="dir_62e7d07172d331d9b613c99e79cad5c4" kind="dir"><name>D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_</name>
+  </compound>
+  <compound refid="dir_ea868548b88f390660e6609dc81b9a04" kind="dir"><name>D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-</name>
+  </compound>
+  <compound refid="dir_918a729522482c0f84cac2cb995e5690" kind="dir"><name>D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/NEATExample</name>
+  </compound>
+  <compound refid="dir_2d0563a61998d83140810cf27fa7f85a" kind="dir"><name>D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/Properties</name>
+  </compound>
+  <compound refid="dir_026bd05ec1eee79295f034708a6c9283" kind="dir"><name>D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/NEATExample/Properties</name>
+  </compound>
+  <compound refid="dir_25160ef4b6c243539119dda3fb010413" kind="dir"><name>D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Properties</name>
+  </compound>
+  <compound refid="dir_41ec794bb61c1eaf0bf7e40d568ac363" kind="dir"><name>D:/Doc/PY</name>
+  </compound>
+  <compound refid="dir_cdd7fef66da28be250bf869b427f20aa" kind="dir"><name>D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole</name>
+  </compound>
+  <compound refid="dir_5c16e72b2d3fe29da69ca695551c6148" kind="dir"><name>D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/XOR</name>
+  </compound>
+</doxygenindex>

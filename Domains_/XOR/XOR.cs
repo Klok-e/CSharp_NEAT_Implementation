@@ -39,16 +39,6 @@ namespace MyNEAT.Domains.XOR
                     break;
             }
             count++;
-            /*
-            var inps = new double[numInp];
-            for (var i = 0; i < numInp; i++)
-                inps[i] = gen.Next(0, 2);
-            ans.Add(inps);
-
-            var expOutps = new double[numInp / 2];
-            for (var i = 0; i < numInp / 2; i++)
-                expOutps[i] = (int)Math.Round(inps[i]) ^ (int)Math.Round(inps[i + numInp / 2]);
-            ans.Add(expOutps);*/
             return ans;
         }
 

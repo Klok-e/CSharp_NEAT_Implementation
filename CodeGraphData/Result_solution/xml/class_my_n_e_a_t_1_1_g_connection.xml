@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_my_n_e_a_t_1_1_g_connection" kind="class" prot="package">
+    <compoundname>MyNEAT::GConnection</compoundname>
+    <basecompoundref refid="class_my_n_e_a_t_1_1_g" prot="public" virt="non-virtual">MyNEAT.G</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_g_connection_1a5d5a3229f849e107d430b4234f937aef" prot="public" static="no" mutable="no">
+        <type>readonly int</type>
+        <definition>readonly int MyNEAT.GConnection.fromNeuron</definition>
+        <argsstring></argsstring>
+        <name>fromNeuron</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="88" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="88" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_g_connection_1a080d6d2c636b3905f2899fccf121f607" compoundref="_neat_8cs" startline="92" endline="100">MyNEAT.GConnection.GConnection</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_g_connection_1a9aaf4cc739d8fe3a9b79c21f36304731" compoundref="_neat_8cs" startline="112" endline="119">MyNEAT.GConnection.ToString</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_g_connection_1a497e1df2536b38223c18f167513cb4dc" prot="public" static="no" mutable="no">
+        <type>readonly int</type>
+        <definition>readonly int MyNEAT.GConnection.toNeuron</definition>
+        <argsstring></argsstring>
+        <name>toNeuron</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="89" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="89" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_g_connection_1a080d6d2c636b3905f2899fccf121f607" compoundref="_neat_8cs" startline="92" endline="100">MyNEAT.GConnection.GConnection</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_g_connection_1a9aaf4cc739d8fe3a9b79c21f36304731" compoundref="_neat_8cs" startline="112" endline="119">MyNEAT.GConnection.ToString</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_g_connection_1aacb6c5c3406b7c8b5b7d3cd59ae40bbe" prot="public" static="no" mutable="no">
+        <type>readonly double</type>
+        <definition>readonly double MyNEAT.GConnection.weight</definition>
+        <argsstring></argsstring>
+        <name>weight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="90" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="90" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_g_connection_1a080d6d2c636b3905f2899fccf121f607" compoundref="_neat_8cs" startline="92" endline="100">MyNEAT.GConnection.GConnection</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_g_connection_1a9aaf4cc739d8fe3a9b79c21f36304731" compoundref="_neat_8cs" startline="112" endline="119">MyNEAT.GConnection.ToString</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_g_connection_1a080d6d2c636b3905f2899fccf121f607" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MyNEAT.GConnection.GConnection</definition>
+        <argsstring>(GNeuron fromneuron, GNeuron toneuron, double wei, int idForThis)</argsstring>
+        <name>GConnection</name>
+        <param>
+          <type><ref refid="class_my_n_e_a_t_1_1_g_neuron" kindref="compound">GNeuron</ref></type>
+          <declname>fromneuron</declname>
+        </param>
+        <param>
+          <type><ref refid="class_my_n_e_a_t_1_1_g_neuron" kindref="compound">GNeuron</ref></type>
+          <declname>toneuron</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>wei</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idForThis</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="92" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="92" bodyend="100"/>
+        <references refid="class_my_n_e_a_t_1_1_g_connection_1a5d5a3229f849e107d430b4234f937aef" compoundref="_neat_8cs" startline="88">MyNEAT.GConnection.fromNeuron</references>
+        <references refid="class_my_n_e_a_t_1_1_g_connection_1a497e1df2536b38223c18f167513cb4dc" compoundref="_neat_8cs" startline="89">MyNEAT.GConnection.toNeuron</references>
+        <references refid="class_my_n_e_a_t_1_1_g_connection_1aacb6c5c3406b7c8b5b7d3cd59ae40bbe" compoundref="_neat_8cs" startline="90">MyNEAT.GConnection.weight</references>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_g_connection_1a68c7c7ecf43b3ac945c780e0c16d8c8d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MyNEAT.GConnection.GConnection</definition>
+        <argsstring>(int fromneuron, int toneuron, double wei, int idForThis)</argsstring>
+        <name>GConnection</name>
+        <param>
+          <type>int</type>
+          <declname>fromneuron</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>toneuron</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>wei</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idForThis</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="102" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="102" bodyend="110"/>
+        <references refid="class_my_n_e_a_t_1_1_g_connection_1a5d5a3229f849e107d430b4234f937aef" compoundref="_neat_8cs" startline="88">MyNEAT.GConnection.fromNeuron</references>
+        <references refid="class_my_n_e_a_t_1_1_g_connection_1a497e1df2536b38223c18f167513cb4dc" compoundref="_neat_8cs" startline="89">MyNEAT.GConnection.toNeuron</references>
+        <references refid="class_my_n_e_a_t_1_1_g_connection_1aacb6c5c3406b7c8b5b7d3cd59ae40bbe" compoundref="_neat_8cs" startline="90">MyNEAT.GConnection.weight</references>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_g_connection_1a9aaf4cc739d8fe3a9b79c21f36304731" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override string</type>
+        <definition>override string MyNEAT.GConnection.ToString</definition>
+        <argsstring>()</argsstring>
+        <name>ToString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="112" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="112" bodyend="119"/>
+        <references refid="class_my_n_e_a_t_1_1_g_connection_1a5d5a3229f849e107d430b4234f937aef" compoundref="_neat_8cs" startline="88">MyNEAT.GConnection.fromNeuron</references>
+        <references refid="class_my_n_e_a_t_1_1_g_connection_1a497e1df2536b38223c18f167513cb4dc" compoundref="_neat_8cs" startline="89">MyNEAT.GConnection.toNeuron</references>
+        <references refid="class_my_n_e_a_t_1_1_g_connection_1aacb6c5c3406b7c8b5b7d3cd59ae40bbe" compoundref="_neat_8cs" startline="90">MyNEAT.GConnection.weight</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="19">
+        <label>G</label>
+        <link refid="class_my_n_e_a_t_1_1_g"/>
+      </node>
+      <node id="18">
+        <label>MyNEAT.GConnection</label>
+        <link refid="class_my_n_e_a_t_1_1_g_connection"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="21">
+        <label>G</label>
+        <link refid="class_my_n_e_a_t_1_1_g"/>
+      </node>
+      <node id="20">
+        <label>MyNEAT.GConnection</label>
+        <link refid="class_my_n_e_a_t_1_1_g_connection"/>
+        <childnode refid="21" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="87" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="86" bodyend="120"/>
+    <listofallmembers>
+      <member refid="class_my_n_e_a_t_1_1_g_connection_1a5d5a3229f849e107d430b4234f937aef" prot="public" virt="non-virtual"><scope>MyNEAT::GConnection</scope><name>fromNeuron</name></member>
+      <member refid="class_my_n_e_a_t_1_1_g_connection_1a080d6d2c636b3905f2899fccf121f607" prot="public" virt="non-virtual"><scope>MyNEAT::GConnection</scope><name>GConnection</name></member>
+      <member refid="class_my_n_e_a_t_1_1_g_connection_1a68c7c7ecf43b3ac945c780e0c16d8c8d" prot="public" virt="non-virtual"><scope>MyNEAT::GConnection</scope><name>GConnection</name></member>
+      <member refid="class_my_n_e_a_t_1_1_g_1a2c4cda6fb7577a680c590828979a178c" prot="public" virt="non-virtual"><scope>MyNEAT::GConnection</scope><name>id</name></member>
+      <member refid="class_my_n_e_a_t_1_1_g_connection_1a497e1df2536b38223c18f167513cb4dc" prot="public" virt="non-virtual"><scope>MyNEAT::GConnection</scope><name>toNeuron</name></member>
+      <member refid="class_my_n_e_a_t_1_1_g_connection_1a9aaf4cc739d8fe3a9b79c21f36304731" prot="public" virt="non-virtual"><scope>MyNEAT::GConnection</scope><name>ToString</name></member>
+      <member refid="class_my_n_e_a_t_1_1_g_connection_1aacb6c5c3406b7c8b5b7d3cd59ae40bbe" prot="public" virt="non-virtual"><scope>MyNEAT::GConnection</scope><name>weight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_my_n_e_a_t_1_1_activation_functions" kind="class" prot="public">
+    <compoundname>MyNEAT::ActivationFunctions</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_activation_functions_1a2b0772db4f64544b3f774a961294b5dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>delegate double</type>
+        <definition>delegate double MyNEAT.ActivationFunctions.ActivationFunction</definition>
+        <argsstring>(double n)</argsstring>
+        <name>ActivationFunction</name>
+        <param>
+          <type>double</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/ActivationFunctions.cs" line="7" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_activation_functions_1af3ab42b6849ae36a053edb845f70e6e4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>static double MyNEAT.ActivationFunctions.Tanh</definition>
+        <argsstring>(double n)</argsstring>
+        <name>Tanh</name>
+        <param>
+          <type>double</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/ActivationFunctions.cs" line="9" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/ActivationFunctions.cs" bodystart="9" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_activation_functions_1a3b7625fc1bad96313f510e9f66d13e15" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>static double MyNEAT.ActivationFunctions.Linear</definition>
+        <argsstring>(double n)</argsstring>
+        <name>Linear</name>
+        <param>
+          <type>double</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/ActivationFunctions.cs" line="14" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/ActivationFunctions.cs" bodystart="14" bodyend="17"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_config_1a3371b7cdaf86bb54750067adab986f76" compoundref="_neat_8cs" startline="32" endline="46">MyNEAT.Config.Config</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/ActivationFunctions.cs" line="6" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/ActivationFunctions.cs" bodystart="5" bodyend="18"/>
+    <listofallmembers>
+      <member refid="class_my_n_e_a_t_1_1_activation_functions_1a2b0772db4f64544b3f774a961294b5dd" prot="public" virt="non-virtual"><scope>MyNEAT::ActivationFunctions</scope><name>ActivationFunction</name></member>
+      <member refid="class_my_n_e_a_t_1_1_activation_functions_1a3b7625fc1bad96313f510e9f66d13e15" prot="public" virt="non-virtual"><scope>MyNEAT::ActivationFunctions</scope><name>Linear</name></member>
+      <member refid="class_my_n_e_a_t_1_1_activation_functions_1af3ab42b6849ae36a053edb845f70e6e4" prot="public" virt="non-virtual"><scope>MyNEAT::ActivationFunctions</scope><name>Tanh</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

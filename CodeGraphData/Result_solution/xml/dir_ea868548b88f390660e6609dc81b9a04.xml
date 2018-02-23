@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_ea868548b88f390660e6609dc81b9a04" kind="dir">
+    <compoundname>D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-</compoundname>
+    <innerdir refid="dir_7f1b83d850bcd0456ec3303fa611ac14">D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_</innerdir>
+    <innerdir refid="dir_62e7d07172d331d9b613c99e79cad5c4">D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_</innerdir>
+    <innerdir refid="dir_918a729522482c0f84cac2cb995e5690">D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/NEATExample</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/"/>
+  </compounddef>
+</doxygen>

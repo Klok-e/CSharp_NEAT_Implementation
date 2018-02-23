@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_my_n_e_a_t_1_1_domains_1_1_single_pole" kind="namespace">
+    <compoundname>MyNEAT::Domains::SinglePole</compoundname>
+    <innerclass refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_state_data" prot="public">MyNEAT::Domains::SinglePole::SinglePoleStateData</innerclass>
+    <innerclass refid="class_my_n_e_a_t_1_1_domains_1_1_single_pole_1_1_single_pole_balancing_environment" prot="public">MyNEAT::Domains::SinglePole::SinglePoleBalancingEnvironment</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/SinglePole/SinglePole.cs" line="4" column="1"/>
+  </compounddef>
+</doxygen>

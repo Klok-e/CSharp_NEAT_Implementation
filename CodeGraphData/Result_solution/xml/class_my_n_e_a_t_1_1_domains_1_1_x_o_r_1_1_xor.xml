@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_my_n_e_a_t_1_1_domains_1_1_x_o_r_1_1_xor" kind="class" prot="public">
+    <compoundname>MyNEAT::Domains::XOR::Xor</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_x_o_r_1_1_xor_1ace3d389b1f13bc94d92774441e41d618" prot="private" static="no" mutable="no">
+        <type>readonly int</type>
+        <definition>readonly int MyNEAT.Domains.XOR.Xor.numInp</definition>
+        <argsstring></argsstring>
+        <name>numInp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/XOR/XOR.cs" line="8" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/XOR/XOR.cs" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_domains_1_1_x_o_r_1_1_xor_1ae3017ada3d216598233ba31fe9a36985" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int MyNEAT.Domains.XOR.Xor.count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/XOR/XOR.cs" line="9" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/XOR/XOR.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_domains_1_1_x_o_r_1_1_xor_1a69e8552cfe5ab9efd5628d4d80bb0dc3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MyNEAT.Domains.XOR.Xor.Xor</definition>
+        <argsstring>(int numOfInp)</argsstring>
+        <name>Xor</name>
+        <param>
+          <type>int</type>
+          <declname>numOfInp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/XOR/XOR.cs" line="11" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/XOR/XOR.cs" bodystart="11" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_domains_1_1_x_o_r_1_1_xor_1a6bb602af894321eb2eac5bd6eaab93f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; double[]&gt;</type>
+        <definition>List&lt;double[]&gt; MyNEAT.Domains.XOR.Xor.GetNums</definition>
+        <argsstring>()</argsstring>
+        <name>GetNums</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/XOR/XOR.cs" line="17" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/XOR/XOR.cs" bodystart="17" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_domains_1_1_x_o_r_1_1_xor_1aa452ede4809f2ee1467950cb60e1ee53" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double MyNEAT.Domains.XOR.Xor.GetError</definition>
+        <argsstring>(double[] networkOutput, double[] expctdOut)</argsstring>
+        <name>GetError</name>
+        <param>
+          <type>double[]</type>
+          <declname>networkOutput</declname>
+        </param>
+        <param>
+          <type>double[]</type>
+          <declname>expctdOut</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/XOR/XOR.cs" line="45" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/XOR/XOR.cs" bodystart="45" bodyend="53"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/XOR/XOR.cs" line="7" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/Domains_/XOR/XOR.cs" bodystart="6" bodyend="54"/>
+    <listofallmembers>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_x_o_r_1_1_xor_1ae3017ada3d216598233ba31fe9a36985" prot="private" virt="non-virtual"><scope>MyNEAT::Domains::XOR::Xor</scope><name>count</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_x_o_r_1_1_xor_1aa452ede4809f2ee1467950cb60e1ee53" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::XOR::Xor</scope><name>GetError</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_x_o_r_1_1_xor_1a6bb602af894321eb2eac5bd6eaab93f8" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::XOR::Xor</scope><name>GetNums</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_x_o_r_1_1_xor_1ace3d389b1f13bc94d92774441e41d618" prot="private" virt="non-virtual"><scope>MyNEAT::Domains::XOR::Xor</scope><name>numInp</name></member>
+      <member refid="class_my_n_e_a_t_1_1_domains_1_1_x_o_r_1_1_xor_1a69e8552cfe5ab9efd5628d4d80bb0dc3" prot="public" virt="non-virtual"><scope>MyNEAT::Domains::XOR::Xor</scope><name>Xor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

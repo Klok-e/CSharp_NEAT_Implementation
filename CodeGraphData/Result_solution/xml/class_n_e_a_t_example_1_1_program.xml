@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_n_e_a_t_example_1_1_program" kind="class" prot="package">
+    <compoundname>NEATExample::Program</compoundname>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_n_e_a_t_example_1_1_program_1a5d9bc9147a174e64c89e3223a5a69b4f" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void NEATExample.Program.Main</definition>
+        <argsstring>()</argsstring>
+        <name>Main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/NEATExample/Program.cs" line="11" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/NEATExample/Program.cs" bodystart="11" bodyend="17"/>
+        <references refid="class_n_e_a_t_example_1_1_program_1af6f60c36295a4c8fe3d460c075d333dd" compoundref="_program_8cs" startline="60" endline="147">NEATExample.Program.SolveXor</references>
+      </memberdef>
+      <memberdef kind="function" id="class_n_e_a_t_example_1_1_program_1ad6e38cb49b641923f832b726b0d68b38" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void NEATExample.Program.Test</definition>
+        <argsstring>()</argsstring>
+        <name>Test</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/NEATExample/Program.cs" line="19" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/NEATExample/Program.cs" bodystart="19" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_n_e_a_t_example_1_1_program_1af6f60c36295a4c8fe3d460c075d333dd" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void NEATExample.Program.SolveXor</definition>
+        <argsstring>()</argsstring>
+        <name>SolveXor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/NEATExample/Program.cs" line="60" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/NEATExample/Program.cs" bodystart="60" bodyend="147"/>
+        <referencedby refid="class_n_e_a_t_example_1_1_program_1a5d9bc9147a174e64c89e3223a5a69b4f" compoundref="_program_8cs" startline="11" endline="17">NEATExample.Program.Main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_n_e_a_t_example_1_1_program_1a2c169de5801a24bfc4743537776fe38a" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void NEATExample.Program.SolveCartPole</definition>
+        <argsstring>()</argsstring>
+        <name>SolveCartPole</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/NEATExample/Program.cs" line="149" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/NEATExample/Program.cs" bodystart="149" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="class_n_e_a_t_example_1_1_program_1a77c86d82afacb237f8494b747e4de8f2" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int[]</type>
+        <definition>static int [] NEATExample.Program.DoubleArrToIntArr</definition>
+        <argsstring>(double[] arr)</argsstring>
+        <name>DoubleArrToIntArr</name>
+        <param>
+          <type>double[]</type>
+          <declname>arr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/NEATExample/Program.cs" line="229" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/NEATExample/Program.cs" bodystart="229" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="class_n_e_a_t_example_1_1_program_1a3af8cd5af3438e57906088c8e527b256" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double[]</type>
+        <definition>static double [] NEATExample.Program.IntArrToDoubleArr</definition>
+        <argsstring>(int[] arr)</argsstring>
+        <name>IntArrToDoubleArr</name>
+        <param>
+          <type>int[]</type>
+          <declname>arr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/NEATExample/Program.cs" line="237" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/NEATExample/Program.cs" bodystart="237" bodyend="243"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/NEATExample/Program.cs" line="10" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/NEATExample/Program.cs" bodystart="9" bodyend="244"/>
+    <listofallmembers>
+      <member refid="class_n_e_a_t_example_1_1_program_1a77c86d82afacb237f8494b747e4de8f2" prot="private" virt="non-virtual"><scope>NEATExample::Program</scope><name>DoubleArrToIntArr</name></member>
+      <member refid="class_n_e_a_t_example_1_1_program_1a3af8cd5af3438e57906088c8e527b256" prot="private" virt="non-virtual"><scope>NEATExample::Program</scope><name>IntArrToDoubleArr</name></member>
+      <member refid="class_n_e_a_t_example_1_1_program_1a5d9bc9147a174e64c89e3223a5a69b4f" prot="private" virt="non-virtual"><scope>NEATExample::Program</scope><name>Main</name></member>
+      <member refid="class_n_e_a_t_example_1_1_program_1a2c169de5801a24bfc4743537776fe38a" prot="private" virt="non-virtual"><scope>NEATExample::Program</scope><name>SolveCartPole</name></member>
+      <member refid="class_n_e_a_t_example_1_1_program_1af6f60c36295a4c8fe3d460c075d333dd" prot="private" virt="non-virtual"><scope>NEATExample::Program</scope><name>SolveXor</name></member>
+      <member refid="class_n_e_a_t_example_1_1_program_1ad6e38cb49b641923f832b726b0d68b38" prot="private" virt="non-virtual"><scope>NEATExample::Program</scope><name>Test</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

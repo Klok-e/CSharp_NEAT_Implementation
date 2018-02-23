@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_my_n_e_a_t_1_1_depth_calculator" kind="class" prot="package">
+    <compoundname>MyNEAT::DepthCalculator</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_depth_calculator_1a423ae46ad7faabf29145acba1f429273" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void MyNEAT.DepthCalculator.SetDepthsToNetwork</definition>
+        <argsstring>(List&lt; DNeuron &gt; inputs)</argsstring>
+        <name>SetDepthsToNetwork</name>
+        <param>
+          <type>List&lt; <ref refid="class_my_n_e_a_t_1_1_d_neuron" kindref="compound">DNeuron</ref> &gt;</type>
+          <declname>inputs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="697" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="697" bodyend="705"/>
+        <references refid="class_my_n_e_a_t_1_1_depth_calculator_1a5354f06faf285f0ced2c6856007cb6b9" compoundref="_neat_8cs" startline="707" endline="715">MyNEAT.DepthCalculator.SetDepthStartingFromThisNeuron</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_depth_calculator_1a5354f06faf285f0ced2c6856007cb6b9" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void MyNEAT.DepthCalculator.SetDepthStartingFromThisNeuron</definition>
+        <argsstring>(DNeuron neuron, int depth, List&lt; int &gt; visited)</argsstring>
+        <name>SetDepthStartingFromThisNeuron</name>
+        <param>
+          <type><ref refid="class_my_n_e_a_t_1_1_d_neuron" kindref="compound">DNeuron</ref></type>
+          <declname>neuron</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>depth</declname>
+        </param>
+        <param>
+          <type>List&lt; int &gt;</type>
+          <declname>visited</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="707" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="707" bodyend="715"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_depth_calculator_1a423ae46ad7faabf29145acba1f429273" compoundref="_neat_8cs" startline="697" endline="705">MyNEAT.DepthCalculator.SetDepthsToNetwork</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="696" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="695" bodyend="716"/>
+    <listofallmembers>
+      <member refid="class_my_n_e_a_t_1_1_depth_calculator_1a5354f06faf285f0ced2c6856007cb6b9" prot="private" virt="non-virtual"><scope>MyNEAT::DepthCalculator</scope><name>SetDepthStartingFromThisNeuron</name></member>
+      <member refid="class_my_n_e_a_t_1_1_depth_calculator_1a423ae46ad7faabf29145acba1f429273" prot="public" virt="non-virtual"><scope>MyNEAT::DepthCalculator</scope><name>SetDepthsToNetwork</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,19 +1,37 @@
 ﻿using System;
 
-namespace MyNEAT
+namespace MyNEAT.ActivationFunctions
 {
-    public static class ActivationFunctions
+    public interface IActivationFunction
     {
-        public delegate double ActivationFunction(double n);
+        float Eval(float x);
 
-        public static double Tanh(double n)
+        float EvalDerivative(float x);
+    }
+
+    public class Tanh : IActivationFunction
+    {
+        public float Eval(float x)
         {
-            return Math.Tanh(n);
+            return (float)Math.Tanh(x);
         }
 
-        public static double Linear(double n)
+        public float EvalDerivative(float x)
         {
-            return n;
+            throw new NotImplementedException();
+        }
+    }
+
+    public class Linear : IActivationFunction
+    {
+        public float Eval(float x)
+        {
+            return x;
+        }
+
+        public float EvalDerivative(float x)
+        {
+            return 1;
         }
     }
 }

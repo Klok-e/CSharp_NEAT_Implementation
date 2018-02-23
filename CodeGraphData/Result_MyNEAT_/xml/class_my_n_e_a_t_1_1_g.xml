@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_my_n_e_a_t_1_1_g" kind="class" prot="package">
+    <compoundname>MyNEAT::G</compoundname>
+    <derivedcompoundref refid="class_my_n_e_a_t_1_1_g_connection" prot="public" virt="non-virtual">MyNEAT.GConnection</derivedcompoundref>
+    <derivedcompoundref refid="class_my_n_e_a_t_1_1_g_neuron" prot="public" virt="non-virtual">MyNEAT.GNeuron</derivedcompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_g_1a2c4cda6fb7577a680c590828979a178c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int MyNEAT.G.id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="51" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="51" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_g_neuron_1aff6a7c608c91079569d0df7ef2150d52" compoundref="_neat_8cs" startline="65" endline="74">MyNEAT.GNeuron.GNeuron</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_g_neuron_1aa3dc5483c85db459a38b63b98d46f1e6" compoundref="_neat_8cs" startline="76" endline="83">MyNEAT.GNeuron.ToString</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="15">
+        <label>MyNEAT.GConnection</label>
+        <link refid="class_my_n_e_a_t_1_1_g_connection"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>MyNEAT.G</label>
+        <link refid="class_my_n_e_a_t_1_1_g"/>
+      </node>
+      <node id="16">
+        <label>MyNEAT.GNeuron</label>
+        <link refid="class_my_n_e_a_t_1_1_g_neuron"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="50" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="49" bodyend="52"/>
+    <listofallmembers>
+      <member refid="class_my_n_e_a_t_1_1_g_1a2c4cda6fb7577a680c590828979a178c" prot="public" virt="non-virtual"><scope>MyNEAT::G</scope><name>id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

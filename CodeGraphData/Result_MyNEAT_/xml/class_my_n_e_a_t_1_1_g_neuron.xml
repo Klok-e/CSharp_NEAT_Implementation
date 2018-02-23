@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_my_n_e_a_t_1_1_g_neuron" kind="class" prot="package">
+    <compoundname>MyNEAT::GNeuron</compoundname>
+    <basecompoundref refid="class_my_n_e_a_t_1_1_g" prot="public" virt="non-virtual">MyNEAT.G</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_g_neuron_1aedad6a01fcf9f6bbaade3ce3701403c8" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool MyNEAT.GNeuron.isBias</definition>
+        <argsstring></argsstring>
+        <name>isBias</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="56" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="56" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_g_neuron_1aff6a7c608c91079569d0df7ef2150d52" compoundref="_neat_8cs" startline="65" endline="74">MyNEAT.GNeuron.GNeuron</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_g_neuron_1aa3dc5483c85db459a38b63b98d46f1e6" compoundref="_neat_8cs" startline="76" endline="83">MyNEAT.GNeuron.ToString</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_g_neuron_1ac14f5400956b792eb63ea1c98b8b1334" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool MyNEAT.GNeuron.isHidden</definition>
+        <argsstring></argsstring>
+        <name>isHidden</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="57" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="57" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_g_neuron_1aff6a7c608c91079569d0df7ef2150d52" compoundref="_neat_8cs" startline="65" endline="74">MyNEAT.GNeuron.GNeuron</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_g_neuron_1ab2bb35a61b9735ee73633c3a5ecea4fb" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool MyNEAT.GNeuron.isInput</definition>
+        <argsstring></argsstring>
+        <name>isInput</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="59" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="59" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_g_neuron_1aff6a7c608c91079569d0df7ef2150d52" compoundref="_neat_8cs" startline="65" endline="74">MyNEAT.GNeuron.GNeuron</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_g_neuron_1aa3dc5483c85db459a38b63b98d46f1e6" compoundref="_neat_8cs" startline="76" endline="83">MyNEAT.GNeuron.ToString</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_my_n_e_a_t_1_1_g_neuron_1a2e78747b93e00b817af41a414262d2a8" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool MyNEAT.GNeuron.isOutput</definition>
+        <argsstring></argsstring>
+        <name>isOutput</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="63" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="63" bodyend="-1"/>
+        <referencedby refid="class_my_n_e_a_t_1_1_g_neuron_1aff6a7c608c91079569d0df7ef2150d52" compoundref="_neat_8cs" startline="65" endline="74">MyNEAT.GNeuron.GNeuron</referencedby>
+        <referencedby refid="class_my_n_e_a_t_1_1_g_neuron_1aa3dc5483c85db459a38b63b98d46f1e6" compoundref="_neat_8cs" startline="76" endline="83">MyNEAT.GNeuron.ToString</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_g_neuron_1aff6a7c608c91079569d0df7ef2150d52" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MyNEAT.GNeuron.GNeuron</definition>
+        <argsstring>(int id)</argsstring>
+        <name>GNeuron</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="65" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="65" bodyend="74"/>
+        <references refid="class_my_n_e_a_t_1_1_g_1a2c4cda6fb7577a680c590828979a178c" compoundref="_neat_8cs" startline="51">MyNEAT.G.id</references>
+        <references refid="class_my_n_e_a_t_1_1_g_neuron_1aedad6a01fcf9f6bbaade3ce3701403c8" compoundref="_neat_8cs" startline="56">MyNEAT.GNeuron.isBias</references>
+        <references refid="class_my_n_e_a_t_1_1_g_neuron_1ac14f5400956b792eb63ea1c98b8b1334" compoundref="_neat_8cs" startline="57">MyNEAT.GNeuron.isHidden</references>
+        <references refid="class_my_n_e_a_t_1_1_g_neuron_1ab2bb35a61b9735ee73633c3a5ecea4fb" compoundref="_neat_8cs" startline="59">MyNEAT.GNeuron.isInput</references>
+        <references refid="class_my_n_e_a_t_1_1_g_neuron_1a2e78747b93e00b817af41a414262d2a8" compoundref="_neat_8cs" startline="63">MyNEAT.GNeuron.isOutput</references>
+      </memberdef>
+      <memberdef kind="function" id="class_my_n_e_a_t_1_1_g_neuron_1aa3dc5483c85db459a38b63b98d46f1e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override string</type>
+        <definition>override string MyNEAT.GNeuron.ToString</definition>
+        <argsstring>()</argsstring>
+        <name>ToString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="76" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="76" bodyend="83"/>
+        <references refid="class_my_n_e_a_t_1_1_g_1a2c4cda6fb7577a680c590828979a178c" compoundref="_neat_8cs" startline="51">MyNEAT.G.id</references>
+        <references refid="class_my_n_e_a_t_1_1_g_neuron_1aedad6a01fcf9f6bbaade3ce3701403c8" compoundref="_neat_8cs" startline="56">MyNEAT.GNeuron.isBias</references>
+        <references refid="class_my_n_e_a_t_1_1_g_neuron_1ab2bb35a61b9735ee73633c3a5ecea4fb" compoundref="_neat_8cs" startline="59">MyNEAT.GNeuron.isInput</references>
+        <references refid="class_my_n_e_a_t_1_1_g_neuron_1a2e78747b93e00b817af41a414262d2a8" compoundref="_neat_8cs" startline="63">MyNEAT.GNeuron.isOutput</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="27">
+        <label>G</label>
+        <link refid="class_my_n_e_a_t_1_1_g"/>
+      </node>
+      <node id="26">
+        <label>MyNEAT.GNeuron</label>
+        <link refid="class_my_n_e_a_t_1_1_g_neuron"/>
+        <childnode refid="27" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="29">
+        <label>G</label>
+        <link refid="class_my_n_e_a_t_1_1_g"/>
+      </node>
+      <node id="28">
+        <label>MyNEAT.GNeuron</label>
+        <link refid="class_my_n_e_a_t_1_1_g_neuron"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" line="55" column="1" bodyfile="D:/Doc/PY/C#/MyNeat_-decoder_and_network_only-/MyNEAT_/Neat.cs" bodystart="54" bodyend="84"/>
+    <listofallmembers>
+      <member refid="class_my_n_e_a_t_1_1_g_neuron_1aff6a7c608c91079569d0df7ef2150d52" prot="public" virt="non-virtual"><scope>MyNEAT::GNeuron</scope><name>GNeuron</name></member>
+      <member refid="class_my_n_e_a_t_1_1_g_1a2c4cda6fb7577a680c590828979a178c" prot="public" virt="non-virtual"><scope>MyNEAT::GNeuron</scope><name>id</name></member>
+      <member refid="class_my_n_e_a_t_1_1_g_neuron_1aedad6a01fcf9f6bbaade3ce3701403c8" prot="public" virt="non-virtual"><scope>MyNEAT::GNeuron</scope><name>isBias</name></member>
+      <member refid="class_my_n_e_a_t_1_1_g_neuron_1ac14f5400956b792eb63ea1c98b8b1334" prot="public" virt="non-virtual"><scope>MyNEAT::GNeuron</scope><name>isHidden</name></member>
+      <member refid="class_my_n_e_a_t_1_1_g_neuron_1ab2bb35a61b9735ee73633c3a5ecea4fb" prot="public" virt="non-virtual"><scope>MyNEAT::GNeuron</scope><name>isInput</name></member>
+      <member refid="class_my_n_e_a_t_1_1_g_neuron_1a2e78747b93e00b817af41a414262d2a8" prot="public" virt="non-virtual"><scope>MyNEAT::GNeuron</scope><name>isOutput</name></member>
+      <member refid="class_my_n_e_a_t_1_1_g_neuron_1aa3dc5483c85db459a38b63b98d46f1e6" prot="public" virt="non-virtual"><scope>MyNEAT::GNeuron</scope><name>ToString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
