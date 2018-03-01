@@ -51,9 +51,12 @@
   <ItemGroup>
     <Compile Include="ActivationFunctions.cs" />
     <Compile Include="Decoder\Decoder.cs" />
-    <Compile Include="EvolutionaryAlgorithm.cs" />
+    <Compile Include="Decoder\IBlackBox.cs" />
+    <Compile Include="EvolutionAlgorithm\Evaluator.cs" />
+    <Compile Include="EvolutionAlgorithm\EvolutionaryAlgorithm.cs" />
     <Compile Include="Genome\Genome.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="Genome\IGenome.cs" />
     <Compile Include="Genome\Node.cs" />
     <Compile Include="Help.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

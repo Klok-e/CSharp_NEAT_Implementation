@@ -1,16 +1,17 @@
-﻿using System;
+﻿using MyNEAT.Decoder;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace MyNEAT.Genome
 {
-    public class NEATGenome
+    public class NEATGenome : IGenome
     {
         public static Config _conf { get; set; }
 
         internal static ulong _geneIndex;
 
-        public float _fitness;
+        public float Fitness { get; set; }
 
         public List<GConnection> _connections { get; private set; }
         public List<GNeuron> _neurons { get; private set; }
@@ -76,7 +77,9 @@ namespace MyNEAT.Genome
 
         #endregion Constructors
 
-        public NEATGenome Clone()
+        #region IGenome
+
+        public IGenome Clone()
         {
             var clone = new NEATGenome()
             {
@@ -87,17 +90,20 @@ namespace MyNEAT.Genome
             return clone;
         }
 
-        #region Reproduction
-
-        public NEATGenome Crossover(Random generator, NEATGenome other)
+        public IBlackBox Decode()
         {
-            void FindDuplicates<T>(List<T> neus) where T : G
+            throw new Exception();
+        }
+
+        public IGenome Crossover(Random generator, IGenome interfacked)
+        {
+            void FindDuplicates<T>(List<T> neus) where T : IGNode
             {
                 foreach (var n in neus)
                 {
                     foreach (var n2 in neus)
                     {
-                        if (n == n2) continue;
+                        if (n.Equals(n2)) continue;
                         if (n.Id == n2.Id)
                         {
                             throw new Exception("shi~");
@@ -105,85 +111,54 @@ namespace MyNEAT.Genome
                     }
                 }
             }
+            var other = (NEATGenome)interfacked;
 
             var neurons = new List<GNeuron>();
 
             #region Build neurons
 
-            var neuronsSortedByCount = new List<List<GNeuron>>
+            neurons.AddRange(_neurons.Concat(other._neurons));
+            neurons.Sort((x, y) => x.Id.CompareTo(y.Id));
+            for (int i = neurons.Count - 1; i > 0; i--)
             {
-                this._neurons,
-                other._neurons
-            };
-            neuronsSortedByCount.Sort((x, y) => x.Count.CompareTo(y.Count));//sorted by increasing
-
-            for (int i = 0; i < neuronsSortedByCount[1].Count; i++)
-            {
-                if (i < neuronsSortedByCount[0].Count)
+                if (neurons[i].Id == neurons[i - 1].Id)
                 {
-                    int ind = generator.Next(0, 2);
-                    if (!IsGWithIdExistsInList(neurons, neuronsSortedByCount[ind][i].Id))
-                        neurons.Add(neuronsSortedByCount[ind][i]);
-                }
-                else
-                {
-                    if (!IsGWithIdExistsInList(neurons, neuronsSortedByCount[1][i].Id))
-                        neurons.Add(neuronsSortedByCount[1][i]);//take from the longest list
+                    neurons.RemoveAt(i - generator.Next(2));
                 }
             }
 
             #endregion Build neurons
 
-            var connections = new List<GConnection>(Math.Max(this._connections.Count, other._connections.Count));
+            var connections = new List<GConnection>();
 
             #region Build connections
 
-            var connsSortedByCount = new List<List<GConnection>>
+            connections.AddRange(_connections.Concat(other._connections));
+            connections.Sort((x, y) => x.Id.CompareTo(y.Id));
+            for (int i = connections.Count - 1; i > 0; i--)
             {
-                this._connections,
-                other._connections
-            };
-            connsSortedByCount.Sort((x, y) => x.Count.CompareTo(y.Count));
-
-            for (var i = 0; i < connsSortedByCount[1].Count; i++)
-            {
-                if (i < connsSortedByCount[0].Count)
+                if (connections[i].Id == connections[i - 1].Id)
                 {
-                    int ind = generator.Next(0, 2);
-                    if (!IsGWithIdExistsInList(connections, connsSortedByCount[ind][i].Id))
-                        connections.Add(connsSortedByCount[ind][i]);
+                    connections.RemoveAt(i - generator.Next(2));
                 }
-                else
-                {
-                    if (!IsGWithIdExistsInList(connections, connsSortedByCount[1][i].Id))
-                        connections.Add(connsSortedByCount[1][i]);//take from the longest list
-                }
-            }
-
-            //delete all impossible connections
-            var toDelete = new List<GConnection>();
-            foreach (var conn in connections)
-            {
-                if (!IsGWithIdExistsInList(neurons, conn.FromNeuron) || !IsGWithIdExistsInList(neurons, conn.ToNeuron))
-                {
-                    toDelete.Add(conn);
-                }
-            }
-            foreach (var del in toDelete)
-            {
-                connections.Remove(del);
             }
 
             #endregion Build connections
 
 #if DEBUG
+            var watch = new System.Diagnostics.Stopwatch();
+            watch.Start();
+
             FindDuplicates(neurons);
             FindDuplicates(connections);
-#endif
 
-            var child = new NEATGenome(generator);
-            child._neurons = new List<GNeuron>(neurons);
-            child._connections = new List<GConnection>(connections);
+            watch.Stop();
+#endif
+            var child = new NEATGenome(generator)
+            {
+                _neurons = new List<GNeuron>(neurons),
+                _connections = new List<GConnection>(connections)
+            };
             return child;
         }
 
@@ -202,7 +177,7 @@ namespace MyNEAT.Genome
                 RemoveDisconnectedNeurons();
         }
 
-        #endregion Reproduction
+        #endregion IGenome
 
         #region Mutators
 

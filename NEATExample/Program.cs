@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using MyNEAT;
+using MyNEAT.Decoder;
 using MyNEAT.Domains.SinglePole;
 using MyNEAT.Domains.XOR;
 using MyNEAT.Genome;
@@ -91,26 +92,26 @@ namespace NEATExample
                 {
                     var network = new Network(genome);
 
-                    genome._fitness = 0;
+                    genome.Fitness = 0;
                     for (int j = 0; j < 4; j++)
                     {
                         var (x, y) = env.GetNums(j);
                         var prediction = network.Predict(x);
                         float fit = 1 / (Math.Abs(env.GetError(prediction[0], y)) + 1);
-                        genome._fitness += (float)(fit - (genome.GetComplexity() * 0.0001));
+                        genome.Fitness += (float)(fit - (genome.GetComplexity() * 0.0001));
                     }
                 }
-                population.Sort((x, y) => x._fitness.CompareTo(y._fitness));
+                population.Sort((x, y) => x.Fitness.CompareTo(y.Fitness));
 
                 float sum = 0;
                 float comp_sum = 0;
-                var mx = population[0]._fitness;
+                var mx = population[0].Fitness;
                 foreach (var genome in population)
                 {
                     comp_sum += genome.GetComplexity();
-                    sum += genome._fitness;
-                    if (genome._fitness > mx)
-                        mx = genome._fitness;
+                    sum += genome.Fitness;
+                    if (genome.Fitness > mx)
+                        mx = genome.Fitness;
                 }
                 Console.Write("Generation: " + i + ", " + "Average fitness: " + sum / population.Count + ", " +
                               "Max Fitness: " + mx + ", " + "Average complexity " + comp_sum / population.Count + "\n");
@@ -131,11 +132,11 @@ namespace NEATExample
                         population.Add(g2);
 
                         var genomes = new List<NEATGenome>(new[] { g1, g2, g3 });
-                        genomes.Sort((x, y) => x._fitness.CompareTo(y._fitness));
+                        genomes.Sort((x, y) => x.Fitness.CompareTo(y.Fitness));
 
                         population.Remove(genomes[0]);
 
-                        var tmp = genomes[1].Crossover(generator, genomes[2]);
+                        var tmp = (NEATGenome)genomes[1].Crossover(generator, genomes[2]);
                         tmp.Mutate(generator);
                         addToPop.Add(tmp);
                     }
@@ -147,10 +148,10 @@ namespace NEATExample
                         population.Add(g1);
 
                         var genomes = new List<NEATGenome>(new[] { g1, g2 });
-                        genomes.Sort((x, y) => x._fitness.CompareTo(y._fitness));
+                        genomes.Sort((x, y) => x.Fitness.CompareTo(y.Fitness));
                         population.Remove(genomes[0]);
 
-                        var tmp = genomes[1].Clone();
+                        var tmp = (NEATGenome)genomes[1].Clone();
                         tmp.Mutate(generator);
                         addToPop.Add(tmp);
                     }
@@ -190,7 +191,7 @@ namespace NEATExample
                     {
                         if (s._done)
                         {
-                            genome._fitness = (float)(s._reward - Math.Sqrt(Math.Sqrt(genome.GetComplexity())));
+                            genome.Fitness = (float)(s._reward - Math.Sqrt(Math.Sqrt(genome.GetComplexity())));
                             //genome.fitness = s._reward;
                             break;
                         }
@@ -208,13 +209,13 @@ namespace NEATExample
                 }
                 float sum = 0;
                 float comp_sum = 0;
-                var mx = population[0]._fitness;
+                var mx = population[0].Fitness;
                 foreach (var genome in population)
                 {
                     comp_sum += genome.GetComplexity();
-                    sum += genome._fitness;
-                    if (genome._fitness > mx)
-                        mx = genome._fitness;
+                    sum += genome.Fitness;
+                    if (genome.Fitness > mx)
+                        mx = genome.Fitness;
                 }
                 Console.Write("Generation: " + i + ", " + "Average fitness: " + sum / population.Count + ", " +
                               "Max Fitness: " + mx + ", " + "Average complexity " + comp_sum / population.Count + "\n");
@@ -233,11 +234,11 @@ namespace NEATExample
                     population.Add(g2);
 
                     var genomes = new List<NEATGenome>(new[] { g1, g2, g3 });
-                    genomes.Sort((x, y) => x._fitness.CompareTo(y._fitness));
+                    genomes.Sort((x, y) => x.Fitness.CompareTo(y.Fitness));
 
                     population.Remove(genomes[0]);
 
-                    var tmp = genomes[1].Crossover(generator, genomes[2]);
+                    var tmp = (NEATGenome)genomes[1].Crossover(generator, genomes[2]);
                     tmp.Mutate(generator);
                     addToPop.Add(tmp);
                 }

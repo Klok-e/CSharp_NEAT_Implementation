@@ -10,14 +10,15 @@ namespace MyNEAT.Genome
         output = 3
     }
 
-    public abstract class G
+    public interface IGNode
     {
-        public ulong Id { get; protected set; }
+        ulong Id { get; set; }
     }
 
-    public class GNeuron : G
+    public class GNeuron : IGNode
     {
         public NeuronType Type { get; }
+        public ulong Id { get; set; }
 
         public GNeuron(ulong id, NeuronType type)
         {
@@ -35,11 +36,12 @@ namespace MyNEAT.Genome
         }
     }
 
-    public class GConnection : G
+    public class GConnection : IGNode
     {
         public ulong FromNeuron { get; }
         public ulong ToNeuron { get; }
         public float Weight { get; }
+        public ulong Id { get; set; }
 
         public GConnection(ulong fromneuron, ulong toneuron, float wei, ulong idForThis)
         {

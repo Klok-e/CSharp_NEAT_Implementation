@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MyNEAT
+namespace MyNEAT.Decoder
 {
     internal class DNeuron
     {
@@ -15,7 +15,7 @@ namespace MyNEAT
 
         public List<DConnection> outConnections;
 
-        public NeuronType type;
+        public NeuronType Type { get; }
 
         public bool isBias;
         public bool isInput;
