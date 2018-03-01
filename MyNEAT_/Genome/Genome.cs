@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace MyNEAT.Genome
 {
-    public class Genome
+    public class NEATGenome
     {
-        public Config _conf { get; }
+        public static Config _conf { get; set; }
 
         internal static ulong _geneIndex;
 
@@ -34,14 +34,12 @@ namespace MyNEAT.Genome
 
         #region Constructors
 
-        public Genome(Config conf, Random generator)
+        public NEATGenome(Random generator)
         {
-            if (conf.inputs == 0 || conf.outputs == 0) throw new Exception("fuck you");
+            if (_conf.inputs == 0 || _conf.outputs == 0) throw new Exception("fuck you");
 
-            _conf = conf ?? throw new Exception("conf = null");
-
-            var inputs = conf.inputs;
-            var outputs = conf.outputs;
+            var inputs = _conf.inputs;
+            var outputs = _conf.outputs;
 
             _geneIndex = 1;
             _neurons = new List<GNeuron>(inputs + outputs);
@@ -72,20 +70,18 @@ namespace MyNEAT.Genome
                         }
         }
 
-        private Genome(Config conf)
+        private NEATGenome()
         {
-            _conf = conf ?? throw new Exception("conf = null");
         }
 
         #endregion Constructors
 
-        public Genome Clone()
+        public NEATGenome Clone()
         {
-            var clone = new Genome(_conf)
+            var clone = new NEATGenome()
             {
                 _connections = new List<GConnection>(_connections),
                 _neurons = new List<GNeuron>(_neurons),
-                _fitness = _fitness * 0.9f,
             };
 
             return clone;
@@ -93,40 +89,7 @@ namespace MyNEAT.Genome
 
         #region Reproduction
 
-        /// <summary>
-        ///     Asexual reproduction
-        /// </summary>
-        /// <returns></returns>
-        public Genome CreateOffSpring(Random generator)
-        {
-            var offspring = new Genome
-            {
-                _neurons = new List<GNeuron>(_neurons),
-                _connections = new List<GConnection>(_connections)
-            };
-            offspring = Mutate(generator, offspring);
-            return offspring;
-        }
-
-        /// <summary>
-        ///     Sexual reproduction
-        /// </summary>
-        /// <param name="generator"></param>
-        /// <param name="otherParent"></param>
-        /// <returns></returns>
-        public Genome CreateOffSpring(Random generator, Genome otherParent)
-        {
-            var offspring = Crossover(generator, this, otherParent);
-
-            offspring = Mutate(generator, offspring);
-            return offspring;
-        }
-
-        #endregion Reproduction
-
-        #region Static methods
-
-        public static Genome Crossover(Random generator, Genome parent1, Genome parent2)
+        public NEATGenome Crossover(Random generator, NEATGenome other)
         {
             void FindDuplicates<T>(List<T> neus) where T : G
             {
@@ -149,8 +112,8 @@ namespace MyNEAT.Genome
 
             var neuronsSortedByCount = new List<List<GNeuron>>
             {
-                parent1._neurons,
-                parent2._neurons
+                this._neurons,
+                other._neurons
             };
             neuronsSortedByCount.Sort((x, y) => x.Count.CompareTo(y.Count));//sorted by increasing
 
@@ -171,14 +134,14 @@ namespace MyNEAT.Genome
 
             #endregion Build neurons
 
-            var connections = new List<GConnection>(Math.Max(parent1._connections.Count, parent2._connections.Count));
+            var connections = new List<GConnection>(Math.Max(this._connections.Count, other._connections.Count));
 
             #region Build connections
 
             var connsSortedByCount = new List<List<GConnection>>
             {
-                parent1._connections,
-                parent2._connections
+                this._connections,
+                other._connections
             };
             connsSortedByCount.Sort((x, y) => x.Count.CompareTo(y.Count));
 
@@ -213,30 +176,126 @@ namespace MyNEAT.Genome
 
             #endregion Build connections
 
+#if DEBUG
             FindDuplicates(neurons);
             FindDuplicates(connections);
+#endif
 
-            var child = new Genome();
+            var child = new NEATGenome(generator);
             child._neurons = new List<GNeuron>(neurons);
             child._connections = new List<GConnection>(connections);
             return child;
         }
 
-        public static Genome Mutate(Random generator, Genome toMutate)
+        public void Mutate(Random generator)
         {
             if (generator.NextDouble() < _conf.probabilityOfChangeWeight)
-                toMutate = MutationChangeWeight(generator, toMutate);
+                MutationChangeWeight(generator);
             if (generator.NextDouble() < _conf.probabilityAddNeuron)
-                toMutate = MutationAddNeuron(generator, toMutate);
+                MutationAddNeuron(generator);
             if (generator.NextDouble() < _conf.probabilityAddConnection)
-                toMutate = MutationAddConnection(generator, toMutate);
+                MutationAddConnection(generator);
             if (generator.NextDouble() < _conf.probabilityRemoveConnection)
-                toMutate = MutationRemoveConnection(generator, toMutate);
+                MutationRemoveConnection(generator);
 
-            return toMutate;
+            if (_geneIndex % 10 == 1)//magic
+                RemoveDisconnectedNeurons();
         }
 
-        internal static bool IsGWithIdExistsInList(List<GNeuron> neurons, int id)
+        #endregion Reproduction
+
+        #region Mutators
+
+        private void MutationChangeWeight(Random generator)
+        {
+            if (_connections.Count > 0)
+            {
+                var randConn = generator.RandChoice(_connections, out int num);
+                if (generator.NextDouble() < _conf.probabilityOfResetWeight)
+                    _connections[num] = new GConnection(randConn.FromNeuron, randConn.ToNeuron,
+                        generator.RandRange(-_conf.connWeightRange, _conf.connWeightRange),
+                        randConn.Id);
+                else
+                    _connections[num] = new GConnection(randConn.FromNeuron, randConn.ToNeuron,
+                        generator.RandRange(-_conf.weightChangeRange, _conf.weightChangeRange) + randConn.Weight,
+                        randConn.Id);
+            }
+        }
+
+        private void MutationAddNeuron(Random generator)
+        {
+            if (_connections.Count > 0)
+            {
+                var randConn = generator.RandChoice(_connections, out var ind);
+                _connections.RemoveAt(ind);
+
+                var newNeuron = new GNeuron(_geneIndex++, NeuronType.hidden);
+                _neurons.Add(newNeuron);
+
+                var newConnIn = new GConnection(randConn.FromNeuron, newNeuron.Id, 1, _geneIndex++);
+                _connections.Add(newConnIn);
+
+                var newConnOut = new GConnection(newNeuron.Id, randConn.ToNeuron, randConn.Weight, _geneIndex++);
+                _connections.Add(newConnOut);
+            }
+        }
+
+        private void RemoveDisconnectedNeurons()
+        {
+            var toDel = new List<GNeuron>();
+            for (var i = 0; i < _neurons.Count; i++)
+            {
+                GetListOfInAndOutConnections(_connections, _neurons[i].Id,
+                    out var neuIn, out var neuOut);
+                if ((neuIn.Count == 0 || neuOut.Count == 0) && _neurons[i].Type == NeuronType.hidden)
+                {
+                    toDel.Add(_neurons[i]);
+                    foreach (var item in neuIn.Concat(neuOut))
+                    {
+                        _connections.Remove(GetConnection(_connections, item));
+                    }
+                }
+            }
+            foreach (var item in toDel)
+            {
+                _neurons.Remove(item);
+            }
+        }
+
+        private void MutationAddConnection(Random generator)
+        {
+            var neuron1 = generator.RandChoice(_neurons);
+            var neuron2 = generator.RandChoice(_neurons);
+
+            GetListOfInAndOutConnections(_connections, neuron1.Id, out var inConn1, out var outConn1);
+            GetListOfInAndOutConnections(_connections, neuron2.Id, out var inConn2, out var outConn2);
+            if (inConn1.Intersect(outConn2).Count() == 0 && inConn2.Intersect(outConn1).Count() == 0)
+            {
+                _connections.Add(new GConnection(neuron1.Id, neuron2.Id,
+                    generator.RandRange(-_conf.connWeightRange, _conf.connWeightRange),
+                    _geneIndex++));
+            }
+        }
+
+        private void MutationRemoveConnection(Random generator)
+        {
+            if (_connections.Count > 0)
+            {
+                generator.RandChoice(_connections, out var ind);
+                _connections.RemoveAt(ind);
+            }
+        }
+
+        #endregion Mutators
+
+        #region Static methods
+
+        public static void SetConf(Config conf)
+        {
+            _conf = conf;
+        }
+
+        internal static bool IsGWithIdExistsInList(List<GNeuron> neurons, ulong id)
         {
             foreach (var neuron in neurons)
                 if (neuron.Id == id)
@@ -244,7 +303,7 @@ namespace MyNEAT.Genome
             return false;
         }
 
-        internal static bool IsGWithIdExistsInList(List<GConnection> conns, int id)
+        internal static bool IsGWithIdExistsInList(List<GConnection> conns, ulong id)
         {
             foreach (var conn in conns)
                 if (conn.Id == id)
@@ -252,10 +311,10 @@ namespace MyNEAT.Genome
             return false;
         }
 
-        internal static int[] FindAmountOfInAndOutConnectionsForNeuronWithId(List<GConnection> connectionList, int id)
+        internal static void FindAmountOfInAndOutConnectionsForNeuronWithId(List<GConnection> connectionList, ulong id, out int sumIn, out int sumOut)
         {
-            var sumIn = 0;
-            var sumOut = 0;
+            sumIn = 0;
+            sumOut = 0;
             foreach (var conn in connectionList)
             {
                 if (conn.ToNeuron == id)
@@ -263,21 +322,31 @@ namespace MyNEAT.Genome
                 if (conn.FromNeuron == id)
                     sumOut++;
             }
-            return new[] { sumIn, sumOut };
         }
 
-        internal static List<GConnection>[] GetListOfInAndOutConnections(List<GConnection> connectionList, int id)
+        internal static void GetListOfInAndOutConnections(List<GConnection> connectionList, ulong id, out List<ulong> inConn, out List<ulong> outConn)
         {
-            var inConn = new List<GConnection>();
-            var outConn = new List<GConnection>();
+            inConn = new List<ulong>();
+            outConn = new List<ulong>();
             foreach (var conn in connectionList)
             {
                 if (conn.ToNeuron == id)
-                    inConn.Add(conn);
+                    inConn.Add(conn.Id);
                 if (conn.FromNeuron == id)
-                    outConn.Add(conn);
+                    outConn.Add(conn.Id);
             }
-            return new[] { inConn, outConn };
+        }
+
+        private static GConnection GetConnection(List<GConnection> connectionList, ulong id)
+        {
+            foreach (var item in connectionList)
+            {
+                if (item.Id == id)
+                {
+                    return item;
+                }
+            }
+            throw new Exception();
         }
 
         #endregion Static methods

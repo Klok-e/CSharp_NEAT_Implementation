@@ -1,4 +1,5 @@
 ﻿using MyNEAT.ActivationFunctions;
+using MyNEAT.Genome;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +15,13 @@ namespace MyNEAT
 
         public List<DConnection> outConnections;
 
+        public NeuronType type;
+
         public bool isBias;
         public bool isInput;
         public bool isOutput;
 
-        public int amountOfInConnections;
-
-        public int id;
+        public ulong _id;
 
         public List<float> inputsAdded;
         public float output;
@@ -30,13 +31,13 @@ namespace MyNEAT
 
         #endregion Public
 
-        public DNeuron(int id)
+        public DNeuron(ulong id)
         {
             depths = new List<int>();
 
             outConnections = new List<DConnection>();
 
-            this.id = id;
+            _id = id;
             inputsAdded = new List<float>();
             depth = 0;
             output = 0;
@@ -67,10 +68,10 @@ namespace MyNEAT
                 conn.toNeuron.inputsAdded.Add(output * conn.weight);
         }
 
-        public static DNeuron FindNeuronWithId(List<DNeuron> neuronslist, int id)
+        public static DNeuron FindNeuronWithId(List<DNeuron> neuronslist, ulong id)
         {
             for (var i = 0; i < neuronslist.Count; i++)
-                if (neuronslist[i].id == id)
+                if (neuronslist[i]._id == id)
                     return neuronslist[i];
             throw new Exception();
         }
@@ -87,14 +88,14 @@ namespace MyNEAT
 
         public override string ToString()
         {
-            var str = "This id: " + id;
+            var str = "This id: " + _id;
             str += ", this n depth: " + depth;
             str += ", " + "Is input: " + isInput + ", " + "Is bias: " + isBias + ", " + "Is Output: " + isOutput +
                    " ||| ";
             str += "Out: ";
             for (var i = 0; i < outConnections.Count; i++)
             {
-                str += " Id = " + outConnections[i].toNeuron.id;
+                str += " Id = " + outConnections[i].toNeuron._id;
                 str += " Weight = " + Math.Round(outConnections[i].weight, 2);
                 str += " Depth = " + outConnections[i].toNeuron.depth;
             }
@@ -116,33 +117,32 @@ namespace MyNEAT
         private readonly List<DNeuron> inputs = new List<DNeuron>();
         private readonly List<DNeuron> outputs = new List<DNeuron>();
 
-        public Network(Genome genome)
+        public Network(NEATGenome genome)
         {
-            DNeuron.normalActivation = Genome.conf.activationNormal;
-            DNeuron.outpActivation = Genome.conf.activationOutp;
+            DNeuron.normalActivation = NEATGenome._conf.activationNormal;
+            DNeuron.outpActivation = NEATGenome._conf.activationOutp;
 
-            for (var i = 0; i < genome.neurons.Count; i++)
-                dneurons.Add(new DNeuron(genome.neurons[i].id));
+            foreach (var item in genome._neurons)
+                dneurons.Add(new DNeuron(item.Id));
 
             //iterate through all neurons
             DNeuron currneu;
-            foreach (var neuron in genome.neurons)
+            foreach (var neuron in genome._neurons)
             {
-                currneu = DNeuron.FindNeuronWithId(dneurons, neuron.id);
+                currneu = DNeuron.FindNeuronWithId(dneurons, neuron.Id);
 
-                currneu.amountOfInConnections =
-                    Genome.FindAmountOfInAndOutConnectionsForNeuronWithId(genome.connections, neuron.id)[0];
-                if (neuron.IsInput || neuron.IsBias)
+                NEATGenome.FindAmountOfInAndOutConnectionsForNeuronWithId(genome._connections, neuron.Id, out int sumIn, out int sumOut);
+                if (neuron.Type == NeuronType.input || neuron.Type == NeuronType.bias)
                 {
                     //currneu.isInput = true;
                     inputs.Add(currneu);
                     //currneu.amountOfInConnections = neuron.inConnections.Count;
-                    if (neuron.IsBias)
+                    if (neuron.Type == NeuronType.bias)
                         currneu.isBias = true;
-                    else if (neuron.IsInput)
+                    else if (neuron.Type == NeuronType.input)
                         currneu.isInput = true;
                 }
-                else if (neuron.IsOutput)
+                else if (neuron.Type == NeuronType.output)
                 {
                     currneu.isOutput = true;
                     outputs.Add(currneu);
@@ -153,12 +153,14 @@ namespace MyNEAT
                 }
             }
 
-            foreach (var conn in genome.connections)
+            foreach (var conn in genome._connections)
             {
-                var connout = new DConnection();
-                connout.toNeuron = DNeuron.FindNeuronWithId(dneurons, conn.toNeuron);
-                connout.weight = conn.weight;
-                DNeuron.FindNeuronWithId(dneurons, conn.fromNeuron).outConnections.Add(connout);
+                var connout = new DConnection
+                {
+                    toNeuron = DNeuron.FindNeuronWithId(dneurons, conn.ToNeuron),
+                    weight = conn.Weight
+                };
+                DNeuron.FindNeuronWithId(dneurons, conn.FromNeuron).outConnections.Add(connout);
             }
 
             //another check
@@ -214,18 +216,18 @@ namespace MyNEAT
             for (var i = 0; i < inputs.Count; i++)
             {
                 var depth = 0;
-                var visited = new List<int>();
+                var visited = new List<ulong>();
                 SetDepthStartingFromThisNeuron(inputs[i], depth, visited);
             }
         }
 
-        private void SetDepthStartingFromThisNeuron(DNeuron neuron, int depth, List<int> visited)
+        private void SetDepthStartingFromThisNeuron(DNeuron neuron, int depth, List<ulong> visited)
         {
             neuron.depths.Add(depth);
-            visited.Add(neuron.id);
+            visited.Add(neuron._id);
 
             foreach (var conn in neuron.outConnections)
-                if (visited.Contains(conn.toNeuron.id) == false)
+                if (visited.Contains(conn.toNeuron._id) == false)
                     SetDepthStartingFromThisNeuron(conn.toNeuron, depth + 1, visited);
         }
     }

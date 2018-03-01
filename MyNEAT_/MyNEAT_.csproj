@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MyNEAT</RootNamespace>
     <AssemblyName>MyNEAT_</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
@@ -50,11 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivationFunctions.cs" />
-    <Compile Include="Decoder.cs" />
+    <Compile Include="Decoder\Decoder.cs" />
     <Compile Include="EvolutionaryAlgorithm.cs" />
     <Compile Include="Genome\Genome.cs" />
     <Compile Include="Config.cs" />
-    <Compile Include="Genome\Mutators.cs" />
     <Compile Include="Genome\Node.cs" />
     <Compile Include="Help.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -5,51 +5,43 @@ namespace MyNEAT.Domains.XOR
 {
     public class Xor
     {
-        private readonly int numInp;
-        int count = 0;
-
-        public Xor(int numOfInp)
+        public Xor()
         {
-            if (numOfInp % 2 == 1) throw new Exception("Wrong parameter!");
-            numInp = numOfInp;
         }
 
-        public List<double[]> GetNums()
+        public (float[] x, float y) GetNums(int ind)
         {
-            var ans = new List<double[]>();
+            var x = new float[2];
+            var y = new float();
 
-            if (count == 4) count = 0;
-            switch (count)
+            switch (ind)
             {
                 case 0:
-                    ans.Add(new double[] { 0, 0 });
-                    ans.Add(new double[] { 0 });
+                    x = new float[] { 0f, 0f };
+                    y = 0f;
                     break;
+
                 case 1:
-                    ans.Add(new double[] { 1, 0 });
-                    ans.Add(new double[] { 1 });
+                    x = (new float[] { 1f, 0f });
+                    y = 1f;
                     break;
+
                 case 2:
-                    ans.Add(new double[] { 0, 1 });
-                    ans.Add(new double[] { 1 });
+                    x = (new float[] { 0f, 1f });
+                    y = 1f;
                     break;
+
                 case 3:
-                    ans.Add(new double[] { 1, 1 });
-                    ans.Add(new double[] { 0 });
+                    x = (new float[] { 1f, 1f });
+                    y = 0f;
                     break;
             }
-            count++;
-            return ans;
+            return (x, y);
         }
 
-        public double GetError(double[] networkOutput, double[] expctdOut)
+        public float GetError(float networkOutput, float expctdOut)
         {
-            if (networkOutput.Length != expctdOut.Length) throw new Exception("Wrong array length");
-
-            double error = 0;
-            for (var i = 0; i < networkOutput.Length; i++)
-                error += Math.Abs(networkOutput[i] - expctdOut[i]);
-            return -error;
+            return Math.Abs(networkOutput - expctdOut);
         }
     }
 }
