@@ -1,12 +1,16 @@
-﻿using MyNEAT.Decoder;
+﻿using MyNEAT.ActivationFunctions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MyNEAT.Genome
+namespace MyNEAT.Genome.NEAT
 {
     public class NEATGenome : IGenome
     {
+        private static readonly IActivationFunction ActivInput = new Linear();
+        private static readonly IActivationFunction ActivHidden = new Tanh();
+        private static readonly IActivationFunction ActivOutput = new Tanh();
+
         public static Config _conf { get; set; }
 
         internal static ulong _geneIndex;
@@ -48,15 +52,15 @@ namespace MyNEAT.Genome
 
             for (var i = 0; i < inputs; i++) //only inputs
             {
-                _neurons.Add(new GNeuron(_geneIndex++, NeuronType.input));
+                _neurons.Add(new GNeuron(_geneIndex++, NeuronType.input, ActivInput));
             }
 
-            var biasNeuron = new GNeuron(_geneIndex++, NeuronType.bias);
+            var biasNeuron = new GNeuron(_geneIndex++, NeuronType.bias, ActivInput);
             _neurons.Add(biasNeuron);
 
             for (var i = 0; i < outputs; i++) //only output neurons
             {
-                _neurons.Add(new GNeuron(_geneIndex++, NeuronType.output));
+                _neurons.Add(new GNeuron(_geneIndex++, NeuronType.output, ActivOutput));
             }
 
             foreach (var neuron in _neurons)
@@ -88,11 +92,6 @@ namespace MyNEAT.Genome
             };
 
             return clone;
-        }
-
-        public IBlackBox Decode()
-        {
-            throw new Exception();
         }
 
         public IGenome Crossover(Random generator, IGenome interfacked)
@@ -204,7 +203,7 @@ namespace MyNEAT.Genome
                 var randConn = generator.RandChoice(_connections, out var ind);
                 _connections.RemoveAt(ind);
 
-                var newNeuron = new GNeuron(_geneIndex++, NeuronType.hidden);
+                var newNeuron = new GNeuron(_geneIndex++, NeuronType.hidden, ActivHidden);
                 _neurons.Add(newNeuron);
 
                 var newConnIn = new GConnection(randConn.FromNeuron, newNeuron.Id, 1, _geneIndex++);
@@ -215,7 +214,7 @@ namespace MyNEAT.Genome
             }
         }
 
-        private void RemoveDisconnectedNeurons()
+        public void RemoveDisconnectedNeurons()
         {
             var toDel = new List<GNeuron>();
             for (var i = 0; i < _neurons.Count; i++)
@@ -227,7 +226,7 @@ namespace MyNEAT.Genome
                     toDel.Add(_neurons[i]);
                     foreach (var item in neuIn.Concat(neuOut))
                     {
-                        _connections.Remove(GetConnection(_connections, item));
+                        _connections.Remove((GConnection)GetNodeById(_connections.Cast<IGNode>().ToList(), item));
                     }
                 }
             }
@@ -239,8 +238,8 @@ namespace MyNEAT.Genome
 
         private void MutationAddConnection(Random generator)
         {
-            var neuron1 = generator.RandChoice(_neurons);
-            var neuron2 = generator.RandChoice(_neurons);
+            var neuron1 = generator.RandChoice(_neurons.Where((x) => { return x.Type != NeuronType.output; }).ToList());
+            var neuron2 = generator.RandChoice(_neurons.Where((x) => { return x.Type != NeuronType.input && x.Type != NeuronType.bias; }).ToList());
 
             GetListOfInAndOutConnections(_connections, neuron1.Id, out var inConn1, out var outConn1);
             GetListOfInAndOutConnections(_connections, neuron2.Id, out var inConn2, out var outConn2);
@@ -270,7 +269,7 @@ namespace MyNEAT.Genome
             _conf = conf;
         }
 
-        internal static bool IsGWithIdExistsInList(List<GNeuron> neurons, ulong id)
+        public static bool IsGWithIdExistsInList(List<GNeuron> neurons, ulong id)
         {
             foreach (var neuron in neurons)
                 if (neuron.Id == id)
@@ -278,7 +277,7 @@ namespace MyNEAT.Genome
             return false;
         }
 
-        internal static bool IsGWithIdExistsInList(List<GConnection> conns, ulong id)
+        public static bool IsGWithIdExistsInList(List<GConnection> conns, ulong id)
         {
             foreach (var conn in conns)
                 if (conn.Id == id)
@@ -286,7 +285,7 @@ namespace MyNEAT.Genome
             return false;
         }
 
-        internal static void FindAmountOfInAndOutConnectionsForNeuronWithId(List<GConnection> connectionList, ulong id, out int sumIn, out int sumOut)
+        public static void FindAmountOfInAndOutConnectionsForNeuronWithId(List<GConnection> connectionList, ulong id, out int sumIn, out int sumOut)
         {
             sumIn = 0;
             sumOut = 0;
@@ -299,7 +298,7 @@ namespace MyNEAT.Genome
             }
         }
 
-        internal static void GetListOfInAndOutConnections(List<GConnection> connectionList, ulong id, out List<ulong> inConn, out List<ulong> outConn)
+        public static void GetListOfInAndOutConnections(List<GConnection> connectionList, ulong id, out List<ulong> inConn, out List<ulong> outConn)
         {
             inConn = new List<ulong>();
             outConn = new List<ulong>();
@@ -312,16 +311,16 @@ namespace MyNEAT.Genome
             }
         }
 
-        private static GConnection GetConnection(List<GConnection> connectionList, ulong id)
+        public static IGNode GetNodeById(List<IGNode> nodeList, ulong id)
         {
-            foreach (var item in connectionList)
+            foreach (var item in nodeList)
             {
                 if (item.Id == id)
                 {
                     return item;
                 }
             }
-            throw new Exception();
+            throw new Exception("not found");
         }
 
         #endregion Static methods

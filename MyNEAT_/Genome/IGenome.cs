@@ -15,8 +15,6 @@ namespace MyNEAT.Genome
 
         IGenome Crossover(Random generator, IGenome other);
 
-        IBlackBox Decode();
-
         IGenome Clone();
     }
 }

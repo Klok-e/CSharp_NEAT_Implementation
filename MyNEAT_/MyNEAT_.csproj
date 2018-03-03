@@ -50,14 +50,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivationFunctions.cs" />
-    <Compile Include="Decoder\Decoder.cs" />
+    <Compile Include="Decoder\NEAT\Decoder.cs" />
     <Compile Include="Decoder\IBlackBox.cs" />
-    <Compile Include="EvolutionAlgorithm\Evaluator.cs" />
+    <Compile Include="Decoder\IDecoder.cs" />
+    <Compile Include="Decoder\NEAT\Network.cs" />
+    <Compile Include="Decoder\NEAT\DecodedNode.cs" />
+    <Compile Include="EvolutionAlgorithm\IEvaluator.cs" />
     <Compile Include="EvolutionAlgorithm\EvolutionaryAlgorithm.cs" />
-    <Compile Include="Genome\Genome.cs" />
+    <Compile Include="Genome\NEAT\Genome.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Genome\IGenome.cs" />
-    <Compile Include="Genome\Node.cs" />
+    <Compile Include="Genome\NEAT\GenomeNode.cs" />
     <Compile Include="Help.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

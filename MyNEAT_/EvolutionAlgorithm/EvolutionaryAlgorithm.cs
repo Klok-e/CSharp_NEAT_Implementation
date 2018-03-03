@@ -9,29 +9,30 @@ namespace MyNEAT.EvolutionAlgorithm
 {
     public class EvolutionaryAlgorithm
     {
+        private const float _elitism = 0.5f;
+        private const float _crossoverChance = 0.5f;
+
         private List<IGenome> _population;
         private IEvaluator _evaluator;
 
-        private float _elitism;
         private Random _generator;
 
-        public EvolutionaryAlgorithm(IEvaluator evaluator)
+        public EvolutionaryAlgorithm(Random generator, IEvaluator evaluator, List<IGenome> initialPopulation)
         {
             _evaluator = evaluator;
-            _population = new List<IGenome>();
+            _population = initialPopulation;
+            _generator = generator;
         }
 
         public void PassGeneration()
         {
-            bool isCrossover = true;
-
             _evaluator.Evaluate(_population);
 
             var toSelect = (int)(_population.Count - _elitism * _population.Count);
             var addToPop = new List<IGenome>();
             for (; toSelect > 0; toSelect--)
             {
-                if (isCrossover)
+                if (_generator.NextDouble() < _crossoverChance)
                 {
                     var g1 = _population[_generator.Next(_population.Count)];
                     _population.Remove(g1);

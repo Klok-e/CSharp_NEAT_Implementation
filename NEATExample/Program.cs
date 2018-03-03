@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using MyNEAT;
 using MyNEAT.Decoder;
+using MyNEAT.Decoder.NEAT;
 using MyNEAT.Domains.SinglePole;
 using MyNEAT.Domains.XOR;
+using MyNEAT.EvolutionAlgorithm;
 using MyNEAT.Genome;
+using MyNEAT.Genome.NEAT;
 
 namespace NEATExample
 {
@@ -13,8 +17,8 @@ namespace NEATExample
         private static void Main()
         {
             //SolveCartPole();
-            //Test();
-            SolveXor();
+            Test();
+            //SolveXor();
 
             Console.ReadKey();
         }
@@ -22,40 +26,33 @@ namespace NEATExample
         private static void Test()
         {
             var gen = new Random();
-            /*
-            var env = new Xor(4);
 
-            var pr = env.GetNums(gen);
-
-            var str = "";
-            for (var i = 0; i < pr[0].Length; i++)
-                str += pr[0][i] + ", ";
-            str += "\n";
-            for (var i = 0; i < pr[1].Length; i++)
-                str += pr[1][i] + ", ";
-
-            Console.WriteLine(str);
-
-            int err = env.GetError(new int[]{ 1,0 }, pr[1]);
-            Console.Write(err);*/
             NEATGenome._conf = new Config()
             {
                 inputs = 3,
                 outputs = 2,
+                probabilityAddConnection = 0.9f,
             };
 
             var genome = new NEATGenome(gen);
 
             Console.Write(genome + "\n\n");
 
-            //for (var i = 0; i < 500; i++) genome = genome.CreateOffSpring(gen);
+            for (var i = 0; i < 500; i++)
+            {
+                var offspr = (NEATGenome)genome.Clone();
+                offspr.Mutate(gen);
+                genome = offspr;
+            }
+            Console.Write(genome + "\n\n");
 
-            //Console.Write(genome + "\n\n");
+            var decoder = new NEATDecoder();
+            var network = decoder.Decode(genome);
 
-            var network = new Network(genome);
+            //new[] { -0.3f, 0.2f, 2f }
 
-            var pr = network.Predict(new[] { -0.3f, 0.2f, 2f });
-
+            network.Activate();
+            var pr = network.Outputs;
             var str = "";
             for (var i = 0; i < pr.Length; i++)
                 str += pr[i] + ", ";
@@ -64,15 +61,63 @@ namespace NEATExample
             //Console.WriteLine(network);
         }
 
+        private class XorEval : IEvaluator
+        {
+            private Xor env;
+            private NEATDecoder decoder;
+
+            public XorEval()
+            {
+                env = new Xor();
+                decoder = new NEATDecoder();
+            }
+
+            public void Evaluate(List<IGenome> genomes)
+            {
+                var gen = genomes.Cast<NEATGenome>().ToList();
+                foreach (var genome in gen)
+                {
+                    var network = decoder.Decode(genome);
+
+                    genome.Fitness = 0;
+                    for (int j = 0; j < 4; j++)
+                    {
+                        var (x, y) = env.GetNums(j);
+
+                        for (int i = 0; i < x.Length; i++)
+                        {
+                            network.Inputs[i] = x[i];
+                        }
+                        network.Activate();
+                        var prediction = network.Outputs;
+                        network.Reset();
+
+                        float fit = 1 / (Math.Abs(env.GetError(prediction[0], y)) + 1);
+                        genome.Fitness += (float)(fit - (genome.GetComplexity() * 0.0001));
+                    }
+                }
+                gen.Sort((x, y) => x.Fitness.CompareTo(y.Fitness));
+
+                float sum = 0;
+                float comp_sum = 0;
+                var mx = genomes[0].Fitness;
+                foreach (var genome in gen)
+                {
+                    comp_sum += genome.GetComplexity();
+                    sum += genome.Fitness;
+                    if (genome.Fitness > mx)
+                        mx = genome.Fitness;
+                }
+                Console.Write("Generation: " + 0 + ", " + "Average fitness: " + sum / gen.Count + ", " +
+                              "Max Fitness: " + mx + ", " + "Average complexity " + comp_sum / gen.Count + "\n");
+            }
+        }
+
         private static void SolveXor()
         {
-            bool isCrossover = true;
-
-            var elitism = 0.4f;
             var generations = 100000;
             var pop = 500;
             var generator = new Random();
-            var env = new Xor();
 
             NEATGenome._conf = new Config()
             {
@@ -86,83 +131,69 @@ namespace NEATExample
             for (var i = 0; i < pop; i++)
                 population.Add(new NEATGenome(generator));
 
+            var algor = new EvolutionaryAlgorithm(generator, new XorEval(), population.Cast<IGenome>().ToList());
+
             for (var i = 0; i < generations; i++)
             {
-                foreach (var genome in population)
-                {
-                    var network = new Network(genome);
+                algor.PassGeneration();
+            }
+        }
 
-                    genome.Fitness = 0;
-                    for (int j = 0; j < 4; j++)
+        private class CartPoleEval : IEvaluator
+        {
+            private NEATDecoder decoder;
+
+            public CartPoleEval()
+            {
+                decoder = new NEATDecoder();
+            }
+
+            public void Evaluate(List<IGenome> genomes)
+            {
+                var pop = genomes.Cast<NEATGenome>().ToList();
+                foreach (var genome in pop)
+                {
+                    //evaluation
+                    var env = new SinglePoleBalancingEnvironment();
+                    var network = decoder.Decode(genome);
+                    var s = env.SimulateTimestep(true);
+                    while (true)
                     {
-                        var (x, y) = env.GetNums(j);
-                        var prediction = network.Predict(x);
-                        float fit = 1 / (Math.Abs(env.GetError(prediction[0], y)) + 1);
-                        genome.Fitness += (float)(fit - (genome.GetComplexity() * 0.0001));
+                        if (s._done)
+                        {
+                            genome.Fitness = (s._reward - (float)genome.GetComplexity() * 0.0001f);
+                            //genome.fitness = s._reward;
+                            break;
+                        }
+
+                        network.Inputs[0] = (float)(s._cartPosX / env._trackLengthHalf);
+                        network.Inputs[1] = (float)(s._cartVelocityX / 0.75);
+                        network.Inputs[2] = (float)(s._poleAngle / SinglePoleBalancingEnvironment.TwelveDegrees);
+                        network.Inputs[3] = (float)s._poleAngularVelocity;
+
+                        network.Activate();
+                        var a = network.Outputs[0] > 0;
+
+                        env.SimulateTimestep(a);
                     }
                 }
-                population.Sort((x, y) => x.Fitness.CompareTo(y.Fitness));
-
                 float sum = 0;
                 float comp_sum = 0;
-                var mx = population[0].Fitness;
-                foreach (var genome in population)
+                var mx = pop[0].Fitness;
+                foreach (var genome in pop)
                 {
                     comp_sum += genome.GetComplexity();
                     sum += genome.Fitness;
                     if (genome.Fitness > mx)
                         mx = genome.Fitness;
                 }
-                Console.Write("Generation: " + i + ", " + "Average fitness: " + sum / population.Count + ", " +
-                              "Max Fitness: " + mx + ", " + "Average complexity " + comp_sum / population.Count + "\n");
-
-                //breed
-                var toSelect = (int)(population.Count - elitism * population.Count);
-                var addToPop = new List<NEATGenome>();
-                for (; toSelect > 0; toSelect--)
-                {
-                    if (isCrossover)
-                    {
-                        var g1 = population[generator.Next(population.Count)];
-                        population.Remove(g1);
-                        var g2 = population[generator.Next(population.Count)];
-                        population.Remove(g2);
-                        var g3 = population[generator.Next(population.Count)];
-                        population.Add(g1);
-                        population.Add(g2);
-
-                        var genomes = new List<NEATGenome>(new[] { g1, g2, g3 });
-                        genomes.Sort((x, y) => x.Fitness.CompareTo(y.Fitness));
-
-                        population.Remove(genomes[0]);
-
-                        var tmp = (NEATGenome)genomes[1].Crossover(generator, genomes[2]);
-                        tmp.Mutate(generator);
-                        addToPop.Add(tmp);
-                    }
-                    else
-                    {
-                        var g1 = population[generator.Next(population.Count)];
-                        population.Remove(g1);
-                        var g2 = population[generator.Next(population.Count)];
-                        population.Add(g1);
-
-                        var genomes = new List<NEATGenome>(new[] { g1, g2 });
-                        genomes.Sort((x, y) => x.Fitness.CompareTo(y.Fitness));
-                        population.Remove(genomes[0]);
-
-                        var tmp = (NEATGenome)genomes[1].Clone();
-                        tmp.Mutate(generator);
-                        addToPop.Add(tmp);
-                    }
-                }
-                population.AddRange(addToPop);
+                Console.Write("Generation: " + 0 + ", " + "Average fitness: " + sum / pop.Count + ", " +
+                              "Max Fitness: " + mx + ", " + "Average complexity " + comp_sum / pop.Count + "\n");
             }
         }
 
         private static void SolveCartPole()
         {
-            var elitism = 0.4f;
             var generations = 500;
             var pop = 100;
             var generator = new Random();
@@ -179,70 +210,11 @@ namespace NEATExample
             for (var i = 0; i < pop; i++)
                 population.Add(new NEATGenome(generator));
 
+            var algor = new EvolutionaryAlgorithm(generator, new CartPoleEval(), population.Cast<IGenome>().ToList());
+
             for (var i = 0; i < generations; i++)
             {
-                foreach (var genome in population)
-                {
-                    //evaluation
-                    var env = new SinglePoleBalancingEnvironment();
-                    var network = new Network(genome);
-                    var s = env.SimulateTimestep(true);
-                    while (true)
-                    {
-                        if (s._done)
-                        {
-                            genome.Fitness = (float)(s._reward - Math.Sqrt(Math.Sqrt(genome.GetComplexity())));
-                            //genome.fitness = s._reward;
-                            break;
-                        }
-
-                        var a = network.Predict(new[]
-                        {
-                            (float)(s._cartPosX / env._trackLengthHalf),
-                            (float)(s._cartVelocityX / 0.75),
-                            (float)(s._poleAngle / SinglePoleBalancingEnvironment.TwelveDegrees),
-                            (float)s._poleAngularVelocity
-                        })[0] > 0;
-
-                        env.SimulateTimestep(a);
-                    }
-                }
-                float sum = 0;
-                float comp_sum = 0;
-                var mx = population[0].Fitness;
-                foreach (var genome in population)
-                {
-                    comp_sum += genome.GetComplexity();
-                    sum += genome.Fitness;
-                    if (genome.Fitness > mx)
-                        mx = genome.Fitness;
-                }
-                Console.Write("Generation: " + i + ", " + "Average fitness: " + sum / population.Count + ", " +
-                              "Max Fitness: " + mx + ", " + "Average complexity " + comp_sum / population.Count + "\n");
-
-                //breed
-                var toSelect = (int)(population.Count - elitism * population.Count);
-                var addToPop = new List<NEATGenome>();
-                for (; toSelect > 0; toSelect--)
-                {
-                    var g1 = population[generator.Next(population.Count)];
-                    population.Remove(g1);
-                    var g2 = population[generator.Next(population.Count)];
-                    population.Remove(g2);
-                    var g3 = population[generator.Next(population.Count)];
-                    population.Add(g1);
-                    population.Add(g2);
-
-                    var genomes = new List<NEATGenome>(new[] { g1, g2, g3 });
-                    genomes.Sort((x, y) => x.Fitness.CompareTo(y.Fitness));
-
-                    population.Remove(genomes[0]);
-
-                    var tmp = (NEATGenome)genomes[1].Crossover(generator, genomes[2]);
-                    tmp.Mutate(generator);
-                    addToPop.Add(tmp);
-                }
-                population.AddRange(addToPop);
+                algor.PassGeneration();
             }
         }
 

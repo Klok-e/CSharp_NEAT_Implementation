@@ -1,6 +1,7 @@
 ﻿using System;
+using MyNEAT.ActivationFunctions;
 
-namespace MyNEAT.Genome
+namespace MyNEAT.Genome.NEAT
 {
     public enum NeuronType : byte
     {
@@ -12,27 +13,25 @@ namespace MyNEAT.Genome
 
     public interface IGNode
     {
-        ulong Id { get; set; }
+        ulong Id { get; }
     }
 
     public class GNeuron : IGNode
     {
+        public IActivationFunction Activation { get; }
         public NeuronType Type { get; }
-        public ulong Id { get; set; }
+        public ulong Id { get; }
 
-        public GNeuron(ulong id, NeuronType type)
+        public GNeuron(ulong id, NeuronType type, IActivationFunction activation)
         {
             Type = type;
             Id = id;
+            Activation = activation;
         }
 
         public override string ToString()
         {
-            var str = "This id: ";
-            str += Id;
-            //str += ", " + "Is input: " + IsInput + ", " + "Is bias: " + IsBias + ", " + "Is Output: " + IsOutput;
-
-            return str;
+            return $"Id: {Id}, Type: {Type}";
         }
     }
 
@@ -41,7 +40,7 @@ namespace MyNEAT.Genome
         public ulong FromNeuron { get; }
         public ulong ToNeuron { get; }
         public float Weight { get; }
-        public ulong Id { get; set; }
+        public ulong Id { get; }
 
         public GConnection(ulong fromneuron, ulong toneuron, float wei, ulong idForThis)
         {

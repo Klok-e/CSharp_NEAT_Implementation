@@ -9,6 +9,6 @@ namespace MyNEAT.EvolutionAlgorithm
 {
     public interface IEvaluator
     {
-        void Evaluate(IList<IGenome> genomes);
+        void Evaluate(List<IGenome> genomes);
     }
 }
