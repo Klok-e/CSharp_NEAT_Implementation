@@ -336,7 +336,7 @@ namespace MyNEAT.Genome
             {
                 if (depthInfo.Neurons.ContainsKey(neuron))
                 {
-                    //set minimal depth
+                    //if current depth is larger than previous then stop traversing this path
                     if (depthInfo.Neurons[neuron] < depth)
                         return;
                     depthInfo.Neurons[neuron] = depth;
@@ -354,9 +354,9 @@ namespace MyNEAT.Genome
                     RecursiveDepthSet(gnm, toNeuron, depthInfo, depth + 1);
 
                     if (depthInfo.Connections.ContainsKey(conn))
-                        depthInfo.Connections[conn] = depth;
+                        depthInfo.Connections[conn] = depth + 1;
                     else
-                        depthInfo.Connections.Add(conn, depth);
+                        depthInfo.Connections.Add(conn, depth + 1);
                 }
             }
 

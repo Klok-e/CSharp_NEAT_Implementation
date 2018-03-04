@@ -12,23 +12,14 @@ namespace MyNEAT.Decoder
     {
         public IActivationFunction Activation { get; }
         public NeuronType Type { get; }
-        public int ConnectionsOutgoing { get; }
 
         public float _sum;
-        public int _connectionsOutgoingTransferred;
 
-        public float Activate()
-        {
-            return Activation.Eval(_sum);
-        }
-
-        public DNeuron(IActivationFunction activation, NeuronType type, int connectionsOutgoing)
+        public DNeuron(IActivationFunction activation, NeuronType type)
         {
             Activation = activation;
             _sum = type == NeuronType.bias ? 1 : 0;
             Type = type;
-            _connectionsOutgoingTransferred = 0;
-            ConnectionsOutgoing = connectionsOutgoing;
         }
     }
 

@@ -15,7 +15,6 @@ namespace NEATExample
         private static void Main()
         {
             //SolveCartPole();
-            //Test();
             SolveXor();
 
             Console.ReadKey();

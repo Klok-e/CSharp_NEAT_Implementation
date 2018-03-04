@@ -56,11 +56,11 @@
   <ItemGroup>
     <Compile Include="ActivationFunctions.cs" />
     <Compile Include="AlgorithmConfig.cs" />
+    <Compile Include="Decoder\DecodedLayer.cs" />
     <Compile Include="Decoder\DecodedNode.cs" />
     <Compile Include="Decoder\Interfaces\IBlackBox.cs" />
     <Compile Include="Decoder\Interfaces\IDecoder.cs" />
     <Compile Include="Decoder\NEATDecoder.cs" />
-    <Compile Include="Decoder\NEATLayer.cs" />
     <Compile Include="Decoder\NEATNetwork.cs" />
     <Compile Include="GeneticAlgorithm\EvolutionaryAlgorithm.cs" />
     <Compile Include="GeneticAlgorithm\Interfaces\IComplexityHandler.cs" />

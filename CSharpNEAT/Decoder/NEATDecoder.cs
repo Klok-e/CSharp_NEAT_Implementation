@@ -1,5 +1,4 @@
-﻿using MyNEAT.ActivationFunctions;
-using MyNEAT.Genome;
+﻿using MyNEAT.Genome;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,18 +33,7 @@ namespace MyNEAT.Decoder
             var decodedNeurons = new DNeuron[neuronsSorted.Count];
             for (int i = 0; i < decodedNeurons.Length; i++)
             {
-                NEATGenome.FindAmountOfInAndOutConnectionsForNeuronWithId(connsSorted, neuronsSorted[i].Id, out var sumIn, out var sumOut);
-                decodedNeurons[i] = new DNeuron(neuronsSorted[i].Activation, neuronsSorted[i].Type, sumOut);
-            }
-
-            //connections
-            var decodedConns = new DConnection[connsSorted.Count];
-            for (int i = 0; i < decodedConns.Length; i++)
-            {
-                //DConnection holds indices from decodedNeurons array
-                decodedConns[i] = new DConnection(connsSorted[i].Weight,
-                    GetIndex(neuronsSorted, connsSorted[i].FromNeuron),
-                    GetIndex(neuronsSorted, connsSorted[i].ToNeuron));
+                decodedNeurons[i] = new DNeuron(neuronsSorted[i].Activation, neuronsSorted[i].Type);
             }
 
             //obtain inp/outp indices
@@ -63,7 +51,29 @@ namespace MyNEAT.Decoder
                 outpIndices[i] = GetIndex(neuronsSorted, outputs[i].Id);
             }
 
-            return new NEATNetwork(decodedConns, decodedNeurons, inpIndices, outpIndices);
+            //create layers
+            var maxDepth = depthInfo.Connections.Max((x) => x.Value) + 1;
+
+            var depths = connsSorted.GroupBy((x) => depthInfo.Connections[x]);
+
+            var layers = new DecodedLayer[maxDepth];
+            int ind = 0;
+            foreach (var group in depths)
+            {
+                int j = 0;
+                var nextConns = new DConnection[group.Count()];
+                foreach (var conn in group)
+                {
+                    nextConns[j] = new DConnection(conn.Weight,
+                        GetIndex(neuronsSorted, conn.FromNeuron),
+                        GetIndex(neuronsSorted, conn.ToNeuron));
+                    j++;
+                }
+                layers[ind] = new DecodedLayer(nextConns);
+                ind++;
+            }
+
+            return new NEATNetwork(layers, decodedNeurons, inpIndices, outpIndices);
         }
 
         private static int GetIndex(IList<GNeuron> nodes, ulong toFind)
