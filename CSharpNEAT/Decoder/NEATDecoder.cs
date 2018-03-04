@@ -18,8 +18,6 @@ namespace MyNEAT.Decoder
             neuronsSorted.RemoveAll((x) =>
             {
                 var r = !depthInfo.Neurons.TryGetValue(x, out uint v) && x.Type == NeuronType.hidden;
-                if (r)
-                { }
                 return r;
             });
             neuronsSorted.Sort((x, y) => depthInfo.Neurons[x].CompareTo(depthInfo.Neurons[y]));

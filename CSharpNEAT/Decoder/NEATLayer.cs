@@ -8,5 +8,8 @@ namespace MyNEAT.Decoder
 {
     internal class NEATLayer
     {
+        public NEATLayer()
+        {
+        }
     }
 }

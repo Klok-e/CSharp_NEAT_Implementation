@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>NEATExample</RootNamespace>
     <AssemblyName>NEATExample</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -38,24 +38,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CSharpNEAT\CSharpNEAT.csproj">
+      <Project>{9486fa74-8387-4f18-9c6a-137341642fd6}</Project>
+      <Name>CSharpNEAT</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domains_\Domains_.csproj">
       <Project>{f24ca119-0473-416a-b4f4-540b376a867d}</Project>
       <Name>Domains_</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MyNEAT_\MyNEAT_.csproj">
-      <Project>{9c541a4b-6fcd-4fc8-9fb9-30a91aa7b6f4}</Project>
-      <Name>MyNEAT_</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

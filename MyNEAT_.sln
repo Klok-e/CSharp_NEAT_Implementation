@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyNEAT_", "MyNEAT_\MyNEAT_.csproj", "{9C541A4B-6FCD-4FC8-9FB9-30A91AA7B6F4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NEATExample", "NEATExample\NEATExample.csproj", "{4D292D4C-2080-4E9A-839F-306A6DEEB0CA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domains_", "Domains_\Domains_.csproj", "{F24CA119-0473-416A-B4F4-540B376A867D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpNEAT", "CSharpNEAT\CSharpNEAT.csproj", "{9486FA74-8387-4F18-9C6A-137341642FD6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9C541A4B-6FCD-4FC8-9FB9-30A91AA7B6F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9C541A4B-6FCD-4FC8-9FB9-30A91AA7B6F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9C541A4B-6FCD-4FC8-9FB9-30A91AA7B6F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9C541A4B-6FCD-4FC8-9FB9-30A91AA7B6F4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4D292D4C-2080-4E9A-839F-306A6DEEB0CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4D292D4C-2080-4E9A-839F-306A6DEEB0CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D292D4C-2080-4E9A-839F-306A6DEEB0CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{F24CA119-0473-416A-B4F4-540B376A867D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F24CA119-0473-416A-B4F4-540B376A867D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F24CA119-0473-416A-B4F4-540B376A867D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9486FA74-8387-4F18-9C6A-137341642FD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9486FA74-8387-4F18-9C6A-137341642FD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9486FA74-8387-4F18-9C6A-137341642FD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9486FA74-8387-4F18-9C6A-137341642FD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
