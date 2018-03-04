@@ -11,7 +11,9 @@ namespace MyNEAT.Genome
     {
         float Fitness { get; set; }
 
-        void Mutate(Random generator);
+        int Complexity { get; }
+
+        void Mutate(Random generator, AlgorithmConfig config);
 
         IGenome Crossover(Random generator, IGenome other);
 

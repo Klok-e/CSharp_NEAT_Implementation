@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using MyNEAT;
 using MyNEAT.Decoder;
-using MyNEAT.Decoder.NEAT;
 using MyNEAT.Domains.SinglePole;
 using MyNEAT.Domains.XOR;
-using MyNEAT.EvolutionAlgorithm;
+using MyNEAT.GeneticAlgorithm;
 using MyNEAT.Genome;
-using MyNEAT.Genome.NEAT;
 
 namespace NEATExample
 {
@@ -17,48 +15,10 @@ namespace NEATExample
         private static void Main()
         {
             //SolveCartPole();
-            Test();
-            //SolveXor();
+            //Test();
+            SolveXor();
 
             Console.ReadKey();
-        }
-
-        private static void Test()
-        {
-            var gen = new Random();
-
-            NEATGenome._conf = new Config()
-            {
-                inputs = 3,
-                outputs = 2,
-                probabilityAddConnection = 0.9f,
-            };
-
-            var genome = new NEATGenome(gen);
-
-            Console.Write(genome + "\n\n");
-
-            for (var i = 0; i < 500; i++)
-            {
-                var offspr = (NEATGenome)genome.Clone();
-                offspr.Mutate(gen);
-                genome = offspr;
-            }
-            Console.Write(genome + "\n\n");
-
-            var decoder = new NEATDecoder();
-            var network = decoder.Decode(genome);
-
-            //new[] { -0.3f, 0.2f, 2f }
-
-            network.Activate();
-            var pr = network.Outputs;
-            var str = "";
-            for (var i = 0; i < pr.Length; i++)
-                str += pr[i] + ", ";
-            Console.Write(str);
-
-            //Console.WriteLine(network);
         }
 
         private class XorEval : IEvaluator
@@ -72,9 +32,23 @@ namespace NEATExample
                 decoder = new NEATDecoder();
             }
 
-            public void Evaluate(List<IGenome> genomes)
+            public void Evaluate(IList<IGenome> genomes)
             {
                 var gen = genomes.Cast<NEATGenome>().ToList();
+
+#if DEBUG
+                foreach (var genome in gen)
+                {
+                    bool biasExists = false;
+                    foreach (var item in genome.Neurons)
+                    {
+                        if (item.Type == NeuronType.bias)
+                            biasExists = true;
+                    }
+                    if (!biasExists) throw new Exception();
+                }
+#endif
+
                 foreach (var genome in gen)
                 {
                     var network = decoder.Decode(genome);
@@ -93,7 +67,7 @@ namespace NEATExample
                         network.Reset();
 
                         float fit = 1 / (Math.Abs(env.GetError(prediction[0], y)) + 1);
-                        genome.Fitness += (float)(fit - (genome.GetComplexity() * 0.0001));
+                        genome.Fitness += (float)(fit - (genome.Complexity * 0.0001));
                     }
                 }
                 gen.Sort((x, y) => x.Fitness.CompareTo(y.Fitness));
@@ -103,7 +77,7 @@ namespace NEATExample
                 var mx = genomes[0].Fitness;
                 foreach (var genome in gen)
                 {
-                    comp_sum += genome.GetComplexity();
+                    comp_sum += genome.Complexity;
                     sum += genome.Fitness;
                     if (genome.Fitness > mx)
                         mx = genome.Fitness;
@@ -119,19 +93,19 @@ namespace NEATExample
             var pop = 500;
             var generator = new Random();
 
-            NEATGenome._conf = new Config()
+            var fabric = new NEATGenomeFactory(new GenomeConfig()
             {
                 inputs = 2,
-                outputs = 1
+                outputs = 1,
+            });
+            var algCofig = new AlgorithmConfig()
+            {
+                probabilityAddConnection = 0.4f,
+                probabilityAddNeuron = 0.1f,
+                probabilityRemoveConnection = 0.3f,
             };
 
-            var population = new List<NEATGenome>();
-
-            //create initial pop
-            for (var i = 0; i < pop; i++)
-                population.Add(new NEATGenome(generator));
-
-            var algor = new EvolutionaryAlgorithm(generator, new XorEval(), population.Cast<IGenome>().ToList());
+            var algor = new NEATEvolAlgorithm(generator, new XorEval(), fabric, algCofig, pop);
 
             for (var i = 0; i < generations; i++)
             {
@@ -148,7 +122,7 @@ namespace NEATExample
                 decoder = new NEATDecoder();
             }
 
-            public void Evaluate(List<IGenome> genomes)
+            public void Evaluate(IList<IGenome> genomes)
             {
                 var pop = genomes.Cast<NEATGenome>().ToList();
                 foreach (var genome in pop)
@@ -161,7 +135,7 @@ namespace NEATExample
                     {
                         if (s._done)
                         {
-                            genome.Fitness = (s._reward - (float)genome.GetComplexity() * 0.0001f);
+                            genome.Fitness = (s._reward - (float)genome.Complexity * 0.0001f);
                             //genome.fitness = s._reward;
                             break;
                         }
@@ -182,7 +156,7 @@ namespace NEATExample
                 var mx = pop[0].Fitness;
                 foreach (var genome in pop)
                 {
-                    comp_sum += genome.GetComplexity();
+                    comp_sum += genome.Complexity;
                     sum += genome.Fitness;
                     if (genome.Fitness > mx)
                         mx = genome.Fitness;
@@ -198,19 +172,16 @@ namespace NEATExample
             var pop = 100;
             var generator = new Random();
 
-            NEATGenome._conf = new Config()
+            var factory = new NEATGenomeFactory(new GenomeConfig()
             {
                 inputs = 4,
                 outputs = 1
+            });
+            var algConf = new AlgorithmConfig()
+            {
             };
 
-            var population = new List<NEATGenome>();
-
-            //create initial pop
-            for (var i = 0; i < pop; i++)
-                population.Add(new NEATGenome(generator));
-
-            var algor = new EvolutionaryAlgorithm(generator, new CartPoleEval(), population.Cast<IGenome>().ToList());
+            var algor = new NEATEvolAlgorithm(generator, new CartPoleEval(), factory, algConf, pop);
 
             for (var i = 0; i < generations; i++)
             {

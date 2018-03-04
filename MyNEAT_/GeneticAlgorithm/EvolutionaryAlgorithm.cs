@@ -5,34 +5,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyNEAT.EvolutionAlgorithm
+namespace MyNEAT.GeneticAlgorithm
 {
-    public class EvolutionaryAlgorithm
+    public class NEATEvolAlgorithm
     {
-        private const float _elitism = 0.5f;
-        private const float _crossoverChance = 0.5f;
-
-        private List<IGenome> _population;
+        private AlgorithmConfig _conf;
+        private IList<IGenome> _population;
         private IEvaluator _evaluator;
-
+        private IGenomeFactory _genomeFactory;
         private Random _generator;
 
-        public EvolutionaryAlgorithm(Random generator, IEvaluator evaluator, List<IGenome> initialPopulation)
+        public NEATEvolAlgorithm(Random generator, IEvaluator evaluator, IGenomeFactory genomeFactory, AlgorithmConfig config, int popSize)
         {
             _evaluator = evaluator;
-            _population = initialPopulation;
+            _population = genomeFactory.CreateGenomeList(popSize, generator);
             _generator = generator;
+            _conf = config;
+            _genomeFactory = genomeFactory;
         }
 
         public void PassGeneration()
         {
+            _conf.ComplexityHandler.HandleComplexity(_population, _conf);
+
             _evaluator.Evaluate(_population);
 
-            var toSelect = (int)(_population.Count - _elitism * _population.Count);
+            var toSelect = (int)(_population.Count - _conf.elitism * _population.Count);
             var addToPop = new List<IGenome>();
             for (; toSelect > 0; toSelect--)
             {
-                if (_generator.NextDouble() < _crossoverChance)
+                IGenome tmp;
+                if (_generator.NextDouble() < _conf.crossoverChance)
                 {
                     var g1 = _population[_generator.Next(_population.Count)];
                     _population.Remove(g1);
@@ -44,12 +47,10 @@ namespace MyNEAT.EvolutionAlgorithm
 
                     var genomes = new List<IGenome>(new[] { g1, g2, g3 });
                     genomes.Sort((x, y) => x.Fitness.CompareTo(y.Fitness));
-
                     _population.Remove(genomes[0]);
 
-                    var tmp = genomes[1].Crossover(_generator, genomes[2]);
-                    tmp.Mutate(_generator);
-                    addToPop.Add(tmp);
+                    tmp = genomes[1].Crossover(_generator, genomes[2]);
+                    tmp.Fitness = ((genomes[1].Fitness + genomes[2].Fitness) / 2) * 0.9f;
                 }
                 else
                 {
@@ -62,12 +63,19 @@ namespace MyNEAT.EvolutionAlgorithm
                     genomes.Sort((x, y) => x.Fitness.CompareTo(y.Fitness));
                     _population.Remove(genomes[0]);
 
-                    var tmp = genomes[1].Clone();
-                    tmp.Mutate(_generator);
-                    addToPop.Add(tmp);
+                    tmp = genomes[1].Clone();
+                    tmp.Fitness = genomes[1].Fitness * 0.9f;
                 }
+                for (int i = 0; i < _conf.mutationAmount; i++)
+                {
+                    tmp.Mutate(_generator, _conf);
+                }
+                addToPop.Add(tmp);
             }
-            _population.AddRange(addToPop);
+            foreach (var item in addToPop)
+            {
+                _population.Add(item);
+            }
         }
     }
 }

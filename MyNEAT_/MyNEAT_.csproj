@@ -50,17 +50,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivationFunctions.cs" />
-    <Compile Include="Decoder\NEAT\Decoder.cs" />
-    <Compile Include="Decoder\IBlackBox.cs" />
-    <Compile Include="Decoder\IDecoder.cs" />
-    <Compile Include="Decoder\NEAT\Network.cs" />
-    <Compile Include="Decoder\NEAT\DecodedNode.cs" />
-    <Compile Include="EvolutionAlgorithm\IEvaluator.cs" />
-    <Compile Include="EvolutionAlgorithm\EvolutionaryAlgorithm.cs" />
-    <Compile Include="Genome\NEAT\Genome.cs" />
-    <Compile Include="Config.cs" />
+    <Compile Include="AlgorithmConfig.cs" />
+    <Compile Include="Decoder\Interfaces\IBlackBox.cs" />
+    <Compile Include="Decoder\Interfaces\IDecoder.cs" />
+    <Compile Include="Decoder\DecodedNode.cs" />
+    <Compile Include="Decoder\NEATDecoder.cs" />
+    <Compile Include="Decoder\NEATLayer.cs" />
+    <Compile Include="Decoder\NEATNetwork.cs" />
+    <Compile Include="GeneticAlgorithm\Interfaces\IComplexityHandler.cs" />
+    <Compile Include="GeneticAlgorithm\Interfaces\IEvaluator.cs" />
+    <Compile Include="GeneticAlgorithm\EvolutionaryAlgorithm.cs" />
+    <Compile Include="GeneticAlgorithm\Interfaces\IGenomeFactory.cs" />
+    <Compile Include="GeneticAlgorithm\NEATGenomeFactory.cs" />
+    <Compile Include="GeneticAlgorithm\SimpleComplexityHandler.cs" />
+    <Compile Include="GenomeConfig.cs" />
     <Compile Include="Genome\IGenome.cs" />
-    <Compile Include="Genome\NEAT\GenomeNode.cs" />
+    <Compile Include="Genome\GenomeNode.cs" />
+    <Compile Include="Genome\NEATGenome.cs" />
     <Compile Include="Help.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

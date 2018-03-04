@@ -1,7 +1,7 @@
 ﻿using System;
 using MyNEAT.ActivationFunctions;
 
-namespace MyNEAT.Genome.NEAT
+namespace MyNEAT.Genome
 {
     public enum NeuronType : byte
     {
@@ -31,7 +31,7 @@ namespace MyNEAT.Genome.NEAT
 
         public override string ToString()
         {
-            return $"Id: {Id}, Type: {Type}";
+            return $"Id: {Id}, Type: {Type}, ";
         }
     }
 
@@ -46,9 +46,7 @@ namespace MyNEAT.Genome.NEAT
         {
             FromNeuron = fromneuron;
             ToNeuron = toneuron;
-
             Id = idForThis;
-
             Weight = wei;
         }
 

@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyNEAT.EvolutionAlgorithm
+namespace MyNEAT.GeneticAlgorithm
 {
-    public interface IEvaluator
+    public interface IGenomeFactory
     {
-        void Evaluate(List<IGenome> genomes);
+        IList<IGenome> CreateGenomeList(int population, Random random);
     }
 }

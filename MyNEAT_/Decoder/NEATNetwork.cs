@@ -1,14 +1,13 @@
 ﻿using MyNEAT.Genome;
-using MyNEAT.Genome.NEAT;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyNEAT.Decoder.NEAT
+namespace MyNEAT.Decoder
 {
-    internal class Network : IBlackBox
+    internal class NEATNetwork : IBlackBox
     {
         #region IBlackBox
 
@@ -59,7 +58,7 @@ namespace MyNEAT.Decoder.NEAT
         private int[] _inputIndices;
         private int[] _outputIndices;
 
-        public Network(DConnection[] connections, DNeuron[] neurons, int[] inputIndices, int[] outputIndices)
+        public NEATNetwork(DConnection[] connections, DNeuron[] neurons, int[] inputIndices, int[] outputIndices)
         {
             _connections = connections;
             _neurons = neurons;

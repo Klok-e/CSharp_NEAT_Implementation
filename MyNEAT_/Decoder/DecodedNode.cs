@@ -1,13 +1,12 @@
 ﻿using MyNEAT.ActivationFunctions;
 using MyNEAT.Genome;
-using MyNEAT.Genome.NEAT;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyNEAT.Decoder.NEAT
+namespace MyNEAT.Decoder
 {
     internal struct DNeuron
     {
