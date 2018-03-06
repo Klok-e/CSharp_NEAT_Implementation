@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyNEAT.Decoder
+namespace CSharpNEAT.Core
 {
     public interface IBlackBox
     {

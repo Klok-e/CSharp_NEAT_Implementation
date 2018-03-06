@@ -1,10 +1,10 @@
-﻿using CSharpNEAT.Genome;
-using MyNEAT.ActivationFunctions;
+﻿using CSharpNEAT.ActivationFunctions;
+using CSharpNEAT.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MyNEAT.Genome
+namespace CSharpNEAT.NEAT
 {
     public class NEATGenome : IGenome
     {

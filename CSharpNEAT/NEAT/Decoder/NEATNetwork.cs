@@ -1,6 +1,6 @@
-﻿using MyNEAT.Genome;
+﻿using CSharpNEAT.Core;
 
-namespace MyNEAT.Decoder
+namespace CSharpNEAT.NEAT.Decoder
 {
     internal class NEATNetwork : IBlackBox
     {

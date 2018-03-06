@@ -1,11 +1,11 @@
-﻿using MyNEAT.GeneticAlgorithm;
+﻿using CSharpNEAT.GeneticAlgorithm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyNEAT
+namespace CSharpNEAT
 {
     public class AlgorithmConfig
     {

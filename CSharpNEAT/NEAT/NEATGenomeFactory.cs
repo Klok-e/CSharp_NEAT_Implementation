@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MyNEAT.Genome;
+using CSharpNEAT.Core;
+using CSharpNEAT.GeneticAlgorithm;
 
-namespace MyNEAT.GeneticAlgorithm
+namespace CSharpNEAT.NEAT
 {
     public class NEATGenomeFactory : IGenomeFactory
     {

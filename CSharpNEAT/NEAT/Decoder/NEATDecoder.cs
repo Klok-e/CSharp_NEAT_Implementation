@@ -1,9 +1,9 @@
-﻿using MyNEAT.Genome;
+﻿using CSharpNEAT.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MyNEAT.Decoder
+namespace CSharpNEAT.NEAT.Decoder
 {
     public class NEATDecoder : IDecoder
     {

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MyNEAT;
-using MyNEAT.Decoder;
+using CSharpNEAT;
+using CSharpNEAT.Core;
+using CSharpNEAT.GeneticAlgorithm;
+using CSharpNEAT.NEAT;
+using CSharpNEAT.NEAT.Decoder;
 using MyNEAT.Domains.SinglePole;
 using MyNEAT.Domains.XOR;
-using MyNEAT.GeneticAlgorithm;
-using MyNEAT.Genome;
 
 namespace NEATExample
 {

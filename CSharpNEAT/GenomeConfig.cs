@@ -1,10 +1,10 @@
-﻿using CSharpNEAT.Genome;
-using MyNEAT.ActivationFunctions;
+﻿using CSharpNEAT.ActivationFunctions;
+using CSharpNEAT.NEAT;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MyNEAT
+namespace CSharpNEAT
 {
     public class GenomeConfig
     {

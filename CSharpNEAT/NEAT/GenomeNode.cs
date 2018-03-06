@@ -1,7 +1,7 @@
 ﻿using System;
-using MyNEAT.ActivationFunctions;
+using CSharpNEAT.ActivationFunctions;
 
-namespace MyNEAT.Genome
+namespace CSharpNEAT.NEAT
 {
     public enum NeuronType : byte
     {

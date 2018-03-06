@@ -1,4 +1,4 @@
-﻿namespace MyNEAT.Decoder
+﻿namespace CSharpNEAT.NEAT.Decoder
 {
     internal class DecodedLayer
     {

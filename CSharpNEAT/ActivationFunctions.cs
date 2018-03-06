@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyNEAT.ActivationFunctions
+namespace CSharpNEAT.ActivationFunctions
 {
     public interface IActivationFunction
     {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MyNEAT.Genome;
+using CSharpNEAT.Core;
 
-namespace MyNEAT.GeneticAlgorithm
+namespace CSharpNEAT.GeneticAlgorithm
 {
     public class SimpleComplexityHandler : IComplexityHandler
     {

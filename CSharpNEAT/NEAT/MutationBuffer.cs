@@ -1,7 +1,6 @@
-﻿using MyNEAT.Genome;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace CSharpNEAT.Genome
+namespace CSharpNEAT.NEAT
 {
     public class MutationBuffer
     {
