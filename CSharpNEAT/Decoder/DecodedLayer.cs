@@ -2,11 +2,13 @@
 {
     internal class DecodedLayer
     {
+        public uint Depth { get; }
         private DConnection[] _connections;
 
-        public DecodedLayer(DConnection[] connectionsToNext)
+        public DecodedLayer(DConnection[] connectionsToNext, uint depth)
         {
             _connections = connectionsToNext;
+            Depth = depth;
         }
 
         public void Activate(DNeuron[] allNeurons)

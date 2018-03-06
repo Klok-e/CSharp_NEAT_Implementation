@@ -68,7 +68,7 @@ namespace MyNEAT.GeneticAlgorithm
                 }
                 for (int i = 0; i < _conf.mutationAmount; i++)
                 {
-                    tmp.Mutate(_generator, _conf);
+                    tmp.Mutate(_generator, _conf, toSelect == 1 ? true : false);
                 }
                 addToPop.Add(tmp);
             }

@@ -1,4 +1,5 @@
-﻿using MyNEAT.ActivationFunctions;
+﻿using CSharpNEAT.Genome;
+using MyNEAT.ActivationFunctions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,7 @@ namespace MyNEAT.Genome
         private static readonly IActivationFunction ActivHidden = new Tanh();
         private static readonly IActivationFunction ActivOutput = new Tanh();
 
-        private static ulong _geneIndex = 0;
-        private ulong GeneIndex { get { return ++_geneIndex; } }
+        private GenomeConfig genomeConfig;
 
         public float Fitness { get; set; }
 
@@ -36,6 +36,7 @@ namespace MyNEAT.Genome
         public NEATGenome(Random generator, GenomeConfig config)
         {
             if (config.inputs == 0 || config.outputs == 0) throw new Exception("fuck you");
+            genomeConfig = config;
 
             var inputs = config.inputs;
             var outputs = config.outputs;
@@ -43,17 +44,19 @@ namespace MyNEAT.Genome
             Neurons = new List<GNeuron>(inputs + outputs);
             Сonnections = new List<GConnection>(inputs * outputs);
 
+            //TODO: dirty hack here
+            genomeConfig._geneIndex = 1;
             for (var i = 0; i < inputs; i++) //only inputs
             {
-                Neurons.Add(new GNeuron(GeneIndex, NeuronType.input, ActivInput));
+                Neurons.Add(new GNeuron(genomeConfig._geneIndex++, NeuronType.input, ActivInput));
             }
 
-            var biasNeuron = new GNeuron(GeneIndex, NeuronType.bias, ActivInput);
+            var biasNeuron = new GNeuron(genomeConfig._geneIndex++, NeuronType.bias, ActivInput);
             Neurons.Add(biasNeuron);
 
             for (var i = 0; i < outputs; i++) //only output neurons
             {
-                Neurons.Add(new GNeuron(GeneIndex, NeuronType.output, ActivOutput));
+                Neurons.Add(new GNeuron(genomeConfig._geneIndex++, NeuronType.output, ActivOutput));
             }
 
             foreach (var neuron in Neurons)
@@ -66,7 +69,7 @@ namespace MyNEAT.Genome
                         {
                             var conn = new GConnection(neuron1.Id, neuron.Id,
                                 generator.RandRange(-5, 5),
-                                GeneIndex);
+                                genomeConfig._geneIndex++);
                             Сonnections.Add(conn);
                         }
                     }
@@ -96,6 +99,7 @@ namespace MyNEAT.Genome
             {
                 Сonnections = new List<GConnection>(Сonnections),
                 Neurons = new List<GNeuron>(Neurons),
+                genomeConfig = genomeConfig
             };
 
             return clone;
@@ -142,29 +146,37 @@ namespace MyNEAT.Genome
             FindDuplicates(connections, connections);
             FindDuplicates(neurons.Cast<IGNode>().ToList(), connections.Cast<IGNode>().ToList());
 #endif
-            var child = new NEATGenome()
+            return new NEATGenome()
             {
                 Neurons = new List<GNeuron>(neurons),
-                Сonnections = new List<GConnection>(connections)
+                Сonnections = new List<GConnection>(connections),
+                genomeConfig = genomeConfig
             };
-            return child;
         }
 
-        public void Mutate(Random generator, AlgorithmConfig conf)
+        public void Mutate(Random generator, AlgorithmConfig config, bool end)
         {
 #if DEBUG
             FindDuplicates(Сonnections.Cast<IGNode>().ToList(), Neurons.Cast<IGNode>().ToList());
+            if (!IsGWithIdExistsInList(Neurons, 1))
+                throw new Exception();
 #endif
-            if (generator.NextDouble() < conf.probabilityOfChangeWeight)
-                MutationChangeWeight(generator, conf);
-            if (generator.NextDouble() < conf.probabilityAddNeuron)
-                MutationAddNeuron(generator, conf);
-            if (generator.NextDouble() < conf.probabilityAddConnection)
-                MutationAddConnection(generator, conf);
-            if (generator.NextDouble() < conf.probabilityRemoveConnection)
-                MutationRemoveConnection(generator, conf);
+            if (generator.NextDouble() < config.probabilityOfChangeWeight)
+                MutationChangeWeight(generator, config);
+            if (generator.NextDouble() < config.probabilityAddNeuron)
+                MutationAddNeuron(generator, config);
+            if (generator.NextDouble() < config.probabilityAddConnection)
+                MutationAddConnection(generator, config);
+            if (generator.NextDouble() < config.probabilityRemoveConnection)
+                MutationRemoveConnection(generator, config);
+            if (end)
+            {
+                genomeConfig._mutationBuffer.Clear();
+            }
 #if DEBUG
             FindDuplicates(Сonnections.Cast<IGNode>().ToList(), Neurons.Cast<IGNode>().ToList());
+            if (!IsGWithIdExistsInList(Neurons, 1))
+                throw new Exception();
 #endif
         }
 
@@ -195,14 +207,30 @@ namespace MyNEAT.Genome
                 var randConn = generator.RandChoice(Сonnections, out var ind);
                 Сonnections.RemoveAt(ind);
 
-                var newNeuron = new GNeuron(GeneIndex, NeuronType.hidden, ActivHidden);
-                Neurons.Add(newNeuron);
+                if (genomeConfig._mutationBuffer.IsInsideBuffer(randConn.FromNeuron, randConn.ToNeuron, out var conn1, out var neu, out var conn2))
+                {
+                    var newNeuron = new GNeuron(neu, NeuronType.hidden, ActivHidden);
+                    Neurons.Add(newNeuron);
 
-                var newConnIn = new GConnection(randConn.FromNeuron, newNeuron.Id, 1, GeneIndex);
-                Сonnections.Add(newConnIn);
+                    var newConnIn = new GConnection(randConn.FromNeuron, newNeuron.Id, 1, conn1);
+                    Сonnections.Add(newConnIn);
 
-                var newConnOut = new GConnection(newNeuron.Id, randConn.ToNeuron, randConn.Weight, GeneIndex);
-                Сonnections.Add(newConnOut);
+                    var newConnOut = new GConnection(newNeuron.Id, randConn.ToNeuron, randConn.Weight, conn2);
+                    Сonnections.Add(newConnOut);
+                }
+                else
+                {
+                    var newNeuron = new GNeuron(genomeConfig._geneIndex++, NeuronType.hidden, ActivHidden);
+                    Neurons.Add(newNeuron);
+
+                    var newConnIn = new GConnection(randConn.FromNeuron, newNeuron.Id, 1, genomeConfig._geneIndex++);
+                    Сonnections.Add(newConnIn);
+
+                    var newConnOut = new GConnection(newNeuron.Id, randConn.ToNeuron, randConn.Weight, genomeConfig._geneIndex++);
+                    Сonnections.Add(newConnOut);
+
+                    genomeConfig._mutationBuffer.AddToBuffer(newConnIn, newNeuron, newConnOut);
+                }
             }
         }
 
@@ -229,16 +257,27 @@ namespace MyNEAT.Genome
 #if DEBUG
             FindDuplicates(Сonnections.Cast<IGNode>().ToList(), Neurons.Cast<IGNode>().ToList());
 #endif
-            var neuron1 = generator.RandChoice(Neurons.Where((x) => { return x.Type != NeuronType.output; }).ToList());
-            var neuron2 = generator.RandChoice(Neurons.Where((x) => { return x.Type != NeuronType.input && x.Type != NeuronType.bias; }).ToList());
+            var neuron1 = generator.RandChoice(Neurons.Where((x) => x.Type != NeuronType.output).ToList());
+            var neuron2 = generator.RandChoice(Neurons.Where((x) => x.Type != NeuronType.input && x.Type != NeuronType.bias).ToList());
 
             GetListOfInAndOutConnections(Сonnections, neuron1.Id, out var inConn1, out var outConn1);
             GetListOfInAndOutConnections(Сonnections, neuron2.Id, out var inConn2, out var outConn2);
-            if (inConn1.Intersect(outConn2).Count() == 0 && inConn2.Intersect(outConn1).Count() == 0)
+            if (!inConn1.Intersect(outConn2).Any() && !inConn2.Intersect(outConn1).Any())
             {
-                Сonnections.Add(new GConnection(neuron1.Id, neuron2.Id,
-                    generator.RandRange(-conf.connWeightRange, conf.connWeightRange),
-                    GeneIndex));
+                if (genomeConfig._mutationBuffer.IsInsideBuffer(neuron1.Id, neuron2.Id, out var existingIdConn))
+                {
+                    Сonnections.Add(new GConnection(neuron1.Id, neuron2.Id,
+                       generator.RandRange(-conf.connWeightRange, conf.connWeightRange),
+                       existingIdConn));
+                }
+                else
+                {
+                    var conn = new GConnection(neuron1.Id, neuron2.Id,
+                        generator.RandRange(-conf.connWeightRange, conf.connWeightRange),
+                        genomeConfig._geneIndex++);
+                    Сonnections.Add(conn);
+                    genomeConfig._mutationBuffer.AddToBuffer(conn);
+                }
             }
 #if DEBUG
             FindDuplicates(Сonnections.Cast<IGNode>().ToList(), Neurons.Cast<IGNode>().ToList());
@@ -276,19 +315,14 @@ namespace MyNEAT.Genome
             }
         }
 
-        public static bool IsGWithIdExistsInList(List<GNeuron> neurons, ulong id)
+        public static bool IsGWithIdExistsInList(IEnumerable<IGNode> lst, ulong id)
         {
-            foreach (var neuron in neurons)
+            foreach (var neuron in lst)
+            {
                 if (neuron.Id == id)
                     return true;
-            return false;
-        }
+            }
 
-        public static bool IsGWithIdExistsInList(List<GConnection> conns, ulong id)
-        {
-            foreach (var conn in conns)
-                if (conn.Id == id)
-                    return true;
             return false;
         }
 
@@ -330,23 +364,24 @@ namespace MyNEAT.Genome
             throw new Exception("not found");
         }
 
-        public static DepthInfo GetDepthsOfNetwork(NEATGenome genome)
+        public static class DepthCalculator
         {
-            void RecursiveDepthSet(NEATGenome gnm, GNeuron neuron, DepthInfo depthInfo, uint depth)
+            private static void RecursiveDepthSet(NEATGenome gnm, GNeuron neuron, DepthInfo depthInfo, uint depth)
             {
                 if (depthInfo.Neurons.ContainsKey(neuron))
                 {
-                    //if current depth is larger than previous then stop traversing this path
-                    if (depthInfo.Neurons[neuron] < depth)
+                    //if current depth is smaller than previous then stop traversing this path
+                    if (depthInfo.Neurons[neuron] > depth)
+                        depthInfo.Neurons[neuron] = depth;
+                    else
                         return;
-                    depthInfo.Neurons[neuron] = depth;
                 }
                 else
                 {
                     depthInfo.Neurons.Add(neuron, depth);
                 }
 
-                NEATGenome.GetListOfInAndOutConnections(gnm.Сonnections, neuron.Id, out var inConn, out var outConn);
+                GetListOfInAndOutConnections(gnm.Сonnections, neuron.Id, out var inConn, out var outConn);
                 foreach (var outgoing in outConn)
                 {
                     var conn = (GConnection)NEATGenome.GetNodeById(gnm.Сonnections.Cast<IGNode>().ToList(), outgoing);
@@ -360,34 +395,67 @@ namespace MyNEAT.Genome
                 }
             }
 
-            var inputs = genome.Neurons.Where((x) => x.Type == NeuronType.input || x.Type == NeuronType.bias).ToList();
-            var info = new DepthInfo();
-            foreach (var item in inputs)
+            private static void LinearDepthSet(NEATGenome gnm, IEnumerable<GNeuron> startingNeurons, out DepthInfo depthInfo)
             {
-                RecursiveDepthSet(genome, item, info, 0);
-            }
-
-            //if nothing connects to outputs add output neurons to dict with depth 0
-            var outps = genome.Neurons.Where((x) => x.Type == NeuronType.output).ToList();
-            foreach (var item in outps)
-            {
-                if (!info.Neurons.ContainsKey(item))
+                depthInfo = new DepthInfo();
+                var currLayer = new List<GNeuron>(startingNeurons);
+                var nextLayer = new List<GNeuron>();
+                uint depthOfCurrLayer = 0;
+                do
                 {
-                    info.Neurons.Add(item, 0);
+                    currLayer.AddRange(nextLayer);
+                    nextLayer.Clear();
+                    foreach (var item in currLayer)
+                    {
+                        GetListOfInAndOutConnections(gnm.Сonnections, item.Id, out var inConn, out var outConn);
+                        foreach (var outgoing in outConn)
+                        {
+                            var conn = (GConnection)GetNodeById(gnm.Сonnections.Cast<IGNode>().ToList(), outgoing);
+                            var toNeuron = (GNeuron)GetNodeById(gnm.Neurons.Cast<IGNode>().ToList(), conn.ToNeuron);
+
+                            if (!depthInfo.Neurons.ContainsKey(toNeuron))
+                            {
+                                depthInfo.Neurons.Add(toNeuron, depthOfCurrLayer + 1);
+                                nextLayer.Add(toNeuron);
+                            }
+
+                            if (!depthInfo.Connections.ContainsKey(conn))
+                                depthInfo.Connections.Add(conn, depthOfCurrLayer + 1);
+                        }
+                    }
+                    currLayer.Clear();
+                    depthOfCurrLayer++;
+                }
+                while (nextLayer.Count > 0);
+
+                //if nothing connects to outputs add output neurons to dict with depth 0
+                foreach (var item in gnm.Neurons.Where((x) => x.Type != NeuronType.hidden))
+                {
+                    if (!depthInfo.Neurons.ContainsKey(item))
+                    {
+                        depthInfo.Neurons.Add(item, 0);
+                    }
                 }
             }
-            return info;
-        }
 
-        public class DepthInfo
-        {
-            public Dictionary<GNeuron, uint> Neurons { get; }
-            public Dictionary<GConnection, uint> Connections { get; }
-
-            public DepthInfo()
+            public static DepthInfo GetDepthsOfNetwork(NEATGenome genome)
             {
-                Neurons = new Dictionary<GNeuron, uint>();
-                Connections = new Dictionary<GConnection, uint>();
+                var inputs = genome.Neurons.Where((x) => x.Type == NeuronType.input || x.Type == NeuronType.bias);
+                LinearDepthSet(genome, inputs, out DepthInfo info);
+
+                return info;
+            }
+
+            public class DepthInfo
+            {
+                public Dictionary<GNeuron, uint> Neurons { get; }
+                public Dictionary<GConnection, uint> Connections { get; }
+
+                public DepthInfo()
+                {
+                    Neurons = new Dictionary<GNeuron, uint>();
+                    Connections = new Dictionary<GConnection, uint>();
+                }
             }
         }
 

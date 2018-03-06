@@ -10,7 +10,7 @@ namespace MyNEAT.Decoder
         public IBlackBox Decode(IGenome genome)
         {
             var neatGenome = (NEATGenome)genome;
-            var depthInfo = NEATGenome.GetDepthsOfNetwork(neatGenome);
+            var depthInfo = NEATGenome.DepthCalculator.GetDepthsOfNetwork(neatGenome);
 
             //remove all isolated neurons and sort them by depth
             var neuronsSorted = new List<GNeuron>(neatGenome.Neurons);
@@ -52,7 +52,7 @@ namespace MyNEAT.Decoder
             }
 
             //create layers
-            var maxDepth = depthInfo.Connections.Max((x) => x.Value) + 1;
+            uint maxDepth = depthInfo.Connections.Any() ? depthInfo.Connections.Max((x) => x.Value) : 0;
 
             var depths = connsSorted.GroupBy((x) => depthInfo.Connections[x]);
 
@@ -69,7 +69,7 @@ namespace MyNEAT.Decoder
                         GetIndex(neuronsSorted, conn.ToNeuron));
                     j++;
                 }
-                layers[ind] = new DecodedLayer(nextConns);
+                layers[ind] = new DecodedLayer(nextConns, group.Key);
                 ind++;
             }
 

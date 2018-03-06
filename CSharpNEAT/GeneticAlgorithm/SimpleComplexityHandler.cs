@@ -13,28 +13,28 @@ namespace MyNEAT.GeneticAlgorithm
         {
         }
 
-        public void HandleComplexity(IList<IGenome> genomes, AlgorithmConfig conf)
+        public void HandleComplexity(IList<IGenome> genomes, AlgorithmConfig config)
         {
-            if (conf.IsAdaptive)
+            if (config.IsAdaptive)
             {
                 int meanComplexity = 0;
                 foreach (var item in genomes)
                     meanComplexity += item.Complexity;
                 meanComplexity /= genomes.Count;
 
-                if (meanComplexity > conf.maxComplexity)
+                if (meanComplexity > config.maxComplexity)
                 {
-                    conf.crossoverChance = 0.1f;
-                    conf.probabilityAddConnection = 0.1f;
-                    conf.probabilityAddNeuron = 0.01f;
-                    conf.probabilityRemoveConnection = 0.9f;
+                    config.crossoverChance = 0.01f;
+                    config.probabilityAddConnection = 0.1f;
+                    config.probabilityAddNeuron = 0.01f;
+                    config.probabilityRemoveConnection = 0.9f;
                 }
-                else if (meanComplexity < conf.maxComplexity)
+                else if (meanComplexity < config.maxComplexity)
                 {
-                    conf.crossoverChance = 0.5f;
-                    conf.probabilityAddConnection = 0.8f;
-                    conf.probabilityAddNeuron = 0.5f;
-                    conf.probabilityRemoveConnection = 0.1f;
+                    config.crossoverChance = 0.4f;
+                    config.probabilityAddConnection = 0.8f;
+                    config.probabilityAddNeuron = 0.5f;
+                    config.probabilityRemoveConnection = 0.1f;
                 }
             }
         }

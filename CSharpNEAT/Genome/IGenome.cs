@@ -13,7 +13,7 @@ namespace MyNEAT.Genome
 
         int Complexity { get; }
 
-        void Mutate(Random generator, AlgorithmConfig config);
+        void Mutate(Random generator, AlgorithmConfig config, bool end);
 
         IGenome Crossover(Random generator, IGenome other);
 
