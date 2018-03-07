@@ -1,14 +1,16 @@
-﻿using CSharpNEAT.GeneticAlgorithm;
+﻿using CSharpNEAT.ActivationFunctions;
+using CSharpNEAT.NEAT;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CSharpNEAT
+namespace CSharpNEAT.NEAT
 {
-    public class AlgorithmConfig
+    public class NEATFactoryConfig
     {
+        public readonly IActivationFunction activationOutp;
+        public readonly IActivationFunction activationNormal;
+
         public float connWeightRange;
         public float probabilityAddConnection;
         public float probabilityAddNeuron;
@@ -17,16 +19,18 @@ namespace CSharpNEAT
         public float probabilityRemoveConnection;
         public float weightChangeRange;
 
+        public bool isAdaptive;
         public int maxComplexity;
-        public float elitism;
-        public float crossoverChance;
-        public int mutationAmount;
 
-        public bool IsAdaptive { get; }
-        public IComplexityHandler ComplexityHandler { get; }
+        public int inputs;
+        public int outputs;
 
-        public AlgorithmConfig()
+        public NEATFactoryConfig()
         {
+            isAdaptive = true;
+
+            maxComplexity = 50;
+
             connWeightRange = 5;
             weightChangeRange = 0.5f;
             probabilityOfResetWeight = 0.05f;
@@ -34,12 +38,9 @@ namespace CSharpNEAT
             probabilityAddNeuron = 0.01f;
             probabilityAddConnection = 0.5f;
             probabilityRemoveConnection = 0.4f;
-            IsAdaptive = true;
-            maxComplexity = 30;
-            elitism = 0.5f;
-            crossoverChance = 0.5f;
-            mutationAmount = 1;
-            ComplexityHandler = new SimpleComplexityHandler();
+
+            activationOutp = new Linear();
+            activationNormal = new Tanh();
         }
     }
 }

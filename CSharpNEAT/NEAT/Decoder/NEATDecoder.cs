@@ -10,7 +10,7 @@ namespace CSharpNEAT.NEAT.Decoder
         public IBlackBox Decode(IGenome genome)
         {
             var neatGenome = (NEATGenome)genome;
-            var depthInfo = NEATGenome.DepthCalculator.GetDepthsOfNetwork(neatGenome);
+            var depthInfo = NEATGenomeFactory<NEATGenome>.DepthCalculator.GetDepthsOfNetwork(neatGenome);
 
             //remove all isolated neurons and sort them by depth
             var neuronsSorted = new List<GNeuron>(neatGenome.Neurons);

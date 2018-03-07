@@ -1,21 +1,18 @@
 ﻿using CSharpNEAT.Core;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CSharpNEAT.GeneticAlgorithm
 {
-    public class NEATEvolAlgorithm
+    public class NEATEvolAlgorithm<T> where T : IGenome
     {
         private AlgorithmConfig _conf;
-        private IList<IGenome> _population;
-        private IEvaluator _evaluator;
-        private IGenomeFactory _genomeFactory;
+        private IList<T> _population;
+        private IEvaluator<T> _evaluator;
+        private IGenomeFactory<T> _genomeFactory;
         private Random _generator;
 
-        public NEATEvolAlgorithm(Random generator, IEvaluator evaluator, IGenomeFactory genomeFactory, AlgorithmConfig config, int popSize)
+        public NEATEvolAlgorithm(Random generator, IEvaluator<T> evaluator, IGenomeFactory<T> genomeFactory, AlgorithmConfig config, int popSize)
         {
             _evaluator = evaluator;
             _population = genomeFactory.CreateGenomeList(popSize, generator);
@@ -26,15 +23,15 @@ namespace CSharpNEAT.GeneticAlgorithm
 
         public void PassGeneration()
         {
-            _conf.ComplexityHandler.HandleComplexity(_population, _conf);
+            _genomeFactory.HandleComplexity(_population, _conf);
 
             _evaluator.Evaluate(_population);
 
             var toSelect = (int)(_population.Count - _conf.elitism * _population.Count);
-            var addToPop = new List<IGenome>();
+            var addToPop = new List<T>();
             for (; toSelect > 0; toSelect--)
             {
-                IGenome tmp;
+                T tmp;
                 if (_generator.NextDouble() < _conf.crossoverChance)
                 {
                     var g1 = _population[_generator.Next(_population.Count)];
@@ -45,11 +42,11 @@ namespace CSharpNEAT.GeneticAlgorithm
                     _population.Add(g1);
                     _population.Add(g2);
 
-                    var genomes = new List<IGenome>(new[] { g1, g2, g3 });
+                    var genomes = new List<T>(new[] { g1, g2, g3 });
                     genomes.Sort((x, y) => x.Fitness.CompareTo(y.Fitness));
                     _population.Remove(genomes[0]);
 
-                    tmp = genomes[1].Crossover(_generator, genomes[2]);
+                    tmp = _genomeFactory.Crossover(_generator, genomes[1], genomes[2]);
                     tmp.Fitness = ((genomes[1].Fitness + genomes[2].Fitness) / 2) * 0.9f;
                 }
                 else
@@ -59,16 +56,16 @@ namespace CSharpNEAT.GeneticAlgorithm
                     var g2 = _population[_generator.Next(_population.Count)];
                     _population.Add(g1);
 
-                    var genomes = new List<IGenome>(new[] { g1, g2 });
+                    var genomes = new List<T>(new[] { g1, g2 });
                     genomes.Sort((x, y) => x.Fitness.CompareTo(y.Fitness));
                     _population.Remove(genomes[0]);
 
-                    tmp = genomes[1].Clone();
+                    tmp = _genomeFactory.Clone(genomes[1]);
                     tmp.Fitness = genomes[1].Fitness * 0.9f;
                 }
                 for (int i = 0; i < _conf.mutationAmount; i++)
                 {
-                    tmp.Mutate(_generator, _conf, toSelect == 1 ? true : false);
+                    _genomeFactory.Mutate(_generator, tmp, toSelect == 1 ? true : false);
                 }
                 addToPop.Add(tmp);
             }

@@ -55,7 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivationFunctions.cs" />
-    <Compile Include="AlgorithmConfig.cs" />
+    <Compile Include="GeneticAlgorithm\AlgorithmConfig.cs" />
+    <Compile Include="NEAT\NEATFactoryConfig.cs" />
     <Compile Include="NEAT\Decoder\DecodedLayer.cs" />
     <Compile Include="NEAT\Decoder\DecodedNode.cs" />
     <Compile Include="Core\IBlackBox.cs" />
@@ -63,12 +64,9 @@
     <Compile Include="NEAT\Decoder\NEATDecoder.cs" />
     <Compile Include="NEAT\Decoder\NEATNetwork.cs" />
     <Compile Include="GeneticAlgorithm\EvolutionaryAlgorithm.cs" />
-    <Compile Include="GeneticAlgorithm\Interfaces\IComplexityHandler.cs" />
-    <Compile Include="GeneticAlgorithm\Interfaces\IEvaluator.cs" />
-    <Compile Include="GeneticAlgorithm\Interfaces\IGenomeFactory.cs" />
+    <Compile Include="Core\IEvaluator.cs" />
+    <Compile Include="Core\IGenomeFactory.cs" />
     <Compile Include="NEAT\NEATGenomeFactory.cs" />
-    <Compile Include="GeneticAlgorithm\SimpleComplexityHandler.cs" />
-    <Compile Include="GenomeConfig.cs" />
     <Compile Include="NEAT\GenomeNode.cs" />
     <Compile Include="Core\IGenome.cs" />
     <Compile Include="NEAT\MutationBuffer.cs" />

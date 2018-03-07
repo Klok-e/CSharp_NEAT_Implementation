@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpNEAT.GeneticAlgorithm
+namespace CSharpNEAT.Core
 {
-    public interface IComplexityHandler
+    public interface IEvaluator<T> where T : IGenome
     {
-        void HandleComplexity(IList<IGenome> genomes, AlgorithmConfig config);
+        void Evaluate(IList<T> genomes);
     }
 }

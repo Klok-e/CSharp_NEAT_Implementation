@@ -21,7 +21,7 @@ namespace NEATExample
             Console.ReadKey();
         }
 
-        private class XorEval : IEvaluator
+        private class XorEval : IEvaluator<NEATGenome>
         {
             private Xor env;
             private NEATDecoder decoder;
@@ -32,7 +32,7 @@ namespace NEATExample
                 decoder = new NEATDecoder();
             }
 
-            public void Evaluate(IList<IGenome> genomes)
+            public void Evaluate(IList<NEATGenome> genomes)
             {
                 var gen = genomes.Cast<NEATGenome>().ToList();
 
@@ -90,22 +90,20 @@ namespace NEATExample
         private static void SolveXor()
         {
             var generations = 100000;
-            var pop = 500;
+            var pop = 200;
             var generator = new Random();
 
-            var fabric = new NEATGenomeFactory(new GenomeConfig()
+            var fabric = new NEATGenomeFactory<NEATGenome>(new NEATFactoryConfig()
             {
                 inputs = 2,
                 outputs = 1,
+                maxComplexity = 3
             });
             var algCofig = new AlgorithmConfig()
             {
-                probabilityAddConnection = 0.4f,
-                probabilityAddNeuron = 0.1f,
-                probabilityRemoveConnection = 0.3f,
             };
 
-            var algor = new NEATEvolAlgorithm(generator, new XorEval(), fabric, algCofig, pop);
+            var algor = new NEATEvolAlgorithm<NEATGenome>(generator, new XorEval(), fabric, algCofig, pop);
 
             for (var i = 0; i < generations; i++)
             {
@@ -113,7 +111,7 @@ namespace NEATExample
             }
         }
 
-        private class CartPoleEval : IEvaluator
+        private class CartPoleEval : IEvaluator<NEATGenome>
         {
             private NEATDecoder decoder;
 
@@ -122,9 +120,9 @@ namespace NEATExample
                 decoder = new NEATDecoder();
             }
 
-            public void Evaluate(IList<IGenome> genomes)
+            public void Evaluate(IList<NEATGenome> genomes)
             {
-                var pop = genomes.Cast<NEATGenome>().ToList();
+                var pop = genomes;
                 foreach (var genome in pop)
                 {
                     //evaluation
@@ -172,7 +170,7 @@ namespace NEATExample
             var pop = 100;
             var generator = new Random();
 
-            var factory = new NEATGenomeFactory(new GenomeConfig()
+            var factory = new NEATGenomeFactory<NEATGenome>(new NEATFactoryConfig()
             {
                 inputs = 4,
                 outputs = 1
@@ -181,7 +179,7 @@ namespace NEATExample
             {
             };
 
-            var algor = new NEATEvolAlgorithm(generator, new CartPoleEval(), factory, algConf, pop);
+            var algor = new NEATEvolAlgorithm<NEATGenome>(generator, new CartPoleEval(), factory, algConf, pop);
 
             for (var i = 0; i < generations; i++)
             {
